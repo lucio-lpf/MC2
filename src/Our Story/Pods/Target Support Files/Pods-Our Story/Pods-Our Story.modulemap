@@ -1,0 +1,6 @@
+framework module Pods_Our_Story {
+  umbrella header "Pods-Our Story-umbrella.h"
+
+  export *
+  module * { export * }
+}
