@@ -95,6 +95,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		303BD47F1B39E831000A814A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				30639DC91B38D67100A40B51 /* LogInViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		303BD4801B39E851000A814A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30639DCB1B38D67100A40B51 /* Main.storyboard */,
+				30639DD01B38D67100A40B51 /* LaunchScreen.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		303BD4811B39E867000A814A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		30639DB91B38D67100A40B51 = {
 			isa = PBXGroup;
 			children = (
@@ -118,11 +142,11 @@
 		30639DC41B38D67100A40B51 /* Our Story */ = {
 			isa = PBXGroup;
 			children = (
+				303BD4811B39E867000A814A /* Models */,
 				30639DC71B38D67100A40B51 /* AppDelegate.swift */,
-				30639DC91B38D67100A40B51 /* LogInViewController.swift */,
-				30639DCB1B38D67100A40B51 /* Main.storyboard */,
+				303BD4801B39E851000A814A /* Views */,
+				303BD47F1B39E831000A814A /* Controllers */,
 				30639DCE1B38D67100A40B51 /* Images.xcassets */,
-				30639DD01B38D67100A40B51 /* LaunchScreen.xib */,
 				30639DC51B38D67100A40B51 /* Supporting Files */,
 			);
 			path = "Our Story";
