@@ -78,6 +78,31 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		300FA9561B39C327002D9854 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30639DD01B38D67100A40B51 /* LaunchScreen.xib */,
+				30639DCB1B38D67100A40B51 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		300FA9571B39C336002D9854 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				30639DC91B38D67100A40B51 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		300FA9581B39C382002D9854 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				30639DCE1B38D67100A40B51 /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		30639DB91B38D67100A40B51 = {
 			isa = PBXGroup;
 			children = (
@@ -101,11 +126,10 @@
 		30639DC41B38D67100A40B51 /* Our Story */ = {
 			isa = PBXGroup;
 			children = (
+				300FA9561B39C327002D9854 /* Views */,
 				30639DC71B38D67100A40B51 /* AppDelegate.swift */,
-				30639DC91B38D67100A40B51 /* ViewController.swift */,
-				30639DCB1B38D67100A40B51 /* Main.storyboard */,
-				30639DCE1B38D67100A40B51 /* Images.xcassets */,
-				30639DD01B38D67100A40B51 /* LaunchScreen.xib */,
+				300FA9571B39C336002D9854 /* Controllers */,
+				300FA9581B39C382002D9854 /* Resources */,
 				30639DC51B38D67100A40B51 /* Supporting Files */,
 			);
 			path = "Our Story";
