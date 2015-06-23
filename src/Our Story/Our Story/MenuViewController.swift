@@ -1,28 +1,24 @@
 //
-//  ViewController.swift
+//  MenuViewController.swift
 //  Our Story
 //
-//  Created by Wagner Santos on 6/22/15.
+//  Created by Christian S. on 23/06/15.
 //  Copyright (c) 2015 mc2. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class LogInViewController: UIViewController {
-
+class MenuViewController : UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func loginButtonAction(sender: AnyObject) {
-        
-    }
-
+    
 }
-

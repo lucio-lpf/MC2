@@ -14,6 +14,7 @@
 		30639DD21B38D67100A40B51 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30639DD01B38D67100A40B51 /* LaunchScreen.xib */; };
 		30639DDE1B38D67100A40B51 /* Our_StoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30639DDD1B38D67100A40B51 /* Our_StoryTests.swift */; };
 		6687375277E3E0965EBC9638 /* Pods_Our_Story.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5161928B6709F8FECEB3FA2 /* Pods_Our_Story.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8368D36E1B39E2260007E8E0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D36D1B39E2260007E8E0 /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		30639DD71B38D67100A40B51 /* Our StoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Our StoryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30639DDC1B38D67100A40B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30639DDD1B38D67100A40B51 /* Our_StoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Our_StoryTests.swift; sourceTree = "<group>"; };
+		8368D36D1B39E2260007E8E0 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A5161928B6709F8FECEB3FA2 /* Pods_Our_Story.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Our_Story.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48328B1226D75D12ACBBE9A /* Pods-Our Story.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.debug.xcconfig"; sourceTree = "<group>"; };
 		F72C86A04BF1515663E85E85 /* Pods-Our Story.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.release.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.release.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				30639DC71B38D67100A40B51 /* AppDelegate.swift */,
 				30639DC91B38D67100A40B51 /* LogInViewController.swift */,
+				8368D36D1B39E2260007E8E0 /* MenuViewController.swift */,
 				30639DCB1B38D67100A40B51 /* Main.storyboard */,
 				30639DCE1B38D67100A40B51 /* Images.xcassets */,
 				30639DD01B38D67100A40B51 /* LaunchScreen.xib */,
@@ -289,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30639DCA1B38D67100A40B51 /* LogInViewController.swift in Sources */,
+				8368D36E1B39E2260007E8E0 /* MenuViewController.swift in Sources */,
 				30639DC81B38D67100A40B51 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
