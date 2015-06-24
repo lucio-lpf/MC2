@@ -16,10 +16,26 @@ enum StoryType: Int {
 
 class Story: NSObject {
     
-    var storyName: String?
+    var storyName: String!
     var storyPieces: [StoryPiece]?
     var storyType: StoryType?
-    var createdBy: User?
+    var createdBy: PFUser?
+    var language: NSString!
     var createdAt: NSDate?
     var editing: Bool?
+    
+    
+    func savestory(story: NSObject) -> (){
+        var newobject = PFObject(className: "Story")
+        newobject = story as! PFObject
+        newobject.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                print("Deu certo o salve :)")
+            } else {
+                print("Deu errado o salve : /(error)")
+            }
+        }
+        
+    }
 }
