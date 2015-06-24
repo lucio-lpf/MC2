@@ -34,7 +34,12 @@ class LogInViewController: UIViewController {
                 } else {
                     println("User logged in through Facebook!")
                     println(PFUser.currentUser()?.objectId)
-                    facebookLogin.returnUserData { 
+                
+                    facebookLogin.returnUserData({ (name, email, error) -> Void in
+                        println(name)
+                        println(email)
+
+                    })
                 }
             } else {
                 println("Uh oh. The user cancelled the Facebook login.")

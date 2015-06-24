@@ -40,9 +40,9 @@ class FacebookLogin {
             {
                 println("fetched user: \(result)")
                 let userName : NSString = result.valueForKey("name") as! NSString
-                println("User Name is: \(userName)")
+                println("User fetched Name is: \(userName)")
                 let userEmail : NSString = result.valueForKey("email") as! NSString
-                println("User Email is: \(userEmail)")
+                println("User fetched Email is: \(userEmail)")
                 completionClosure(name: result.valueForKey("name") as? NSString, email: result.valueForKey("email") as? NSString, error: error )
             }
         })
