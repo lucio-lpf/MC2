@@ -21,6 +21,7 @@
 		307AD9161B3AF07A0051C093 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307AD9151B3AF07A0051C093 /* Story.swift */; };
 		307AD9181B3AFD870051C093 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307AD9171B3AFD870051C093 /* User.swift */; };
 		307AD91A1B3B1F960051C093 /* Story.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307AD9191B3B1F960051C093 /* Story.storyboard */; };
+		8368D3701B39EF910007E8E0 /* FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D36F1B39EF910007E8E0 /* FacebookLogin.swift */; };
 		8A1E49F6709BF045818542C6 /* Pods_Our_Story.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E98D86373E3AC3F91D987C /* Pods_Our_Story.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		307AD9171B3AFD870051C093 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		307AD9191B3B1F960051C093 /* Story.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Story.storyboard; sourceTree = "<group>"; };
 		72E98D86373E3AC3F91D987C /* Pods_Our_Story.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Our_Story.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8368D36F1B39EF910007E8E0 /* FacebookLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLogin.swift; sourceTree = "<group>"; };
 		C48328B1226D75D12ACBBE9A /* Pods-Our Story.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.debug.xcconfig"; sourceTree = "<group>"; };
 		F72C86A04BF1515663E85E85 /* Pods-Our Story.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.release.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,9 +126,6 @@
 		303BD4811B39E867000A814A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				307AD9131B3AEE560051C093 /* StoryPiece.swift */,
-				307AD9151B3AF07A0051C093 /* Story.swift */,
-				307AD9171B3AFD870051C093 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -156,6 +155,7 @@
 			children = (
 				303BD4811B39E867000A814A /* Models */,
 				30639DC71B38D67100A40B51 /* AppDelegate.swift */,
+				8368D36F1B39EF910007E8E0 /* FacebookLogin.swift */,
 				303BD4801B39E851000A814A /* Views */,
 				303BD47F1B39E831000A814A /* Controllers */,
 				30639DCE1B38D67100A40B51 /* Images.xcassets */,
@@ -344,11 +344,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8368D3701B39EF910007E8E0 /* FacebookLogin.swift in Sources */,
 				30639DCA1B38D67100A40B51 /* LogInViewController.swift in Sources */,
 				30639DC81B38D67100A40B51 /* AppDelegate.swift in Sources */,
-				307AD9141B3AEE560051C093 /* StoryPiece.swift in Sources */,
-				307AD9181B3AFD870051C093 /* User.swift in Sources */,
-				307AD9161B3AF07A0051C093 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
