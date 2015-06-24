@@ -19,7 +19,7 @@ class Story: NSObject {
     var storyName: String!
     var storyPieces: [StoryPiece]?
     var storyType: StoryType?
-    var createdBy: User?
+    var createdBy: PFUser?
     var language: NSString!
     var createdAt: NSDate?
     var editing: Bool?

@@ -11,7 +11,7 @@ import Parse
 class StoryPiece: NSObject {
     
     var text: String?
-    var createdBy: User?
+    var createdBy: PFUser?
     var createdAt: NSDate?
     
     
