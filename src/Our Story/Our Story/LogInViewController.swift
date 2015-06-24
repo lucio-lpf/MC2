@@ -34,12 +34,15 @@ class LogInViewController: UIViewController {
                 } else {
                     println("User logged in through Facebook!")
                     println(PFUser.currentUser()?.objectId)
+                    facebookLogin.returnUserData { 
                 }
             } else {
                 println("Uh oh. The user cancelled the Facebook login.")
             }
             
         }
+        
+        
     }
 
 }

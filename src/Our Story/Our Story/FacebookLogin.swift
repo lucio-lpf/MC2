@@ -19,11 +19,33 @@ class FacebookLogin {
         
         let permissions = ["public_profile", "email", "user_friends"]
         
-        
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions) {
             (user: PFUser?, error: NSError?) -> Void in
             completionClosure(user: user!, error: error)
         }
-        
     }
+    
+    
+    func returnUserData(completionClosure: (name: NSString?, email: NSString?, error: NSError?) -> Void) {
+        
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            
+            if ((error) != nil)
+            {
+                // Process error
+                println("Error: \(error)")
+            }
+            else
+            {
+                println("fetched user: \(result)")
+                let userName : NSString = result.valueForKey("name") as! NSString
+                println("User Name is: \(userName)")
+                let userEmail : NSString = result.valueForKey("email") as! NSString
+                println("User Email is: \(userEmail)")
+                completionClosure(name: result.valueForKey("name") as? NSString, email: result.valueForKey("email") as? NSString, error: error )
+            }
+        })
+    }
+
 }
