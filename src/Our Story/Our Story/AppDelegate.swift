@@ -22,7 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //PARSE CONFIGURATION
         Parse.setApplicationId("SpzinDa5nEonzM13nr1DdqEt0Mq2xOCAkZLVItsP",
             clientKey: "8k8VpjFRa6rtj4ssj1kDAJuje1Axia5ANir11buL")
-        
+
+//PARSE + FACEBOOK CONFIG
+        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+
 //PUSH NOTIFICATION
         let userNotificationTypes = (UIUserNotificationType.Alert |  UIUserNotificationType.Badge |  UIUserNotificationType.Sound);
         

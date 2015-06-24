@@ -22,7 +22,24 @@ class LogInViewController: UIViewController {
     }
 
     @IBAction func loginButtonAction(sender: AnyObject) {
-        
+
+        var facebookLogin: FacebookLogin
+        facebookLogin = FacebookLogin()
+        facebookLogin.login { (user: PFUser?, error: NSError?) -> Void in
+            
+            if let user = user {
+                if user.isNew {
+                    println("User signed up and logged in through Facebook!")
+                    println(PFUser.currentUser()?.objectId)
+                } else {
+                    println("User logged in through Facebook!")
+                    println(PFUser.currentUser()?.objectId)
+                }
+            } else {
+                println("Uh oh. The user cancelled the Facebook login.")
+            }
+            
+        }
     }
 
 }
