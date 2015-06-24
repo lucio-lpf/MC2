@@ -47,5 +47,64 @@ class FacebookLogin {
             }
         })
     }
+    
+    
+    func returnUserDataWithImage(completionClosure: (fetchedName: NSString?, fetchedEmail: NSString?, fetchedImage: UIImage?, error: NSError?) -> Void) {
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            
+            if ((error) != nil)
+            {
+                // Process error
+                println("Error: \(error)")
+            }
+            else
+            {
+                println("fetched user: \(result)")
+                let userName : NSString = result.valueForKey("name") as! NSString
+                println("User fetched Name is: \(userName)")
+                let userEmail : NSString = result.valueForKey("email") as! NSString
+                println("User fetched Email is: \(userEmail)")
+                
+                var facebookAccountId = result.valueForKey("id") as! NSString
+                var urlFacebookProfile = "http://graph.facebook.com/\(facebookAccountId)/picture?type=large"
+                
+                if let checkedUrl = NSURL(string: urlFacebookProfile) {
+                    self.downloadImage(checkedUrl, completion: { (image) -> Void in
+                        completionClosure(fetchedName: result.valueForKey("name") as? NSString, fetchedEmail: result.valueForKey("email") as? NSString, fetchedImage: image, error: error )
+                    })
+                }
+
+                
+                
+               
+            }
+        })
+    }
+
+    
+    
+    func downloadImage(url:NSURL, completion: (UIImage) -> Void){
+        println("Started downloading profile image \"\(url.lastPathComponent!.stringByDeletingPathExtension)\".")
+        getDataFromUrl(url) { data in
+            dispatch_async(dispatch_get_main_queue()) {
+                println("Finished downloading \"\(url.lastPathComponent!.stringByDeletingPathExtension)\".")
+                
+                completion(UIImage(data: data!)!)
+                
+                //não esquecer:
+                //                self.ProfilePhoto.contentMode = UIViewContentMode.ScaleAspectFit
+                
+                
+            }
+            
+        }
+    }
+    
+    func getDataFromUrl(urL:NSURL, completion: ((data: NSData?) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(urL) { (data, response, error) in
+            completion(data: NSData(data: data))
+            }.resume()
+    }
 
 }
