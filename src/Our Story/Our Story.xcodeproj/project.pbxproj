@@ -21,6 +21,9 @@
 		5A07662E1B3B31BB005418AB /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A07662C1B3B31BA005418AB /* Story.swift */; };
 		5A07662F1B3B31BB005418AB /* StoryPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A07662D1B3B31BB005418AB /* StoryPiece.swift */; };
 		8368D3701B39EF910007E8E0 /* FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D36F1B39EF910007E8E0 /* FacebookLogin.swift */; };
+		8368D3721B3C60F80007E8E0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8368D3711B3C60F80007E8E0 /* Profile.storyboard */; };
+		8368D3741B3C611A0007E8E0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D3731B3C611A0007E8E0 /* ProfileViewController.swift */; };
+		8368D3771B3C77BE0007E8E0 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368D3761B3C77BE0007E8E0 /* FXBlurView.m */; };
 		8A1E49F6709BF045818542C6 /* Pods_Our_Story.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E98D86373E3AC3F91D987C /* Pods_Our_Story.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,10 @@
 		5A07662D1B3B31BB005418AB /* StoryPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPiece.swift; sourceTree = "<group>"; };
 		72E98D86373E3AC3F91D987C /* Pods_Our_Story.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Our_Story.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8368D36F1B39EF910007E8E0 /* FacebookLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLogin.swift; sourceTree = "<group>"; };
+		8368D3711B3C60F80007E8E0 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		8368D3731B3C611A0007E8E0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8368D3751B3C77BE0007E8E0 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		8368D3761B3C77BE0007E8E0 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		C48328B1226D75D12ACBBE9A /* Pods-Our Story.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.debug.xcconfig"; sourceTree = "<group>"; };
 		F72C86A04BF1515663E85E85 /* Pods-Our Story.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.release.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +92,8 @@
 		03F37960E20EBB10AF780A95 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8368D3751B3C77BE0007E8E0 /* FXBlurView.h */,
+				8368D3761B3C77BE0007E8E0 /* FXBlurView.m */,
 				300FA95F1B39D38B002D9854 /* ParseFacebookUtilsV4.framework */,
 				300FA9591B39D1B2002D9854 /* FBSDKCoreKit.framework */,
 				300FA95A1B39D1B2002D9854 /* FBSDKLoginKit.framework */,
@@ -107,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				30639DC91B38D67100A40B51 /* LogInViewController.swift */,
+				8368D3731B3C611A0007E8E0 /* ProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -117,6 +127,7 @@
 				30639DCB1B38D67100A40B51 /* Main.storyboard */,
 				30639DD01B38D67100A40B51 /* LaunchScreen.xib */,
 				307AD9191B3B1F960051C093 /* Story.storyboard */,
+				8368D3711B3C60F80007E8E0 /* Profile.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -277,6 +288,7 @@
 			files = (
 				307AD91A1B3B1F960051C093 /* Story.storyboard in Resources */,
 				30639DCD1B38D67100A40B51 /* Main.storyboard in Resources */,
+				8368D3721B3C60F80007E8E0 /* Profile.storyboard in Resources */,
 				30639DD21B38D67100A40B51 /* LaunchScreen.xib in Resources */,
 				30639DCF1B38D67100A40B51 /* Images.xcassets in Resources */,
 			);
@@ -344,7 +356,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8368D3741B3C611A0007E8E0 /* ProfileViewController.swift in Sources */,
 				8368D3701B39EF910007E8E0 /* FacebookLogin.swift in Sources */,
+				8368D3771B3C77BE0007E8E0 /* FXBlurView.m in Sources */,
 				30639DCA1B38D67100A40B51 /* LogInViewController.swift in Sources */,
 				30639DC81B38D67100A40B51 /* AppDelegate.swift in Sources */,
 				5A07662E1B3B31BB005418AB /* Story.swift in Sources */,
