@@ -18,12 +18,18 @@
 		30639DD21B38D67100A40B51 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30639DD01B38D67100A40B51 /* LaunchScreen.xib */; };
 		30639DDE1B38D67100A40B51 /* Our_StoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30639DDD1B38D67100A40B51 /* Our_StoryTests.swift */; };
 		307AD91A1B3B1F960051C093 /* Story.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307AD9191B3B1F960051C093 /* Story.storyboard */; };
+		308632481B3B37F100C7DBCC /* StoryPieceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308632471B3B37F100C7DBCC /* StoryPieceViewController.swift */; };
+		3086324C1B3B3ADA00C7DBCC /* StoryPieceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3086324B1B3B3ADA00C7DBCC /* StoryPieceCell.swift */; };
+		3086324E1B3B3D8200C7DBCC /* StoryPieceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3086324D1B3B3D8200C7DBCC /* StoryPieceCell.xib */; };
 		5A07662E1B3B31BB005418AB /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A07662C1B3B31BA005418AB /* Story.swift */; };
 		5A07662F1B3B31BB005418AB /* StoryPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A07662D1B3B31BB005418AB /* StoryPiece.swift */; };
 		5A0766311B3B3410005418AB /* StoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0766301B3B3410005418AB /* StoryController.swift */; };
 		5A64EEF41B3C3A7B00DB0819 /* StoryCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64EEF31B3C3A7B00DB0819 /* StoryCustomCell.swift */; };
 		5A64EEF61B3C416900DB0819 /* CustomTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A64EEF51B3C416900DB0819 /* CustomTableCell.xib */; };
 		8368D3701B39EF910007E8E0 /* FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D36F1B39EF910007E8E0 /* FacebookLogin.swift */; };
+		8368D3721B3C60F80007E8E0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8368D3711B3C60F80007E8E0 /* Profile.storyboard */; };
+		8368D3741B3C611A0007E8E0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D3731B3C611A0007E8E0 /* ProfileViewController.swift */; };
+		8368D3771B3C77BE0007E8E0 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368D3761B3C77BE0007E8E0 /* FXBlurView.m */; };
 		8A1E49F6709BF045818542C6 /* Pods_Our_Story.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E98D86373E3AC3F91D987C /* Pods_Our_Story.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -54,6 +60,9 @@
 		30639DDC1B38D67100A40B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30639DDD1B38D67100A40B51 /* Our_StoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Our_StoryTests.swift; sourceTree = "<group>"; };
 		307AD9191B3B1F960051C093 /* Story.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Story.storyboard; sourceTree = "<group>"; };
+		308632471B3B37F100C7DBCC /* StoryPieceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPieceViewController.swift; sourceTree = "<group>"; };
+		3086324B1B3B3ADA00C7DBCC /* StoryPieceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPieceCell.swift; sourceTree = "<group>"; };
+		3086324D1B3B3D8200C7DBCC /* StoryPieceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryPieceCell.xib; sourceTree = "<group>"; };
 		5A07662C1B3B31BA005418AB /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		5A07662D1B3B31BB005418AB /* StoryPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPiece.swift; sourceTree = "<group>"; };
 		5A0766301B3B3410005418AB /* StoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryController.swift; sourceTree = "<group>"; };
@@ -61,6 +70,10 @@
 		5A64EEF51B3C416900DB0819 /* CustomTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableCell.xib; sourceTree = "<group>"; };
 		72E98D86373E3AC3F91D987C /* Pods_Our_Story.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Our_Story.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8368D36F1B39EF910007E8E0 /* FacebookLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLogin.swift; sourceTree = "<group>"; };
+		8368D3711B3C60F80007E8E0 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		8368D3731B3C611A0007E8E0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8368D3751B3C77BE0007E8E0 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		8368D3761B3C77BE0007E8E0 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		C48328B1226D75D12ACBBE9A /* Pods-Our Story.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.debug.xcconfig"; sourceTree = "<group>"; };
 		F72C86A04BF1515663E85E85 /* Pods-Our Story.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.release.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +104,8 @@
 		03F37960E20EBB10AF780A95 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8368D3751B3C77BE0007E8E0 /* FXBlurView.h */,
+				8368D3761B3C77BE0007E8E0 /* FXBlurView.m */,
 				300FA95F1B39D38B002D9854 /* ParseFacebookUtilsV4.framework */,
 				300FA9591B39D1B2002D9854 /* FBSDKCoreKit.framework */,
 				300FA95A1B39D1B2002D9854 /* FBSDKLoginKit.framework */,
@@ -122,6 +137,7 @@
 		303BD4801B39E851000A814A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3086324A1B3B3ABE00C7DBCC /* Custom Views */,
 				30639DCB1B38D67100A40B51 /* Main.storyboard */,
 				30639DD01B38D67100A40B51 /* LaunchScreen.xib */,
 				307AD9191B3B1F960051C093 /* Story.storyboard */,
@@ -197,6 +213,15 @@
 				30639DDC1B38D67100A40B51 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3086324A1B3B3ABE00C7DBCC /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				3086324D1B3B3D8200C7DBCC /* StoryPieceCell.xib */,
+				3086324B1B3B3ADA00C7DBCC /* StoryPieceCell.swift */,
+			);
+			name = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +314,7 @@
 				5A64EEF61B3C416900DB0819 /* CustomTableCell.xib in Resources */,
 				30639DD21B38D67100A40B51 /* LaunchScreen.xib in Resources */,
 				30639DCF1B38D67100A40B51 /* Images.xcassets in Resources */,
+				3086324E1B3B3D8200C7DBCC /* StoryPieceCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,10 +380,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3086324C1B3B3ADA00C7DBCC /* StoryPieceCell.swift in Sources */,
+				8368D3741B3C611A0007E8E0 /* ProfileViewController.swift in Sources */,
 				8368D3701B39EF910007E8E0 /* FacebookLogin.swift in Sources */,
 				5A0766311B3B3410005418AB /* StoryController.swift in Sources */,
 				30639DCA1B38D67100A40B51 /* LogInViewController.swift in Sources */,
 				30639DC81B38D67100A40B51 /* AppDelegate.swift in Sources */,
+				308632481B3B37F100C7DBCC /* StoryPieceViewController.swift in Sources */,
 				5A07662E1B3B31BB005418AB /* Story.swift in Sources */,
 				5A64EEF41B3C3A7B00DB0819 /* StoryCustomCell.swift in Sources */,
 				5A07662F1B3B31BB005418AB /* StoryPiece.swift in Sources */,
