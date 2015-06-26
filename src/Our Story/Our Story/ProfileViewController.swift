@@ -30,7 +30,7 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
     
     var identifierStoryPiece = StoryPieceCell.indentifier
     
-    var identifierStory = StoryPieceCell.indentifier //trocar pra StoryCell
+    var identifierStory = StoryCell.indentifier //trocar pra StoryCell
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -70,11 +70,11 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         }
         
         
-        
+        //pegando as nibs
         let nibStoryPiece = UINib(nibName: "StoryPieceCell", bundle: nil)
         self.tableView.registerNib(nibStoryPiece, forCellReuseIdentifier: identifierStoryPiece)
         
-        var nibStory = UINib(nibName: "StoryPieceCell", bundle: nil) //Trocar para StoryCell
+        var nibStory = UINib(nibName: "CustomTableCell", bundle: nil) //Trocar para StoryCell
         tableView.registerNib(nibStory, forCellReuseIdentifier: identifierStory)
         
     }
@@ -116,19 +116,23 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
 
         var cell = UITableViewCell()
         
+        //Alterar depois de 2 custom cells pra uma só
+        
         if(segmentedControl.isEnabledForSegmentAtIndex(0))
         {
-            var vcell = self.tableView.dequeueReusableCellWithIdentifier(identifierStoryPiece) as! StoryPieceCell
-            vcell.loadItem("", image: "teste1")
+            tableView.rowHeight = 320
+            var vcell = self.tableView.dequeueReusableCellWithIdentifier(identifierStory) as! StoryCell
             return vcell
         }
         else if(segmentedControl.isEnabledForSegmentAtIndex(1))
         {
+            tableView.rowHeight = 95
+            println("passou por aqui")
             var vcell = self.tableView.dequeueReusableCellWithIdentifier(identifierStoryPiece) as! StoryPieceCell
+            vcell.loadItem("", image: "teste1")
             return vcell
         }
        
-
         
         return cell
     }
@@ -136,7 +140,7 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 100
+        return 30
     }
     
     

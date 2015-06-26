@@ -20,6 +20,8 @@ class StoryCell: UITableViewCell{
     
     @IBOutlet var informationLabel: UILabel!
     
+    static let indentifier = "story"
+    
     func loadItens(story: NSObject){
         
 //        titleLabel.text = story.dictionaryWithValuesForKeys("storyName")
