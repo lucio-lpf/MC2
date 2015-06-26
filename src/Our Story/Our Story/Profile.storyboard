@@ -95,6 +95,11 @@
                                     <constraint firstAttribute="bottom" secondItem="4Lz-Jc-Utj" secondAttribute="bottom" id="lqH-zv-2RF"/>
                                     <constraint firstItem="4Lz-Jc-Utj" firstAttribute="top" secondItem="LO9-wY-foj" secondAttribute="bottom" constant="65" id="yDa-xQ-fgG"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Nyp-t4-NuK"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
