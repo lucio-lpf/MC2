@@ -8,7 +8,7 @@
 
 import Parse
 
-enum StoryType: Int {
+enum piecesCount: Int {
     case short = 50
     case medium = 150
     case long = 300
@@ -18,10 +18,9 @@ class Story: NSObject {
     
     var storyName: String!
     var storyPieces: [StoryPiece]?
-    var storyType: StoryType?
+    var storySize: piecesCount?
     var createdBy: PFUser?
     var language: NSString!
-    var createdAt: NSDate?
     var editing: Bool?
     
     
