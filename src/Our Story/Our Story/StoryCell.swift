@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class StoryCustomCell: UITableViewCell{
+class StoryCell: UITableViewCell{
     
     
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -21,6 +21,17 @@ class StoryCustomCell: UITableViewCell{
     @IBOutlet var informationLabel: UILabel!
     
     func loadItens(story: NSObject){
-        //PEGANDO INFORMAÇOES DO PARSE E COLOCANDO NAS CELULAS
+        
+//        titleLabel.text = story.dictionaryWithValuesForKeys("storyName")
+//        
+//        var pieces = story.dictionaryWithValuesForKeys("storyPieces") as? Array
+//        
+//        storylabel.text = pieces[0]
+//        
+//        var createdBy = story.dictionaryWithValuesForKeys("createdBy")
+        
+        
+        
+        
     }
 }

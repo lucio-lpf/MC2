@@ -16,7 +16,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
-        var nib = UINib(nibName: "StoryCustomCell", bundle: nil)
+        var nib = UINib(nibName: "StoryCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "customCell")
         
         var postquery = PFQuery(className: "story")
@@ -31,16 +31,15 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        if (indexPath.section == 0){
-            var cell:StoryCustomCell = self.tableView.dequeueReusableCellWithIdentifier("customCell") as! StoryCustomCell
-            var story = postsarray.objectAtIndex(0) as? NSObject
+        var celula: UITableViewCell
+            var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier("customCell") as! StoryCell
+            var story = postsarray.objectAtIndex(indexPath.row) as? NSObject
             cell.loadItens(story!)
             return cell
-    }
 }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 2
+        return postsarray.count
     }
     
 }
