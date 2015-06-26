@@ -17,30 +17,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                         <animations/>
                     </imageView>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type your Story Piece here!" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yIL-bK-3bC">
-                        <rect key="frame" x="8" y="30" width="304" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7f-wD-WbA">
+                        <rect key="frame" x="8" y="17" width="304" height="56"/>
                         <animations/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <animations/>
                 <constraints>
                     <constraint firstItem="3YA-fq-eif" firstAttribute="top" secondItem="p6a-l8-VS5" secondAttribute="top" id="2TF-oG-7M9"/>
+                    <constraint firstAttribute="trailing" secondItem="i7f-wD-WbA" secondAttribute="trailing" constant="8" id="7IV-FH-KOa"/>
+                    <constraint firstItem="i7f-wD-WbA" firstAttribute="top" secondItem="p6a-l8-VS5" secondAttribute="top" constant="17" id="Ag3-lu-sIu"/>
                     <constraint firstAttribute="bottom" secondItem="3YA-fq-eif" secondAttribute="bottom" id="Q8Z-3r-saM"/>
-                    <constraint firstAttribute="bottom" secondItem="yIL-bK-3bC" secondAttribute="bottom" constant="30" id="SR4-Fa-JTp"/>
+                    <constraint firstAttribute="bottom" secondItem="i7f-wD-WbA" secondAttribute="bottom" constant="17" id="WQh-EJ-745"/>
                     <constraint firstAttribute="trailing" secondItem="3YA-fq-eif" secondAttribute="trailing" id="Y3I-cd-kSl"/>
-                    <constraint firstItem="yIL-bK-3bC" firstAttribute="top" secondItem="p6a-l8-VS5" secondAttribute="top" constant="30" id="bww-KX-uUn"/>
-                    <constraint firstAttribute="trailing" secondItem="yIL-bK-3bC" secondAttribute="trailing" constant="8" id="kOV-FY-Ing"/>
-                    <constraint firstItem="yIL-bK-3bC" firstAttribute="leading" secondItem="p6a-l8-VS5" secondAttribute="leading" constant="8" id="mF1-vQ-vUw"/>
+                    <constraint firstItem="i7f-wD-WbA" firstAttribute="leading" secondItem="p6a-l8-VS5" secondAttribute="leading" constant="8" id="cHo-NB-Fn3"/>
                     <constraint firstItem="3YA-fq-eif" firstAttribute="leading" secondItem="p6a-l8-VS5" secondAttribute="leading" id="wcA-06-n2x"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
             <connections>
                 <outlet property="bkgStyle" destination="3YA-fq-eif" id="onH-m9-R5b"/>
-                <outlet property="storyPiece" destination="yIL-bK-3bC" id="E2f-W1-saq"/>
+                <outlet property="storyPiece" destination="i7f-wD-WbA" id="RNm-Aa-ivd"/>
             </connections>
             <point key="canvasLocation" x="371" y="281"/>
         </tableViewCell>

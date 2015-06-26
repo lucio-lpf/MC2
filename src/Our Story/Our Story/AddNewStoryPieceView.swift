@@ -9,7 +9,8 @@
 
 class AddNewStoryPieceView: UIView, UITextViewDelegate {
     
-    @IBOutlet var textView: UITextView!
 
-    
+    class func instanceFromNib() -> UIView {
+        return UINib(nibName: "AddNewStoryPieceView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
+    }
 }

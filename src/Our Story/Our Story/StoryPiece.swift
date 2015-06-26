@@ -26,7 +26,9 @@ class StoryPiece: NSObject {
                print("Deu errado o salve : /(error)")
             }
         }
-        
     }
+    
+    
+    
 }
 
