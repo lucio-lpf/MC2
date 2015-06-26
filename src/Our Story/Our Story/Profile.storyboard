@@ -35,7 +35,7 @@
                                     <constraint firstItem="Sm5-cv-5S7" firstAttribute="top" secondItem="4yw-HY-BKV" secondAttribute="top" constant="104" id="mi9-RT-Tq5"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMb-6Z-qV8">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMb-6Z-qV8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X3D-e3-bR0">
@@ -53,17 +53,48 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4Lz-Jc-Utj">
-                                        <rect key="frame" x="0.0" y="258" width="600" height="542"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="x Histórias iniciadas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qg1-Mx-ibi">
                                         <rect key="frame" x="94" y="167" width="170" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4Lz-Jc-Utj">
+                                        <rect key="frame" x="0.0" y="325" width="600" height="475"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="475" id="wJw-mW-hCB"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Kwu-vI-8Ue" id="A9F-dh-msm"/>
+                                            <outlet property="delegate" destination="Kwu-vI-8Ue" id="hCd-3c-Zv5"/>
+                                        </connections>
+                                    </tableView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LO9-wY-foj">
+                                        <rect key="frame" x="179" y="232" width="243" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="243" id="ASN-Kv-Oo5"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Começou"/>
+                                            <segment title="Participou"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="segmentedControlAction:" destination="Kwu-vI-8Ue" eventType="valueChanged" id="irt-Wb-I0Q"/>
+                                        </connections>
+                                    </segmentedControl>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4Lz-Jc-Utj" secondAttribute="trailing" id="4Ec-qZ-kV5"/>
+                                    <constraint firstItem="4Lz-Jc-Utj" firstAttribute="centerX" secondItem="MMb-6Z-qV8" secondAttribute="centerX" id="7RE-F6-TU5"/>
+                                    <constraint firstItem="LO9-wY-foj" firstAttribute="top" secondItem="MMb-6Z-qV8" secondAttribute="top" constant="232" id="9h8-mO-Ipm"/>
+                                    <constraint firstItem="4Lz-Jc-Utj" firstAttribute="leading" secondItem="MMb-6Z-qV8" secondAttribute="leading" id="I6a-Fz-ahV"/>
+                                    <constraint firstAttribute="centerX" secondItem="LO9-wY-foj" secondAttribute="centerX" constant="-0.5" id="Nyp-t4-NuK"/>
+                                    <constraint firstItem="LO9-wY-foj" firstAttribute="centerX" secondItem="4Lz-Jc-Utj" secondAttribute="centerX" id="RyH-N1-7y9"/>
+                                    <constraint firstAttribute="bottom" secondItem="4Lz-Jc-Utj" secondAttribute="bottom" id="lqH-zv-2RF"/>
+                                    <constraint firstItem="4Lz-Jc-Utj" firstAttribute="top" secondItem="LO9-wY-foj" secondAttribute="bottom" constant="65" id="yDa-xQ-fgG"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,6 +130,8 @@
                         <outlet property="header" destination="4yw-HY-BKV" id="whG-ZE-Ks7"/>
                         <outlet property="headerLabel" destination="Sm5-cv-5S7" id="uIK-H9-gq9"/>
                         <outlet property="scrollView" destination="MMb-6Z-qV8" id="ics-eJ-MtK"/>
+                        <outlet property="segmentedControl" destination="LO9-wY-foj" id="eBJ-se-kqr"/>
+                        <outlet property="tableView" destination="4Lz-Jc-Utj" id="bAa-An-Tb4"/>
                         <outlet property="takePartStoriesScrollView" destination="KKe-Kv-hyH" id="bte-yN-VJc"/>
                         <outlet property="userNameScrollView" destination="wue-4F-gbm" id="YQ1-hw-4B1"/>
                     </connections>
