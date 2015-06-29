@@ -21,7 +21,10 @@ class StoryCell: UITableViewCell{
     
     @IBOutlet var informationLabel: UILabel!
     
-    func loadItens(story: NSObject)->(){
+    @IBOutlet var storyPieceMessage: UILabel!
+    @IBOutlet var storyPieceBkgImage: UIImageView!
+    
+    func loadItens(story: NSObject){
         
      titleLabel.text = story.valueForKey("storyName") as? String
         var pieces = story.valueForKey("storyPieces") as! NSArray

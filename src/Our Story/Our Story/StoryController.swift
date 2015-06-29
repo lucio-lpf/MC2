@@ -29,10 +29,11 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier("customCell") as! StoryCell
-        var story = postsarray.objectAtIndex(indexPath.row) as! NSObject
-        cell.loadItens(story)
-        return cell
+        var celula: UITableViewCell
+            var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(StoryCell.indentifier.Story) as! StoryCell
+            var story = postsarray.objectAtIndex(indexPath.row) as? NSObject
+            cell.loadItens(story!)
+            return cell
 }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
