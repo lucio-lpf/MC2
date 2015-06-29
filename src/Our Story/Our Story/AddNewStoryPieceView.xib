@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -19,35 +18,67 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVE-wA-75l">
-                    <rect key="frame" x="226" y="219" width="148" height="30"/>
+                    <rect key="frame" x="225" y="215" width="148" height="30"/>
                     <animations/>
                     <state key="normal" title="Add my contribution!!">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="addContribution:" destination="5a6-dV-Dnl" eventType="touchUpInside" id="U6w-m7-bI6"/>
+                    </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A7O-Wo-bwa">
-                    <rect key="frame" x="8" y="134" width="584" height="60"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnP-mx-GRu">
+                    <rect key="frame" x="569" y="202" width="21" height="15"/>
                     <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" text="My contribution is..." translatesAutoresizingMaskIntoConstraints="NO" id="M6m-YU-41D">
+                    <rect key="frame" x="8" y="106" width="584" height="80"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="lNt-QY-CSL"/>
+                        <constraint firstAttribute="height" constant="80" id="o1h-sZ-zuZ"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="1" green="1" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="cVE-wA-75l" firstAttribute="top" secondItem="A7O-Wo-bwa" secondAttribute="bottom" constant="25" id="4uO-SH-fWa"/>
                 <constraint firstAttribute="centerX" secondItem="2VF-xa-2wK" secondAttribute="centerX" id="5je-Q2-Y0v"/>
-                <constraint firstItem="A7O-Wo-bwa" firstAttribute="centerX" secondItem="cVE-wA-75l" secondAttribute="centerX" id="62l-m7-txJ"/>
-                <constraint firstItem="A7O-Wo-bwa" firstAttribute="leading" secondItem="5a6-dV-Dnl" secondAttribute="leadingMargin" id="8pv-7f-Oco"/>
-                <constraint firstItem="A7O-Wo-bwa" firstAttribute="top" secondItem="5a6-dV-Dnl" secondAttribute="top" constant="134" id="HVs-8I-Mt8"/>
-                <constraint firstItem="A7O-Wo-bwa" firstAttribute="top" secondItem="2VF-xa-2wK" secondAttribute="bottom" constant="58" id="TCy-hh-8z9"/>
+                <constraint firstItem="M6m-YU-41D" firstAttribute="leading" secondItem="5a6-dV-Dnl" secondAttribute="leading" constant="8" id="GmB-4c-Spe"/>
+                <constraint firstItem="M6m-YU-41D" firstAttribute="centerX" secondItem="cVE-wA-75l" secondAttribute="centerX" constant="1" id="IeS-Vm-3vB"/>
+                <constraint firstAttribute="trailing" secondItem="M6m-YU-41D" secondAttribute="trailing" constant="8" id="RYf-QS-0He"/>
+                <constraint firstItem="LnP-mx-GRu" firstAttribute="top" secondItem="M6m-YU-41D" secondAttribute="bottom" constant="8" id="SDN-ZK-dUx"/>
+                <constraint firstItem="M6m-YU-41D" firstAttribute="centerX" secondItem="2VF-xa-2wK" secondAttribute="centerX" id="UqR-eG-kcN"/>
+                <constraint firstItem="M6m-YU-41D" firstAttribute="top" secondItem="2VF-xa-2wK" secondAttribute="bottom" constant="8" id="Viy-ou-dvR"/>
+                <constraint firstItem="cVE-wA-75l" firstAttribute="top" secondItem="M6m-YU-41D" secondAttribute="bottom" constant="29" id="Wba-9m-MBg"/>
+                <constraint firstItem="LnP-mx-GRu" firstAttribute="top" secondItem="M6m-YU-41D" secondAttribute="bottom" constant="16" id="ZWO-jV-ijO"/>
+                <constraint firstItem="M6m-YU-41D" firstAttribute="leading" secondItem="5a6-dV-Dnl" secondAttribute="leading" constant="8" id="a5y-pF-w8o"/>
                 <constraint firstItem="2VF-xa-2wK" firstAttribute="top" secondItem="5a6-dV-Dnl" secondAttribute="top" constant="55" id="aru-Gm-Zdc"/>
-                <constraint firstItem="cVE-wA-75l" firstAttribute="centerX" secondItem="2VF-xa-2wK" secondAttribute="centerX" id="n5A-0S-ZGR"/>
+                <constraint firstItem="M6m-YU-41D" firstAttribute="centerX" secondItem="LnP-mx-GRu" secondAttribute="centerX" constant="-279.5" id="boR-HE-Ftt"/>
+                <constraint firstAttribute="trailing" secondItem="M6m-YU-41D" secondAttribute="trailing" constant="8" id="cxN-k4-R73"/>
+                <constraint firstItem="M6m-YU-41D" firstAttribute="top" secondItem="2VF-xa-2wK" secondAttribute="bottom" constant="30" id="czz-GE-aNd"/>
+                <constraint firstItem="cVE-wA-75l" firstAttribute="centerX" secondItem="2VF-xa-2wK" secondAttribute="centerX" constant="-1" id="n5A-0S-ZGR"/>
+                <constraint firstItem="LnP-mx-GRu" firstAttribute="leading" secondItem="M6m-YU-41D" secondAttribute="trailing" constant="-23" id="vQ7-l0-nE5"/>
             </constraints>
-            <point key="canvasLocation" x="168" y="302"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="GmB-4c-Spe"/>
+                    <exclude reference="Viy-ou-dvR"/>
+                    <exclude reference="boR-HE-Ftt"/>
+                    <exclude reference="cxN-k4-R73"/>
+                    <exclude reference="SDN-ZK-dUx"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="contChar" destination="LnP-mx-GRu" id="Eui-YF-Hk8"/>
+                <outlet property="message" destination="M6m-YU-41D" id="od7-iH-lJj"/>
+            </connections>
+            <point key="canvasLocation" x="-269" y="281"/>
         </view>
     </objects>
 </document>

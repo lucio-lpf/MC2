@@ -9,11 +9,10 @@
 import UIKit
 import Parse
 
-class StoryPieceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class StoryPieceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate {
  
     @IBOutlet var tableView: UITableView!
-    
-    var identifier = StoryPieceCell.indentifier
+    var newStoryPieceView: UIView!
     
     var pieces:[StoryPiece]!
     
@@ -25,7 +24,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         tableView.dataSource = self
         
         let nib = UINib(nibName: "StoryPieceCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: identifier)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.StoryPiece)
         
         testePieces()
     }
@@ -45,14 +44,16 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = self.tableView.dequeueReusableCellWithIdentifier(identifier) as! StoryPieceCell
+        var cell = self.tableView.dequeueReusableCellWithIdentifier(StoryCell.indentifier.StoryPiece) as! StoryCell
 //        var storyPiece = pieces[indexPath.row]
         
 //        cell.loadItem(storyPiece.text! ,image:"teste1")
-        cell.loadItem("Tudo começou assim..." ,image:"teste1")
+        cell.storyPieceMessage.text = "Tudo começou assim..."
+        cell.storyPieceBkgImage.image = UIImage(named: "teste1")
         
         return cell
     }
+    
     
     
     @IBAction func addNewStoryPiece(sender: AnyObject) {
@@ -63,11 +64,12 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
         self.view.addSubview(blurView)
         
-        var newStoryPieceView = AddNewStoryPieceView.instanceFromNib()
+        newStoryPieceView = AddNewStoryPieceView.instanceFromNib()
         newStoryPieceView.frame = CGRectMake(0, 0, self.view.frame.size.width - 20, 250)
         newStoryPieceView.center = self.view.center
         
         self.view.addSubview(newStoryPieceView)
+        
     }
     
     func testePieces(){
