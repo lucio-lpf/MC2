@@ -35,7 +35,7 @@
 		8368D3771B3C77BE0007E8E0 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368D3761B3C77BE0007E8E0 /* FXBlurView.m */; };
 		837942DB1B41B90E00BEB265 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837942DA1B41B90E00BEB265 /* ConfigurationViewController.swift */; };
 		837942DF1B41CC4700BEB265 /* StyleSample.xib in Resources */ = {isa = PBXBuildFile; fileRef = 837942DE1B41CC4700BEB265 /* StyleSample.xib */; };
-		837942E11B41CCE400BEB265 /* StyleSampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837942E01B41CCE400BEB265 /* StyleSampleCell.swift */; };
+		837942E11B41CCE400BEB265 /* StyleSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837942E01B41CCE400BEB265 /* StyleSample.swift */; };
 		8A1E49F6709BF045818542C6 /* Pods_Our_Story.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E98D86373E3AC3F91D987C /* Pods_Our_Story.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -85,7 +85,7 @@
 		8368D3761B3C77BE0007E8E0 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		837942DA1B41B90E00BEB265 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		837942DE1B41CC4700BEB265 /* StyleSample.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StyleSample.xib; sourceTree = "<group>"; };
-		837942E01B41CCE400BEB265 /* StyleSampleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleSampleCell.swift; sourceTree = "<group>"; };
+		837942E01B41CCE400BEB265 /* StyleSample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleSample.swift; sourceTree = "<group>"; };
 		C48328B1226D75D12ACBBE9A /* Pods-Our Story.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.debug.xcconfig"; sourceTree = "<group>"; };
 		F72C86A04BF1515663E85E85 /* Pods-Our Story.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.release.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,7 +240,7 @@
 				30FC013B1B41B1C400FF496D /* AddNewStoryView.xib */,
 				30FC013D1B41B1D700FF496D /* AddNewStoryView.swift */,
 				837942DE1B41CC4700BEB265 /* StyleSample.xib */,
-				837942E01B41CCE400BEB265 /* StyleSampleCell.swift */,
+				837942E01B41CCE400BEB265 /* StyleSample.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -337,7 +337,7 @@
 				8368D3721B3C60F80007E8E0 /* Profile.storyboard in Resources */,
 				5A64EEF61B3C416900DB0819 /* StoryCell.xib in Resources */,
 				837942DF1B41CC4700BEB265 /* StyleSample.xib in Resources */,
-				5A64EEF61B3C416900DB0819 /* CustomTableCell.xib in Resources */,
+				5A64EEF61B3C416900DB0819 /* StoryCell.xib in Resources */,
 				30639DD21B38D67100A40B51 /* LaunchScreen.xib in Resources */,
 				30639DCF1B38D67100A40B51 /* Images.xcassets in Resources */,
 				3086324E1B3B3D8200C7DBCC /* StoryPieceCell.xib in Resources */,
@@ -416,7 +416,7 @@
 				30639DC81B38D67100A40B51 /* AppDelegate.swift in Sources */,
 				30FC013E1B41B1D700FF496D /* AddNewStoryView.swift in Sources */,
 				308632481B3B37F100C7DBCC /* StoryPieceViewController.swift in Sources */,
-				837942E11B41CCE400BEB265 /* StyleSampleCell.swift in Sources */,
+				837942E11B41CCE400BEB265 /* StyleSample.swift in Sources */,
 				5A07662E1B3B31BB005418AB /* Story.swift in Sources */,
 				5A64EEF41B3C3A7B00DB0819 /* StoryCell.swift in Sources */,
 				5A07662F1B3B31BB005418AB /* StoryPiece.swift in Sources */,

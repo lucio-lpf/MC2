@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 
-class StyleSampleCell: UICollectionViewCell{
+class StyleSample: UICollectionViewCell{
     
     @IBOutlet weak var imageView: UIImageView!
+    
+    static let identifier = "styleSampleCell"
 
     var image: UIImage = UIImage()
 }

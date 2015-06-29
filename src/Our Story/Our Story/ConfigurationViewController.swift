@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Parse
 
-class ConfigurationViewController: UIViewController {
+class ConfigurationViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var userNameLabel: UILabel!
     
@@ -18,10 +18,15 @@ class ConfigurationViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var styles = ["cor1","cor2"]
+    let styles: [String] = ["padrao_papel"]
+    
+    var identifier = StyleSample.identifier //trocar pra StoryCell
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        storyStyleButton.imageView?.image = UIImage(named: "padrao_papel")
         
         self.collectionView.alpha = 0
 
@@ -37,6 +42,9 @@ class ConfigurationViewController: UIViewController {
         //        avatarImage.layer.shadowRadius=1.0;
         storyStyleButton.clipsToBounds = true
         
+        
+        let nibStyle = UINib(nibName: "StyleSample", bundle: nil)
+        self.collectionView.registerNib(nibStyle, forCellWithReuseIdentifier: identifier)
     }
     
     
@@ -63,4 +71,19 @@ class ConfigurationViewController: UIViewController {
         })
     }
     
+    
+    
+    //COLLECTIONVIEW DELEGATE
+    //2
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return styles.count
+    }
+    
+    //3
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.identifier , forIndexPath: indexPath) as! StyleSample
+        cell.imageView.image = UIImage(named: self.styles[indexPath.row])
+        // Configure the cell
+        return cell
+    }
 }

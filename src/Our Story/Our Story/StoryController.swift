@@ -87,4 +87,10 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     }
+    
+    func removeSubViews() {
+        
+    }
+
+    
 }
