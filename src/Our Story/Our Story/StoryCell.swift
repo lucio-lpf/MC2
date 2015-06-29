@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class StoryCell: UITableViewCell{
+class StoryCell: UITableViewCell {
     
     static let indentifier = (StoryPiece:"storyPieceCell", Story:"storyCell")
     
@@ -26,12 +26,13 @@ class StoryCell: UITableViewCell{
     
     func loadItens(story: NSObject){
         
-//        titleLabel.text = story.dictionaryWithValuesForKeys("storyName")
-//        
-//        var pieces = story.dictionaryWithValuesForKeys("storyPieces") as? Array
-//        
-//        storylabel.text = pieces[0]
-//        
-//        var createdBy = story.dictionaryWithValuesForKeys("createdBy")
+     titleLabel.text = story.valueForKey("storyName") as? String
+        var pieces = story.valueForKey("storyPieces") as! NSArray
+        storylabel.text = pieces[0] as? String
+       informationLabel.text = story.valueForKey("createdBy")?.valueForKey("objectId") as? String
+        
+        
+        
+        
     }
 }
