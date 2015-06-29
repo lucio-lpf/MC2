@@ -46,4 +46,11 @@ class AddNewStoryPieceView: UIView, UITextViewDelegate {
             return false
         }
     }
+    
+    func textViewDidChange(textView: UITextView) {
+        if message.text.isEmpty {
+            message.text = "My contribution is ..."
+            message.textColor = UIColor.lightGrayColor()
+        }
+    }
 }
