@@ -17,7 +17,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     override func viewDidLoad() {
         var nib = UINib(nibName: "StoryCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "customCell")
+        tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.Story)
         
     Story.loadfirststories({ (arraydeposts) -> Void in
         self.postsarray = arraydeposts

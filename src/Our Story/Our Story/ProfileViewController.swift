@@ -14,7 +14,7 @@ let offset_HeaderStop:CGFloat = 40.0 // At this offset the Header stops its tran
 let offset_B_LabelHeader:CGFloat = 62.0 // At this offset the Black label reaches the Header
 let distance_W_LabelHeader:CGFloat = 35.0 // The distance between the bottom of the Header and the top of the White Label
 
-class ProfileViewController : UIViewController, UIScrollViewDelegate {
+class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var avatarImage: UIImageView!
@@ -28,11 +28,21 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate {
 
     var blurredHeaderImageView:UIImageView?
     
+    var identifierStoryPiece = StoryPieceCell.indentifier
+    
+    var identifierStory = StoryCell.indentifier //trocar pra StoryCell
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         scrollView.delegate = self
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         
@@ -42,14 +52,14 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate {
         avatarImage.layer.cornerRadius = 40;
         avatarImage.layer.borderColor = UIColor.whiteColor().CGColor
         avatarImage.layer.borderWidth = 2.0
-        //        avatarImage.layer.shadowColor = UIColor.grayColor().CGColor;
-
+//        avatarImage.layer.shadowColor = UIColor.grayColor().CGColor;
 //        avatarImage.layer.shadowOffset=CGSizeMake(2, 2);
 //        avatarImage.layer.shadowOpacity=1.0;
 //        avatarImage.layer.shadowRadius=1.0;
         avatarImage.clipsToBounds = true
 
         
+        //preenchendo os campos de informacão do user
         var facebookLogin = FacebookLogin()
         facebookLogin.login { (user, error) -> Void in
             facebookLogin.returnUserDataWithImage { (fetchedName, fetchedEmail, fetchedImage, error) -> Void in
@@ -60,6 +70,12 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate {
         }
         
         
+        //pegando as nibs
+        let nibStoryPiece = UINib(nibName: "StoryPieceCell", bundle: nil)
+        self.tableView.registerNib(nibStoryPiece, forCellReuseIdentifier: identifierStoryPiece)
+        
+        var nibStory = UINib(nibName: "CustomTableCell", bundle: nil) //Trocar para StoryCell
+        tableView.registerNib(nibStory, forCellReuseIdentifier: identifierStory)
         
     }
     
@@ -93,67 +109,124 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate {
     }
     
     
+    //UITableViewDelegate
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        var cell = UITableViewCell()
+        
+        //Alterar depois de 2 custom cells pra uma só
+        
+        if(segmentedControl.isEnabledForSegmentAtIndex(0))
+        {
+            tableView.rowHeight = 320
+            var vcell = self.tableView.dequeueReusableCellWithIdentifier(identifierStory) as! StoryCell
+            return vcell
+        }
+        else if(segmentedControl.isEnabledForSegmentAtIndex(1))
+        {
+            tableView.rowHeight = 95
+            println("passou por aqui")
+            var vcell = self.tableView.dequeueReusableCellWithIdentifier(identifierStoryPiece) as! StoryPieceCell
+            vcell.loadItem("", image: "teste1")
+            return vcell
+        }
+       
+        
+        return cell
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 30
+    }
+    
+    
+    @IBAction func segmentedControlAction(sender: AnyObject) {
+        
+        if(segmentedControl.selectedSegmentIndex == 0)
+        {
+            println("First Segment Selected")
+        }
+        else if(segmentedControl.selectedSegmentIndex == 1)
+        {
+            println("Second Segment Selected")
+        }
+        tableView.reloadData()
+        
+    }
+    
+    
+    
+    
+    //UIScrollViewDelegate
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        
-        var offset = scrollView.contentOffset.y
-        var avatarTransform = CATransform3DIdentity
-        var headerTransform = CATransform3DIdentity
-        
-        
-        // PULL DOWN -----------------
-        
-        if offset < 0 {
+        if !scrollView.isKindOfClass(UITableView) {
+            var offset = scrollView.contentOffset.y
+            var avatarTransform = CATransform3DIdentity
+            var headerTransform = CATransform3DIdentity
             
-            let headerScaleFactor:CGFloat = -(offset) / header.bounds.height
-            let headerSizevariation = ((header.bounds.height * (1.0 + headerScaleFactor)) - header.bounds.height)/2.0
-            headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
-            headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
             
-            header.layer.transform = headerTransform
-        }
-        
-        // SCROLL UP/DOWN ------------
+            // PULL DOWN -----------------
             
-        else {
-            
-            // Header -----------
-            
-            headerTransform = CATransform3DTranslate(headerTransform, 0, max(-offset_HeaderStop, -offset), 0)
-            
-            //  ------------ Label
-            
-            let labelTransform = CATransform3DMakeTranslation(0, max(-distance_W_LabelHeader, offset_B_LabelHeader - offset), 0)
-            headerLabel.layer.transform = labelTransform
-            
-            //  ------------ Blur
-            
-            headerBlurImageView?.alpha = min (1.0, (offset - offset_B_LabelHeader)/distance_W_LabelHeader)
-            
-            // Avatar -----------
-            
-            let avatarScaleFactor = (min(offset_HeaderStop, offset)) / avatarImage.bounds.height / 1.4 // Slow down the animation
-            let avatarSizeVariation = ((avatarImage.bounds.height * (1.0 + avatarScaleFactor)) - avatarImage.bounds.height) / 2.0
-            avatarTransform = CATransform3DTranslate(avatarTransform, 0, avatarSizeVariation, 0)
-            avatarTransform = CATransform3DScale(avatarTransform, 1.0 - avatarScaleFactor, 1.0 - avatarScaleFactor, 0)
-            
-            if offset <= offset_HeaderStop {
+            if offset < 0 {
                 
-                if avatarImage.layer.zPosition < header.layer.zPosition{
-                    header.layer.zPosition = 0
-                }
+                let headerScaleFactor:CGFloat = -(offset) / header.bounds.height
+                let headerSizevariation = ((header.bounds.height * (1.0 + headerScaleFactor)) - header.bounds.height)/2.0
+                headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
+                headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
                 
-            }else {
-                if avatarImage.layer.zPosition >= header.layer.zPosition{
-                    header.layer.zPosition = 2
+                header.layer.transform = headerTransform
+            }
+            
+            // SCROLL UP/DOWN ------------
+                
+            else {
+                
+                // Header -----------
+                
+                headerTransform = CATransform3DTranslate(headerTransform, 0, max(-offset_HeaderStop, -offset), 0)
+                
+                //  ------------ Label
+                
+                let labelTransform = CATransform3DMakeTranslation(0, max(-distance_W_LabelHeader, offset_B_LabelHeader - offset), 0)
+                headerLabel.layer.transform = labelTransform
+                
+                //  ------------ Blur
+                
+                headerBlurImageView?.alpha = min (1.0, (offset - offset_B_LabelHeader)/distance_W_LabelHeader)
+                
+                // Avatar -----------
+                
+                let avatarScaleFactor = (min(offset_HeaderStop, offset)) / avatarImage.bounds.height / 1.4 // Slow down the animation
+                let avatarSizeVariation = ((avatarImage.bounds.height * (1.0 + avatarScaleFactor)) - avatarImage.bounds.height) / 2.0
+                avatarTransform = CATransform3DTranslate(avatarTransform, 0, avatarSizeVariation, 0)
+                avatarTransform = CATransform3DScale(avatarTransform, 1.0 - avatarScaleFactor, 1.0 - avatarScaleFactor, 0)
+                
+                if offset <= offset_HeaderStop {
+                    
+                    if avatarImage.layer.zPosition < header.layer.zPosition{
+                        header.layer.zPosition = 0
+                    }
+                    
+                }else {
+                    if avatarImage.layer.zPosition >= header.layer.zPosition{
+                        header.layer.zPosition = 2
+                    }
                 }
             }
+            
+            // Apply Transformations
+            
+            header.layer.transform = headerTransform
+            avatarImage.layer.transform = avatarTransform 
         }
         
-        // Apply Transformations
-        
-        header.layer.transform = headerTransform
-        avatarImage.layer.transform = avatarTransform
+
         
         
 

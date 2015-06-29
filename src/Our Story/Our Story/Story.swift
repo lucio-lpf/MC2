@@ -35,7 +35,6 @@ class Story: NSObject {
                 print("Deu errado o salve : /(error)")
             }
         }
-        
     }
     
     class func loadfirststories(completion: (NSMutableArray) -> Void ) {

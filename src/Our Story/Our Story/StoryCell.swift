@@ -11,6 +11,7 @@ import UIKit
 
 class StoryCell: UITableViewCell{
     
+    static let indentifier = (StoryPiece:"storyPieceCell", Story:"storyCell")
     
     @IBOutlet weak var backgroundImage: UIImageView!
     
