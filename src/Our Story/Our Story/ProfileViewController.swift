@@ -230,11 +230,16 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
             header.layer.transform = headerTransform
             avatarImage.layer.transform = avatarTransform 
         }
-        
-
-        
-        
+  
 
     }
+
+    
+    @IBAction func configButtonAction(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("goToConfig", sender: self)
+        
+    }
+    
     
 }
