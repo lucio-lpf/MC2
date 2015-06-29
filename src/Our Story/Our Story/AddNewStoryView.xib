@@ -49,7 +49,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpj-SF-LGD">
-                    <rect key="frame" x="264" y="272" width="72" height="30"/>
+                    <rect key="frame" x="264" y="253" width="72" height="30"/>
                     <animations/>
                     <state key="normal" title="Post Story">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,7 +84,7 @@
                 <constraint firstItem="Go5-I1-tCH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="hsi-Q7-w3t"/>
                 <constraint firstItem="Go5-I1-tCH" firstAttribute="top" secondItem="EgQ-Up-ldi" secondAttribute="bottom" constant="8" id="l6U-Cw-Lt0"/>
                 <constraint firstItem="wNg-N1-JxH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="o51-e5-DQF"/>
-                <constraint firstItem="Fpj-SF-LGD" firstAttribute="top" secondItem="Go5-I1-tCH" secondAttribute="bottom" constant="33" id="qlh-Zf-yTS"/>
+                <constraint firstItem="Fpj-SF-LGD" firstAttribute="top" secondItem="Go5-I1-tCH" secondAttribute="bottom" constant="14" id="qlh-Zf-yTS"/>
                 <constraint firstItem="tBu-Yg-eyD" firstAttribute="top" secondItem="wNg-N1-JxH" secondAttribute="bottom" constant="41" id="sQm-Nx-cIT"/>
                 <constraint firstItem="EgQ-Up-ldi" firstAttribute="centerX" secondItem="tBu-Yg-eyD" secondAttribute="centerX" constant="1.5" id="uZw-ZY-Zxp"/>
                 <constraint firstItem="EgQ-Up-ldi" firstAttribute="top" secondItem="tBu-Yg-eyD" secondAttribute="bottom" constant="17" id="vTK-6z-HvP"/>

@@ -10,11 +10,11 @@ import Foundation
 import Parse
 import UIKit
 
-class StoryController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class StoryController: UIViewController, UITableViewDataSource, UITableViewDelegate, StoryViewDelegate {
     
     var postsarray : NSMutableArray = [] // ARRAY PRA ARMAZENAR OS POSTS E EXIBI-LOS NA TABLEVIEW
     @IBOutlet weak var tableView: UITableView!
-    var newStoryView: UIView!
+    var newStoryView: AddNewStoryView!
     var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
@@ -31,7 +31,6 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        var celula: UITableViewCell
             var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(StoryCell.indentifier.Story) as! StoryCell
             var story = postsarray.objectAtIndex(indexPath.row) as? NSObject
             cell.loadItens(story!)
@@ -51,15 +50,19 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.view.addSubview(blurView)
         
         newStoryView = AddNewStoryView.instanceFromNib()
-        newStoryView.frame  = CGRectMake(0, 0, self.view.frame.size.width - 20, 250)
+        newStoryView.frame  = CGRectMake(0, 0, self.view.frame.size.width - 20, 300)
         newStoryView.center = self.view.center
         
+        newStoryView.delegate = self
+        
         self.view.addSubview(newStoryView)
+        
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 320
     }
+    
     func updatePosts(){
         
         Story.loadfirststories({ (arraydeposts) -> Void in
@@ -67,5 +70,9 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
             self.tableView.reloadData()
         })
         self.refreshControl.endRefreshing()
+    }
+    
+    func removeSubViews() {
+        
     }
 }

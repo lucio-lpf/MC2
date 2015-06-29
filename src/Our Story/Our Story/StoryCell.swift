@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class StoryCell: UITableViewCell{
+class StoryCell: UITableViewCell {
     
     static let indentifier = (StoryPiece:"storyPieceCell", Story:"storyCell")
     

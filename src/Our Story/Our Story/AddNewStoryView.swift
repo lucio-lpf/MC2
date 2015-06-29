@@ -6,16 +6,21 @@
 //  Copyright (c) 2015 mc2. All rights reserved.
 //
 
+protocol StoryViewDelegate:NSObjectProtocol{
+   func removeSubViews()
+}
 
 class AddNewStoryView: UIView, UITextViewDelegate {
     
     @IBOutlet var storyTitle: UITextField!
     @IBOutlet var firstStoryPiece: UITextView!
     
+     var delegate:StoryViewDelegate?
+    
     
     @IBOutlet var contChar: UILabel!
-    class func instanceFromNib() -> UIView {
-        var instance = UINib(nibName: "AddNewStoryView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
+    class func instanceFromNib() -> AddNewStoryView {
+        var instance = UINib(nibName: "AddNewStoryView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! AddNewStoryView
         
         var title = instance.viewWithTag(1) as! UITextField
         title.layer.cornerRadius = 5
@@ -23,7 +28,7 @@ class AddNewStoryView: UIView, UITextViewDelegate {
         title.layer.borderColor = UIColor.blackColor().CGColor
         
         var txt = instance.viewWithTag(2) as! UITextView
-        txt.delegate = instance as? UITextViewDelegate
+        txt.delegate = instance as UITextViewDelegate
         txt.layer.cornerRadius = 5
         txt.layer.borderWidth = 0.3
         txt.layer.borderColor = UIColor.blackColor().CGColor
@@ -47,7 +52,7 @@ class AddNewStoryView: UIView, UITextViewDelegate {
         }
     }
     @IBAction func createNewStory(sender: AnyObject) {
-        
+        self.delegate?.removeSubViews()
     }
     
 }
