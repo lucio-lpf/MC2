@@ -29,6 +29,7 @@ class AddNewStoryPieceView: UIView, UITextViewDelegate {
     
     
     @IBAction func addContribution(sender: AnyObject) {
+        print(message.text)
         StoryPiece.createStoryPiece(message.text)
     }
     
@@ -44,13 +45,6 @@ class AddNewStoryPieceView: UIView, UITextViewDelegate {
         }else{
             contChar.text = "0"
             return false
-        }
-    }
-    
-    func textViewDidChange(textView: UITextView) {
-        if message.text.isEmpty {
-            message.text = "My contribution is ..."
-            message.textColor = UIColor.lightGrayColor()
         }
     }
 }
