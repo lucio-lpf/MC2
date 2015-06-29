@@ -14,6 +14,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     var postsarray : NSMutableArray = [] // ARRAY PRA ARMAZENAR OS POSTS E EXIBI-LOS NA TABLEVIEW
     @IBOutlet weak var tableView: UITableView!
+    var newStoryView: UIView!
     
     override func viewDidLoad() {
         var nib = UINib(nibName: "StoryCell", bundle: nil)
@@ -26,6 +27,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         for var index = 0; index != results!.count; ++index{
             postsarray.addObject(results![index])
             
+            
         }
         
     }
@@ -36,10 +38,27 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
             var story = postsarray.objectAtIndex(indexPath.row) as? NSObject
             cell.loadItens(story!)
             return cell
-}
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return postsarray.count
     }
+    
+    
+    @IBAction func createNewStory(sender: AnyObject) {
+        
+        //Create the visual effect
+        let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
+        let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+        self.view.addSubview(blurView)
+        
+        newStoryView = AddNewStoryView.instanceFromNib()
+        newStoryView.frame  = CGRectMake(0, 0, self.view.frame.size.width - 20, 250)
+        newStoryView.center = self.view.center
+        
+        self.view.addSubview(newStoryView)
+    }
+    
     
 }

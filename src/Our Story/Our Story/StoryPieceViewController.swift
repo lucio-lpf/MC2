@@ -13,12 +13,11 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
  
     @IBOutlet var tableView: UITableView!
     var newStoryPieceView: UIView!
-    
+    var parentStory:Story!
     var pieces:[StoryPiece]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         tableView.delegate = self
         tableView.dataSource = self

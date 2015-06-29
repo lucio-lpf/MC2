@@ -31,7 +31,6 @@ class StoryPiece: NSObject {
     }
     
     class func createStoryPiece(message:String) {
-        print("StoryPiece: \(message)")
         var piece = PFObject(className: parseClassName)
         piece["text"] = message
         piece["createdBy"] = PFUser.currentUser()

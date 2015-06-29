@@ -49,7 +49,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwQ-Nj-bbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2368" y="501"/>
+            <point key="canvasLocation" x="2860" y="661"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tJY-BX-TtD">
@@ -63,12 +63,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="lqP-Oh-zFB" kind="relationship" relationship="rootViewController" id="mHk-Xd-V7c"/>
+                        <segue destination="20f-b4-IWQ" kind="relationship" relationship="rootViewController" id="inf-E3-A6X"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Paw-en-NmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1286" y="737"/>
+            <point key="canvasLocation" x="1044" y="661"/>
         </scene>
         <!--Story Controller-->
         <scene sceneID="XFC-c8-ab2">
@@ -95,13 +95,22 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="OjH-6U-YGM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="aqB-0c-PV5">
+                            <color key="tintColor" red="0.15686274510000001" green="0.086274509799999996" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="createNewStory:" destination="20f-b4-IWQ" id="YRP-tZ-na1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="jwc-49-pxc" id="OlX-5q-m5p"/>
+                        <segue destination="lqP-Oh-zFB" kind="show" identifier="goToStoryPieces" id="0Q9-pm-ges"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DqW-Xa-e0d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1324" y="13"/>
+            <point key="canvasLocation" x="1964" y="661"/>
         </scene>
     </scenes>
 </document>

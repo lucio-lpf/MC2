@@ -1,36 +1,35 @@
 //
-//  AddNewStoryPieceView.swift
+//  AddNewStoryView.swift
 //  Our Story
 //
-//  Created by Wagner Santos on 6/26/15.
+//  Created by Wagner Santos on 6/29/15.
 //  Copyright (c) 2015 mc2. All rights reserved.
 //
 
 
-class AddNewStoryPieceView: UIView, UITextViewDelegate {
+class AddNewStoryView: UIView, UITextViewDelegate {
+    
+    @IBOutlet var storyTitle: UITextField!
+    @IBOutlet var firstStoryPiece: UITextView!
     
     
-    
-    @IBOutlet var message: UITextView!
     @IBOutlet var contChar: UILabel!
-    
-
     class func instanceFromNib() -> UIView {
-        var instance = UINib(nibName: "AddNewStoryPieceView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
+        var instance = UINib(nibName: "AddNewStoryView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
         
-       var txt = instance.viewWithTag(1) as! UITextView
+        var title = instance.viewWithTag(1) as! UITextField
+        title.layer.cornerRadius = 5
+        title.layer.borderWidth = 0.3
+        title.layer.borderColor = UIColor.blackColor().CGColor
+        
+        var txt = instance.viewWithTag(2) as! UITextView
         txt.delegate = instance as? UITextViewDelegate
         txt.layer.cornerRadius = 5
         txt.layer.borderWidth = 0.3
         txt.layer.borderColor = UIColor.blackColor().CGColor
         
+        
         return instance
-    }
-    
-    
-    @IBAction func addContribution(sender: AnyObject) {
-        print(message.text)
-        StoryPiece.createStoryPiece(message.text)
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
@@ -47,4 +46,8 @@ class AddNewStoryPieceView: UIView, UITextViewDelegate {
             return false
         }
     }
+    @IBAction func createNewStory(sender: AnyObject) {
+        
+    }
+    
 }
