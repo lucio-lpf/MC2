@@ -81,6 +81,14 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
     }
     
+<<<<<<< HEAD
+    func removeSubViews() {
+        
+    }
+
+    
+}
+=======
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         //VENDO SE PRECISA DE FOOTER PRA LOAD MAIS POSTS 
         var tamanho = postsarray.count
@@ -109,3 +117,4 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
 
 
 
+>>>>>>> df07257125daac15c94a82d9ae771fe20ca6c42c

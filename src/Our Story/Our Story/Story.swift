@@ -57,4 +57,44 @@ class Story: NSObject {
     class func moreposts(postsarray: NSMutableArray, completion: (NSMutableArray) -> Void){
         
     }
+    
+    class func footerisabletoexist(tamanho:Int,completion: (Bool) -> Void){
+        var queryposts = PFQuery(className: "Story")
+        var verificador : Bool
+        verificador = true
+        queryposts.countObjectsInBackgroundWithBlock { (inteiro, erro) -> Void in
+            if inteiro > Int32(tamanho){
+                verificador = true
+            }
+            else{
+                verificador = false
+            }
+        completion(verificador)
+        }
+    }
+    
+    
+    func creatStory(titulo: NSString, completion:(PFObject) -> Void){
+    
+        var newStory = PFObject(className: "Story")
+        newStory.setValue(titulo, forKey: "storyName")
+        newStory.saveInBackgroundWithBlock { (bool, error) -> Void in
+            if (error == nil){
+                print(error)
+            }
+            else{
+                print("Slavou")
+            }
+        }
+        completion(newStory)
+    }
+    
+    
 }
+
+
+
+
+
+
+
