@@ -35,6 +35,5 @@ class Story: NSObject {
                 print("Deu errado o salve : /(error)")
             }
         }
-        
     }
 }

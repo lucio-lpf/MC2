@@ -12,7 +12,7 @@ import UIKit
 class StoryPieceCell: UITableViewCell {
     
     @IBOutlet var bkgStyle: UIImageView!
-    @IBOutlet var storyPiece: UITextField!
+    @IBOutlet var storyPiece: UILabel!
     static let indentifier = "storyPiece"
     
     func loadItem(message: String, image:String) {

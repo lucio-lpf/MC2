@@ -11,6 +11,7 @@ import UIKit
 
 class StoryCell: UITableViewCell{
     
+    static let indentifier = (StoryPiece:"storyPieceCell", Story:"storyCell")
     
     @IBOutlet weak var backgroundImage: UIImageView!
     
@@ -20,7 +21,8 @@ class StoryCell: UITableViewCell{
     
     @IBOutlet var informationLabel: UILabel!
     
-    static let indentifier = "story"
+    @IBOutlet var storyPieceMessage: UILabel!
+    @IBOutlet var storyPieceBkgImage: UIImageView!
     
     func loadItens(story: NSObject){
         
@@ -31,9 +33,5 @@ class StoryCell: UITableViewCell{
 //        storylabel.text = pieces[0]
 //        
 //        var createdBy = story.dictionaryWithValuesForKeys("createdBy")
-        
-        
-        
-        
     }
 }

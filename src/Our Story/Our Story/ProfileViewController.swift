@@ -28,9 +28,9 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
 
     var blurredHeaderImageView:UIImageView?
     
-    var identifierStoryPiece = StoryPieceCell.indentifier
+    var identifierStoryPiece = StoryCell.indentifier.StoryPiece
     
-    var identifierStory = StoryCell.indentifier //trocar pra StoryCell
+    var identifierStory = StoryCell.indentifier.Story //trocar pra StoryCell
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -128,8 +128,10 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         {
             tableView.rowHeight = 95
             println("passou por aqui")
-            var vcell = self.tableView.dequeueReusableCellWithIdentifier(identifierStoryPiece) as! StoryPieceCell
-            vcell.loadItem("", image: "teste1")
+            var vcell = self.tableView.dequeueReusableCellWithIdentifier(identifierStoryPiece) as! StoryCell
+            vcell.storyPieceMessage.text = "Tudo começou assim..."
+            vcell.storyPieceBkgImage.image = UIImage(named: "teste1")
+            
             return vcell
         }
        
