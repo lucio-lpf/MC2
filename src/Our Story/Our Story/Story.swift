@@ -53,4 +53,8 @@ class Story: NSObject {
             })
         })
     }
+    
+    class func moreposts(postsarray: NSMutableArray, completion: (NSMutableArray) -> Void){
+        
+    }
 }

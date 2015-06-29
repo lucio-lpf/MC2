@@ -17,17 +17,28 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
+        
+        //ADICIONADNO O REFRESH
         refreshControl.addTarget(self, action: Selector("updatePosts"), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(self.refreshControl)
+        
+        //ADICIONANDO AS CELLS COSTUMIZADAS
         var nib = UINib(nibName: "StoryCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.Story)
         
-    Story.loadfirststories({ (arraydeposts) -> Void in
-        self.postsarray = arraydeposts
-        self.tableView.reloadData()
-       })
+        
         //ADICIONANDO AO MAIN ARRAY OS 10 POSTS
-       
+        Story.loadfirststories({ (arraydeposts) -> Void in
+            self.postsarray = arraydeposts
+            self.tableView.reloadData()
+        })
+        //VENDO SE PRECISA DE FOOTER PRA LOAD MAIS POSTS
+        
+        
+        
+        
+        
+        
         
     }
     
@@ -47,11 +58,14 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         return 320
     }
     func updatePosts(){
-        
+        //ATUALIZANDO OS 10 PRIMEIROS POSTS (USA O REFRESH)
         Story.loadfirststories({ (arraydeposts) -> Void in
             self.postsarray = arraydeposts
             self.tableView.reloadData()
         })
         self.refreshControl.endRefreshing()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     }
 }
