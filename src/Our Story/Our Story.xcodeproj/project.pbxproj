@@ -224,7 +224,7 @@
 				3086324D1B3B3D8200C7DBCC /* StoryPieceCell.xib */,
 				30AEECC41B3DA9E000CC36C7 /* AddNewStoryPieceView.xib */,
 				30AEECC61B3DAB8300CC36C7 /* AddNewStoryPieceView.swift */,
-				5A64EEF51B3C416900DB0819 /* CustomTableCell.xib */,
+				5A64EEF51B3C416900DB0819 /* StoryCell.xib */,
 				5A64EEF31B3C3A7B00DB0819 /* StoryCell.swift */,
 			);
 			name = "Custom Views";

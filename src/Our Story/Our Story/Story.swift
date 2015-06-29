@@ -40,6 +40,7 @@ class Story: NSObject {
     class func loadfirststories(completion: (NSMutableArray) -> Void ) {
         var postsarray:NSMutableArray = []
         var postquery = PFQuery(className: "Story")
+        postquery.orderByDescending("createdAt")
         postquery.limit = 10 //PEGANDO OS 10 PRIMEIROS POSTS
         //ADICIONANDO AO MAIN ARRAY OS 10 POSTS
         postquery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
@@ -50,8 +51,6 @@ class Story: NSObject {
                 }
                 completion(postsarray)
             })
-            
-           
         })
     }
 }

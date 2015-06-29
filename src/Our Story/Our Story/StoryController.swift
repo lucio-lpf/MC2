@@ -14,8 +14,11 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     var postsarray : NSMutableArray = [] // ARRAY PRA ARMAZENAR OS POSTS E EXIBI-LOS NA TABLEVIEW
     @IBOutlet weak var tableView: UITableView!
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
+        refreshControl.addTarget(self, action: Selector("updatePosts"), forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(self.refreshControl)
         var nib = UINib(nibName: "StoryCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.Story)
         
@@ -43,5 +46,12 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 320
     }
-    
+    func updatePosts(){
+        
+        Story.loadfirststories({ (arraydeposts) -> Void in
+            self.postsarray = arraydeposts
+            self.tableView.reloadData()
+        })
+        self.refreshControl.endRefreshing()
+    }
 }
