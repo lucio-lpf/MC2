@@ -118,14 +118,16 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         
         //Alterar depois de 2 custom cells pra uma só
         
-        if(segmentedControl.isEnabledForSegmentAtIndex(0))
+        if(segmentedControl.selectedSegmentIndex == 0)
         {
             tableView.rowHeight = 320
             var vcell = self.tableView.dequeueReusableCellWithIdentifier(identifierStory) as! StoryCell
             return vcell
         }
-        else if(segmentedControl.isEnabledForSegmentAtIndex(1))
-        {
+        else {
+            //if(segmentedControl.isEnabledForSegmentAtIndex(1))
+            
+            println("entrei no else")
             tableView.rowHeight = 95
             println("passou por aqui")
             var vcell = self.tableView.dequeueReusableCellWithIdentifier(identifierStoryPiece) as! StoryCell
@@ -134,9 +136,6 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
             
             return vcell
         }
-       
-        
-        return cell
     }
     
     
@@ -157,6 +156,10 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
             println("Second Segment Selected")
         }
         tableView.reloadData()
+//        tableView.reloadInputViews()
+        
+//        tableView.beginUpdates()
+//        tableView.endUpdates()
         
     }
     

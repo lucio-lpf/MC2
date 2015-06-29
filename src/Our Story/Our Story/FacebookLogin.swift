@@ -21,6 +21,29 @@ class FacebookLogin {
         
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions) {
             (user: PFUser?, error: NSError?) -> Void in
+            
+            if let user = user {
+                if user.isNew {
+                    
+                    var facebookLogin = FacebookLogin()
+                    facebookLogin.returnUserData({ (name, email, error) -> Void in
+                        var user = PFUser.currentUser()
+                        if let user = user {
+                            user["name"] = name as! String
+                            user.saveInBackground()
+                        }
+                       
+                    })
+                    
+                    println("User signed up and logged in through Facebook!")
+                } else {
+                    println("User logged in through Facebook!")
+  
+                }
+            } else {
+                println("Uh oh. The user cancelled the Facebook login.")
+            }
+            
             completionClosure(user: user!, error: error)
         }
     }

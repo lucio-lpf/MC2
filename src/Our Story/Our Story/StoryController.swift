@@ -15,21 +15,19 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     var postsarray : NSMutableArray = [] // ARRAY PRA ARMAZENAR OS POSTS E EXIBI-LOS NA TABLEVIEW
     @IBOutlet weak var tableView: UITableView!
     var newStoryView: UIView!
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
+        refreshControl.addTarget(self, action: Selector("updatePosts"), forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(self.refreshControl)
         var nib = UINib(nibName: "StoryCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.Story)
         
-        var postquery = PFQuery(className: "story")
-        postquery.limit = 10 //PEGANDO OS 10 PRIMEIROS POSTS
-        var results = postquery.findObjects() as? [PFObject]
-        //ADICIONANDO AO MAIN ARRAY OS 10 POSTS
-        for var index = 0; index != results!.count; ++index{
-            postsarray.addObject(results![index])
-            
-            
-        }
-        
+    Story.loadfirststories({ (arraydeposts) -> Void in
+        self.postsarray = arraydeposts
+        self.tableView.reloadData()
+       })
+        //ADICIONANDO AO MAIN ARRAY OS 10 POSTS        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
@@ -43,7 +41,6 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return postsarray.count
     }
-    
     
     @IBAction func createNewStory(sender: AnyObject) {
         
@@ -59,6 +56,16 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         self.view.addSubview(newStoryView)
     }
-    
-    
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 320
+    }
+    func updatePosts(){
+        
+        Story.loadfirststories({ (arraydeposts) -> Void in
+            self.postsarray = arraydeposts
+            self.tableView.reloadData()
+        })
+        self.refreshControl.endRefreshing()
+    }
 }
