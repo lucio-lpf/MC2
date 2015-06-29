@@ -33,14 +33,6 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
             self.postsarray = arraydeposts
             self.tableView.reloadData()
         })
-        //VENDO SE PRECISA DE FOOTER PRA LOAD MAIS POSTS
-        
-        
-        
-        
-        
-        
-        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
@@ -85,6 +77,35 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.refreshControl.endRefreshing()
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func removeSubViews() {
+        
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        //VENDO SE PRECISA DE FOOTER PRA LOAD MAIS POSTS 
+        var tamanho = postsarray.count
+        
+        Story.footerisabletoexist(tamanho) { (Bool) -> Void in
+            if Bool == true{
+                
+            }
+            else{
+                
+            }
+        }
+        
+        return nil
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
