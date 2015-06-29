@@ -25,7 +25,7 @@
 		5A07662F1B3B31BB005418AB /* StoryPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A07662D1B3B31BB005418AB /* StoryPiece.swift */; };
 		5A0766311B3B3410005418AB /* StoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0766301B3B3410005418AB /* StoryController.swift */; };
 		5A64EEF41B3C3A7B00DB0819 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64EEF31B3C3A7B00DB0819 /* StoryCell.swift */; };
-		5A64EEF61B3C416900DB0819 /* CustomTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A64EEF51B3C416900DB0819 /* CustomTableCell.xib */; };
+		5A64EEF61B3C416900DB0819 /* StoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A64EEF51B3C416900DB0819 /* StoryCell.xib */; };
 		8368D3701B39EF910007E8E0 /* FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D36F1B39EF910007E8E0 /* FacebookLogin.swift */; };
 		8368D3721B3C60F80007E8E0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8368D3711B3C60F80007E8E0 /* Profile.storyboard */; };
 		8368D3741B3C611A0007E8E0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D3731B3C611A0007E8E0 /* ProfileViewController.swift */; };
@@ -67,7 +67,7 @@
 		5A07662D1B3B31BB005418AB /* StoryPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPiece.swift; sourceTree = "<group>"; };
 		5A0766301B3B3410005418AB /* StoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryController.swift; sourceTree = "<group>"; };
 		5A64EEF31B3C3A7B00DB0819 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
-		5A64EEF51B3C416900DB0819 /* CustomTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableCell.xib; sourceTree = "<group>"; };
+		5A64EEF51B3C416900DB0819 /* StoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryCell.xib; sourceTree = "<group>"; };
 		72E98D86373E3AC3F91D987C /* Pods_Our_Story.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Our_Story.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8368D36F1B39EF910007E8E0 /* FacebookLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLogin.swift; sourceTree = "<group>"; };
 		8368D3711B3C60F80007E8E0 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 			children = (
 				3086324D1B3B3D8200C7DBCC /* StoryPieceCell.xib */,
 				3086324B1B3B3ADA00C7DBCC /* StoryPieceCell.swift */,
-				5A64EEF51B3C416900DB0819 /* CustomTableCell.xib */,
+				5A64EEF51B3C416900DB0819 /* StoryCell.xib */,
 				5A64EEF31B3C3A7B00DB0819 /* StoryCell.swift */,
 			);
 			name = "Custom Views";
@@ -315,7 +315,7 @@
 				307AD91A1B3B1F960051C093 /* Story.storyboard in Resources */,
 				30639DCD1B38D67100A40B51 /* Main.storyboard in Resources */,
 				8368D3721B3C60F80007E8E0 /* Profile.storyboard in Resources */,
-				5A64EEF61B3C416900DB0819 /* CustomTableCell.xib in Resources */,
+				5A64EEF61B3C416900DB0819 /* StoryCell.xib in Resources */,
 				30639DD21B38D67100A40B51 /* LaunchScreen.xib in Resources */,
 				30639DCF1B38D67100A40B51 /* Images.xcassets in Resources */,
 				3086324E1B3B3D8200C7DBCC /* StoryPieceCell.xib in Resources */,
