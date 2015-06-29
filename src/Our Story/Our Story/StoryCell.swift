@@ -21,14 +21,8 @@ class StoryCell: UITableViewCell{
     
     @IBOutlet var informationLabel: UILabel!
     
-    
     @IBOutlet var storyPieceMessage: UILabel!
     @IBOutlet var storyPieceBkgImage: UIImageView!
-    
-    
-    
-    
-    
     
     func loadItens(story: NSObject){
         
