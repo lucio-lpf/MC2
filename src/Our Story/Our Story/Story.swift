@@ -57,6 +57,26 @@ class Story: NSObject {
         
     }
     
+    
+    
+    class func cincoultimas(completion: (NSMutableArray)-> Void){
+        var postquery = PFQuery(className: "Story")
+        var postsarray: NSMutableArray = []
+        postquery.orderByDescending("createdAt")
+        postquery.limit = 5 //PEGANDO OS 5 PRIMEIROS POSTS
+        //ADICIONANDO AO MAIN ARRAY OS 5 POSTS
+        postquery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                for var index = 0; index != results!.count; ++index{
+                    postsarray.addObject(results![index])
+                }
+                completion(postsarray)
+            })
+        })
+
+        
+        
+    }
     class func footerisabletoexist(tamanho:Int,completion: (Bool) -> Void){
         var queryposts = PFQuery(className: "Story")
         var verificador : Bool

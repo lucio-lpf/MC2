@@ -18,6 +18,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     var refreshControl = UIRefreshControl()
     var currentStory:NSObject!
     var createdStoryId:String!
+    var celltouched: NSObject!
     
     override func viewDidLoad() {
         
@@ -116,17 +117,26 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
             }
         }
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //SABENDO A CELL SELECIONADA, EU SEI A POSIÇAO NO VETOR
+        
+        self.celltouched = postsarray.objectAtIndex(indexPath.row) as! NSObject
+        
+       self.performSegueWithIdentifier("goToStoryPieces", sender: nil)
+        
+        
+    }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "goToStoryPieces" {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "goToStoryPieces") {
             
-            if let viewController: StoryPieceViewController = segue.destinationViewController as? StoryPieceViewController {
-                if let s = currentStory {
-                    viewController.parentStory = s
-                }
+            if let newStoryPiece = segue.destinationViewController as? StoryPieceViewController {
+                newStoryPiece.parentStory = self.celltouched
             }
+            
         }
     }
+   
 //
 //    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 //        //VENDO SE PRECISA DE FOOTER PRA LOAD MAIS POSTS 

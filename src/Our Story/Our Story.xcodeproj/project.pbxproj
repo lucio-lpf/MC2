@@ -115,6 +115,7 @@
 		5A0766301B3B3410005418AB /* StoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryController.swift; sourceTree = "<group>"; };
 		5A64EEF31B3C3A7B00DB0819 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
 		5A64EEF51B3C416900DB0819 /* StoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryCell.xib; sourceTree = "<group>"; };
+		5A7DCA2C1B43155500AA3FA5 /* Our Story.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Our Story.entitlements"; sourceTree = "<group>"; };
 		72E98D86373E3AC3F91D987C /* Pods_Our_Story.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Our_Story.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8368D36F1B39EF910007E8E0 /* FacebookLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLogin.swift; sourceTree = "<group>"; };
 		8368D3711B3C60F80007E8E0 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -257,6 +258,7 @@
 		30639DC41B38D67100A40B51 /* Our Story */ = {
 			isa = PBXGroup;
 			children = (
+				5A7DCA2C1B43155500AA3FA5 /* Our Story.entitlements */,
 				303BD4811B39E867000A814A /* Models */,
 				303BD4801B39E851000A814A /* Views */,
 				303BD47F1B39E831000A814A /* Controllers */,
@@ -437,6 +439,11 @@
 					30639DC11B38D67100A40B51 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = TY5QM4UU69;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					30639DD61B38D67100A40B51 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -744,7 +751,9 @@
 			baseConfigurationReference = C48328B1226D75D12ACBBE9A /* Pods-Our Story.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Our Story/Our Story.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -753,6 +762,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "\"-D\" \"COCOAPODS\" $(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Our Story/Our-Story-Bridging-Header.h";
 			};
 			name = Debug;
@@ -762,7 +772,9 @@
 			baseConfigurationReference = F72C86A04BF1515663E85E85 /* Pods-Our Story.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Our Story/Our Story.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -771,6 +783,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "\"-D\" \"COCOAPODS\" $(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Our Story/Our-Story-Bridging-Header.h";
 			};
 			name = Release;
@@ -904,6 +917,7 @@
 				83F2F6011B430E0000B41DA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83F2F6021B430E0000B41DA5 /* Build configuration list for PBXNativeTarget "Our Story WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -912,6 +926,7 @@
 				83F2F6041B430E0000B41DA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

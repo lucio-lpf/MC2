@@ -16,6 +16,22 @@ class StoryPiece: NSObject {
 
     
     
+    class func loadfirstpieces(objectId:String,completion: (NSMutableArray) -> Void ) {
+        var postsarray:NSMutableArray = []
+        var postquery = PFQuery(className: "Story")
+        postquery.orderByDescending("createdAt")
+        postquery.limit = 100 //PEGANDO OS 10 PRIMEIROS POSTS
+        //ADICIONANDO AO MAIN ARRAY OS 10 POSTS
+        postquery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                for var index = 0; index != results!.count; ++index{
+                    postsarray.addObject(results![index])
+                }
+                completion(postsarray)
+            })
+        })
+    }
+    
     func savestorypiece(storypiece: NSObject) -> (){
         var newobject = PFObject(className: "StoryPieces")
         newobject = storypiece as! PFObject
