@@ -55,7 +55,7 @@
         <!--Navigation Controller-->
         <scene sceneID="tJY-BX-TtD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Dm-On-mNz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavegationStory" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Dm-On-mNz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wim-f6-bBS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

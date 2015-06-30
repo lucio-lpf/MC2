@@ -16,23 +16,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH5-Ct-yr4">
-                                <rect key="frame" x="231" y="285" width="138" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icone" translatesAutoresizingMaskIntoConstraints="NO" id="ghZ-hr-PwG">
+                                <rect key="frame" x="264" y="49" width="85" height="85"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="158" y="45" width="85" height="85"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Our Story" translatesAutoresizingMaskIntoConstraints="NO" id="hWw-2p-5Z3">
+                                <rect key="frame" x="172" y="172" width="256" height="92"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="72" y="172" width="256" height="92"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH5-Ct-yr4">
+                                <rect key="frame" x="148" y="461" width="305" height="80"/>
                                 <animations/>
-                                <state key="normal" title="Login via Facebook!">
+                                <state key="normal" image="facebook_icon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="48" y="485" width="305" height="80"/>
+                                </variation>
                                 <connections>
                                     <action selector="loginButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lya-Rm-YW4"/>
                                 </connections>
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="SH5-Ct-yr4" secondAttribute="centerX" id="Bm2-SR-Gjv"/>
-                            <constraint firstAttribute="centerY" secondItem="SH5-Ct-yr4" secondAttribute="centerY" id="gK0-Uf-Rjt"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.11372549019607843" green="0.29019607843137257" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -40,4 +51,9 @@
             <point key="canvasLocation" x="151" y="307"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icone" width="358" height="478"/>
+        <image name="Our Story" width="543" height="132"/>
+        <image name="facebook_icon" width="505" height="128"/>
+    </resources>
 </document>

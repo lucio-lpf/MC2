@@ -24,7 +24,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         //ADICIONADNO O REFRESH
         refreshControl.addTarget(self, action: Selector("updatePosts"), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(self.refreshControl)
-        
+            
         //ADICIONANDO AS CELLS COSTUMIZADAS
         var nib = UINib(nibName: "StoryCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.Story)
