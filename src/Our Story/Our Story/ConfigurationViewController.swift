@@ -22,9 +22,12 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
     
     var identifier = StyleSample.identifier 
     
+    var showCollectionView = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        showCollectionView = true
         
         self.collectionView.alpha = 0
 
@@ -50,8 +53,14 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
     }
     
     @IBAction func changeStyleButtonAction(sender: AnyObject) {
-        
-        animateCollectionViewAlphaFadeIn()
+        if showCollectionView {
+            animateCollectionViewAlphaFadeIn()
+            showCollectionView = false
+        } else {
+            animateCollectionViewAlphaFadeOut()
+            showCollectionView = true
+        }
+    
     }
     
     func animateCollectionViewAlphaFadeIn(){
@@ -115,10 +124,21 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
         var userConfig = UserConfiguration()
         
         userConfig.changeStoryStyle(styles[indexPath.row] as String, completion: { (success) -> Void in
-            self.storyStyleButton.setBackgroundImage(UIImage(named: self.styles[indexPath.row] as String), forState: UIControlState())
+            
+            if success {
+                self.storyStyleButton.setBackgroundImage(UIImage(named: self.styles[indexPath.row] as String), forState: UIControlState())
+                self.animateCollectionViewAlphaFadeOut()
+                self.showCollectionView = true
+            } else {
+                println("não salvou o style no parse")
+                var alert = UIAlertController(title: "Sem conexão com a internet", message: "Não conseguimos salvar a alteração, tente novamente mais tarde.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+           
         })
 
-        animateCollectionViewAlphaFadeOut()
+        
         
     }
 }
