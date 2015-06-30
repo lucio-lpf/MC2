@@ -74,22 +74,15 @@ class Story: NSObject {
     }
     
     
-    func creatStory(titulo: NSString, completion:(PFObject) -> Void){
-    
+    class func createStory(titulo: String, callback:(PFObject?,Bool,NSError?)->()) {
         var newStory = PFObject(className: "Story")
         newStory.setValue(titulo, forKey: "storyName")
-        newStory.saveInBackgroundWithBlock { (bool, error) -> Void in
-            if (error == nil){
-                print(error)
-            }
-            else{
-                print("Slavou")
-            }
+//        newStory.setValue(PFUser.currentUser(), forKey: "createdBy")
+        newStory.saveInBackgroundWithBlock {
+            (bool, error) in
+            callback(newStory,bool,error)
         }
-        completion(newStory)
     }
-    
-    
 }
 
 

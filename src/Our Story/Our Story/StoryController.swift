@@ -17,6 +17,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     var newStoryView: AddNewStoryView!
     var refreshControl = UIRefreshControl()
     var currentStory:NSObject!
+    var createdStoryId:String!
     
     override func viewDidLoad() {
         
@@ -84,9 +85,24 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func createNewStory(title: String, firstPiece: String) {
-//        print("StoryTitle: \(title)  -  StoryPiece: \(firstPiece)")
+        print("StoryTitle: \(title)  -  StoryPiece: \(firstPiece) \n")
         
-//        Story.create(title,firstPiece)
+        StoryPiece.createStoryPiece(firstPiece) {
+            (piece,success, error) in
+            if (success) {
+                
+            } else {
+                print(error)
+            }
+        }
+        
+        Story.createStory(title){
+            (story,success, error) in
+            if (success) {
+            } else {
+                print(error)
+            }
+        }
     }
     
     func removeSubViews() {
@@ -107,6 +123,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
                 }
             }
         }
+    }
 
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         //VENDO SE PRECISA DE FOOTER PRA LOAD MAIS POSTS 
@@ -120,22 +137,6 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
                 
             }
         }
-        
         return nil
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 5f13b2183fb94f8de3ab1c827077e1ef17dc7a5e
