@@ -245,9 +245,22 @@
                                     <outlet property="delegate" destination="3tB-DI-7Yp" id="EoP-rE-Ay4"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pc-AS-7DD">
+                                <rect key="frame" x="0.0" y="20" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="y1j-Eg-Pb6"/>
+                                </constraints>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="3tB-DI-7Yp" eventType="touchUpInside" id="xJP-VB-FYh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="7pc-AS-7DD" firstAttribute="leading" secondItem="eXp-RV-NB0" secondAttribute="leading" constant="-16" id="Nr8-gq-Wq5"/>
                             <constraint firstItem="dpJ-RX-eiH" firstAttribute="leading" secondItem="769-XE-Sr5" secondAttribute="leadingMargin" id="PN9-0B-rkh"/>
                             <constraint firstItem="eXp-RV-NB0" firstAttribute="leading" secondItem="769-XE-Sr5" secondAttribute="leadingMargin" id="PP9-n7-KDh"/>
                             <constraint firstItem="eXp-RV-NB0" firstAttribute="trailing" secondItem="769-XE-Sr5" secondAttribute="trailingMargin" id="QLu-uw-AHj"/>
@@ -257,6 +270,7 @@
                             <constraint firstItem="dpJ-RX-eiH" firstAttribute="centerX" secondItem="eXp-RV-NB0" secondAttribute="centerX" id="dA5-oY-0fA"/>
                             <constraint firstAttribute="centerX" secondItem="wOz-Vf-bJQ" secondAttribute="centerX" constant="-70" id="dJ5-SG-Lga"/>
                             <constraint firstItem="wOz-Vf-bJQ" firstAttribute="top" secondItem="eXp-RV-NB0" secondAttribute="bottom" constant="31" id="fXu-R7-kD9"/>
+                            <constraint firstItem="7pc-AS-7DD" firstAttribute="top" secondItem="5sW-oK-3f1" secondAttribute="bottom" id="gca-e1-Uc9"/>
                             <constraint firstItem="eXp-RV-NB0" firstAttribute="top" secondItem="5sW-oK-3f1" secondAttribute="bottom" constant="23" id="gef-po-ft0"/>
                             <constraint firstItem="dpJ-RX-eiH" firstAttribute="bottom" secondItem="T4F-ld-Sip" secondAttribute="top" constant="27" id="hzd-d2-oa9"/>
                         </constraints>

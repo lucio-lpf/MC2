@@ -26,20 +26,16 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        storyStyleButton.imageView?.image = UIImage(named: "padrao_papel")
-        
         self.collectionView.alpha = 0
 
         var user = PFUser.currentUser()
         userNameLabel.text = user?.objectForKey("name") as? String
         
+        storyStyleButton.setBackgroundImage(UIImage(named: user!.objectForKey("storyStyle") as! String), forState: UIControlState())
+        
         storyStyleButton.layer.cornerRadius = 10;
         storyStyleButton.layer.borderColor = UIColor.blackColor().CGColor
         storyStyleButton.layer.borderWidth = 1.0
-        //        avatarImage.layer.shadowColor = UIColor.grayColor().CGColor;
-        //        avatarImage.layer.shadowOffset=CGSizeMake(2, 2);
-        //        avatarImage.layer.shadowOpacity=1.0;
-        //        avatarImage.layer.shadowRadius=1.0;
         storyStyleButton.clipsToBounds = true
         
         
@@ -67,11 +63,12 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
     
     func animateCollectionViewAlphaFadeOut(){
         UIView.animateWithDuration(0.7, animations: {
+            
             self.collectionView.alpha = 0
             
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.7 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
-                self.collectionView.hidden = true
-        }
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.7 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+                    self.collectionView.hidden = true
+            }
 
         })
         
@@ -79,6 +76,9 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
     }
     
     
+    @IBAction func backButtonAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     //COLLECTIONVIEW DELEGATE
     //2
@@ -113,14 +113,11 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
         
-        self.storyStyleButton.setBackgroundImage(UIImage(named: styles[indexPath.row] as String), forState: UIControlState())
-
-        var user = PFUser.currentUser()
-        if let user = user {
-            user["storyStyle"] = styles[indexPath.row] as String
-            user.saveInBackground()
-        }
+        var userConfig = UserConfiguration()
         
+        userConfig.changeStoryStyle(styles[indexPath.row] as String, completion: { (success) -> Void in
+            self.storyStyleButton.setBackgroundImage(UIImage(named: self.styles[indexPath.row] as String), forState: UIControlState())
+        })
 
         animateCollectionViewAlphaFadeOut()
         
