@@ -32,10 +32,11 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         
         //ADICIONANDO AO MAIN ARRAY OS 10 POSTS
-        Story.loadfirststories({ (arraydeposts) -> Void in
-            self.postsarray = arraydeposts
-            self.tableView.reloadData()
-        })
+//        Story.loadfirststories({ (arraydeposts) -> Void in
+//            self.postsarray = arraydeposts
+//            self.tableView.reloadData()
+//        })
+        updatePosts()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{

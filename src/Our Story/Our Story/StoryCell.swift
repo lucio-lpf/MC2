@@ -30,7 +30,5 @@ class StoryCell: UITableViewCell {
 //        var pieces = story.valueForKey("storyPieces") aNSArray
 //        storylabel.text = pieces[0] as? String
 //       informationLabel.text = story.valueForKey("createdBy")?.valueForKey("objectId") as? String
-        
-        
     }
 }
