@@ -6,6 +6,10 @@
 //  Copyright (c) 2015 mc2. All rights reserved.
 //
 
+protocol StoryPieceViewDelegate:NSObjectProtocol {
+    func createNewStoryPiece(message:String)
+    func removeSubViews()
+}
 
 class AddNewStoryPieceView: UIView, UITextViewDelegate {
     
@@ -14,12 +18,14 @@ class AddNewStoryPieceView: UIView, UITextViewDelegate {
     @IBOutlet var message: UITextView!
     @IBOutlet var contChar: UILabel!
     
+    var delegate:StoryPieceViewDelegate?
+    
 
-    class func instanceFromNib() -> UIView {
-        var instance = UINib(nibName: "AddNewStoryPieceView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
+    class func instanceFromNib() -> AddNewStoryPieceView {
+        var instance = UINib(nibName: "AddNewStoryPieceView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! AddNewStoryPieceView
         
        var txt = instance.viewWithTag(1) as! UITextView
-        txt.delegate = instance as? UITextViewDelegate
+        txt.delegate = instance as UITextViewDelegate
         txt.layer.cornerRadius = 5
         txt.layer.borderWidth = 0.3
         txt.layer.borderColor = UIColor.blackColor().CGColor
@@ -27,10 +33,10 @@ class AddNewStoryPieceView: UIView, UITextViewDelegate {
         return instance
     }
     
-    
     @IBAction func addContribution(sender: AnyObject) {
-        print(message.text)
-        StoryPiece.createStoryPiece(message.text)
+//        StoryPiece.createStoryPiece(message.text)
+        self.delegate?.createNewStoryPiece(message.text)
+        self.delegate?.removeSubViews()
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
@@ -47,4 +53,6 @@ class AddNewStoryPieceView: UIView, UITextViewDelegate {
             return false
         }
     }
+    
+    
 }

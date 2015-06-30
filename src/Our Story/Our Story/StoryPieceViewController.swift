@@ -9,11 +9,11 @@
 import UIKit
 import Parse
 
-class StoryPieceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate {
+class StoryPieceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, StoryPieceViewDelegate {
  
     @IBOutlet var tableView: UITableView!
-    var newStoryPieceView: UIView!
-    var parentStory:Story!
+    var newStoryPieceView: AddNewStoryPieceView!
+    var parentStory:NSObject!
     var pieces:[StoryPiece]!
     
     override func viewDidLoad() {
@@ -25,7 +25,9 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         let nib = UINib(nibName: "StoryPieceCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.StoryPiece)
         
-        testePieces()
+        var parent = parentStory as? Story
+        print(parent?.storyName)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,33 +63,30 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
         let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+        blurView.tag = 10
         self.view.addSubview(blurView)
         
         newStoryPieceView = AddNewStoryPieceView.instanceFromNib()
         newStoryPieceView.frame = CGRectMake(0, 0, self.view.frame.size.width - 20, 250)
         newStoryPieceView.center = self.view.center
+        newStoryPieceView.tag = 11
+        newStoryPieceView.delegate = self
         
         self.view.addSubview(newStoryPieceView)
         
     }
     
-    func testePieces(){
+    func createNewStoryPiece(message: String) {
         
-        var teste1 = StoryPiece()
-        teste1.text? = "Era uma vez João e Maria indo para a floresta escura"
-        teste1.createdBy? = PFUser.currentUser()!
-        
-        var teste2 = StoryPiece()
-        teste2.text? = "Era uma vez João e Maria indo para a floresta escura"
-        teste2.createdBy? = PFUser.currentUser()!
-        
-        var teste3 = StoryPiece()
-        teste3.text? = "Era uma vez João e Maria indo para a floresta escura"
-        teste3.createdBy? = PFUser.currentUser()!
-        
-//        pieces.append(teste1)
-//        pieces.append(teste2)
-//        pieces.append(teste3)
+    }
+    
+    func removeSubViews() {
+        if let view = self.view.viewWithTag(11){
+            if let subview = self.view.viewWithTag(10) {
+                subview.removeFromSuperview()
+                view.removeFromSuperview()
+            }
+        }
     }
     
 }

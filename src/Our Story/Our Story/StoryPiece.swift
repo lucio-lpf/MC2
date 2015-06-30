@@ -10,7 +10,6 @@ import Parse
 
 class StoryPiece: NSObject {
     
-    static let parseClassName:String = "storyPieces"
     var text: String?
     var createdBy: PFUser?
     var createdAt: NSDate?
@@ -18,7 +17,7 @@ class StoryPiece: NSObject {
     
     
     func savestorypiece(storypiece: NSObject) -> (){
-        var newobject = PFObject(className: "StoryPiece")
+        var newobject = PFObject(className: "StoryPieces")
         newobject = storypiece as! PFObject
         newobject.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
@@ -30,33 +29,14 @@ class StoryPiece: NSObject {
         }
     }
     
-    class func createStoryPiece(message:String) {
-        var piece = PFObject(className: parseClassName)
-        piece["text"] = message
-        piece["createdBy"] = PFUser.currentUser()
-        piece.save()
-    }
-    
-    class func getLastTenPieces() {
-        var query = PFQuery(className: parseClassName)
-        query.limit = 10
-        query.orderByDescending("createdAt")
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
-                // The find succeeded.
-                println("Successfully retrieved \(objects!.count) scores.")
-                // Do something with the found objects
-                if let objects = objects as? [StoryPiece] {
-                    for object in objects {
-
-                    }
-                }
-            } else {
-                // Log details of the failure
-                println("Error: \(error!) \(error!.userInfo!)")
-            }
+    class func createStoryPiece(message:String, callback:(PFObject,Bool,NSError?)->()) {
+        
+        var piece = PFObject(className: "StoryPieces")
+        piece.setValue(message, forKey: "text")
+//        piece.setValue(PFUser.currentUser(), forKey: "createdBy")
+        piece.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) in
+                callback(piece,success,error)
         }
     }
 }
