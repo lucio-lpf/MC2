@@ -36,6 +36,7 @@
 		837942DB1B41B90E00BEB265 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837942DA1B41B90E00BEB265 /* ConfigurationViewController.swift */; };
 		837942DF1B41CC4700BEB265 /* StyleSample.xib in Resources */ = {isa = PBXBuildFile; fileRef = 837942DE1B41CC4700BEB265 /* StyleSample.xib */; };
 		837942E11B41CCE400BEB265 /* StyleSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837942E01B41CCE400BEB265 /* StyleSample.swift */; };
+		83F2F5DC1B42FC1600B41DA5 /* UserConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F2F5DB1B42FC1600B41DA5 /* UserConfiguration.swift */; };
 		8A1E49F6709BF045818542C6 /* Pods_Our_Story.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E98D86373E3AC3F91D987C /* Pods_Our_Story.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		837942DA1B41B90E00BEB265 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		837942DE1B41CC4700BEB265 /* StyleSample.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StyleSample.xib; sourceTree = "<group>"; };
 		837942E01B41CCE400BEB265 /* StyleSample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleSample.swift; sourceTree = "<group>"; };
+		83F2F5DB1B42FC1600B41DA5 /* UserConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserConfiguration.swift; sourceTree = "<group>"; };
 		C48328B1226D75D12ACBBE9A /* Pods-Our Story.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.debug.xcconfig"; sourceTree = "<group>"; };
 		F72C86A04BF1515663E85E85 /* Pods-Our Story.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.release.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +169,7 @@
 				5A07662D1B3B31BB005418AB /* StoryPiece.swift */,
 				30639DC71B38D67100A40B51 /* AppDelegate.swift */,
 				8368D36F1B39EF910007E8E0 /* FacebookLogin.swift */,
+				83F2F5DB1B42FC1600B41DA5 /* UserConfiguration.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				308632481B3B37F100C7DBCC /* StoryPieceViewController.swift in Sources */,
 				837942E11B41CCE400BEB265 /* StyleSample.swift in Sources */,
 				5A07662E1B3B31BB005418AB /* Story.swift in Sources */,
+				83F2F5DC1B42FC1600B41DA5 /* UserConfiguration.swift in Sources */,
 				5A64EEF41B3C3A7B00DB0819 /* StoryCell.swift in Sources */,
 				5A07662F1B3B31BB005418AB /* StoryPiece.swift in Sources */,
 			);
