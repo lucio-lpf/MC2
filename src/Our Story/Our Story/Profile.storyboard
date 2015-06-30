@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kwu-vI-8Ue">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kwu-vI-8Ue">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -197,19 +197,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXp-RV-NB0">
-                                <rect key="frame" x="16" y="28" width="568" height="24"/>
+                                <rect key="frame" x="16" y="43" width="568" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estilo da história:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lku-lj-8Uf">
-                                <rect key="frame" x="199" y="91" width="132" height="21"/>
+                                <rect key="frame" x="199" y="119" width="132" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOz-Vf-bJQ">
-                                <rect key="frame" x="339" y="71" width="62" height="62"/>
+                                <rect key="frame" x="339" y="98" width="62" height="62"/>
                                 <color key="backgroundColor" red="1" green="0.98266621590000003" blue="0.85215351610000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="62" id="bi7-b6-fUC"/>
@@ -223,24 +223,23 @@
                                 </connections>
                             </button>
                             <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dpJ-RX-eiH">
-                                <rect key="frame" x="-5" y="165" width="611" height="635"/>
+                                <rect key="frame" x="16" y="192" width="569" height="635"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9wK-wq-TAx">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="itemSize" width="60" height="60"/>
+                                    <size key="headerReferenceSize" width="0.0" height="5"/>
+                                    <size key="footerReferenceSize" width="0.0" height="5"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BZu-ZW-9NA">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="neb-Gf-Js1">
+                                    <rect key="frame" x="0.0" y="0.0" width="569" height="5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Tpo-UY-mgZ">
+                                    <rect key="frame" x="0.0" y="5" width="569" height="5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="3tB-DI-7Yp" id="xnk-lp-Pyc"/>
                                     <outlet property="delegate" destination="3tB-DI-7Yp" id="EoP-rE-Ay4"/>
@@ -249,17 +248,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dpJ-RX-eiH" firstAttribute="leading" secondItem="769-XE-Sr5" secondAttribute="leadingMargin" constant="-21" id="PN9-0B-rkh"/>
+                            <constraint firstItem="dpJ-RX-eiH" firstAttribute="leading" secondItem="769-XE-Sr5" secondAttribute="leadingMargin" id="PN9-0B-rkh"/>
                             <constraint firstItem="eXp-RV-NB0" firstAttribute="leading" secondItem="769-XE-Sr5" secondAttribute="leadingMargin" id="PP9-n7-KDh"/>
                             <constraint firstItem="eXp-RV-NB0" firstAttribute="trailing" secondItem="769-XE-Sr5" secondAttribute="trailingMargin" id="QLu-uw-AHj"/>
                             <constraint firstItem="wOz-Vf-bJQ" firstAttribute="leading" secondItem="Lku-lj-8Uf" secondAttribute="trailing" constant="8" id="aYb-Y0-Hh7"/>
                             <constraint firstItem="dpJ-RX-eiH" firstAttribute="top" secondItem="wOz-Vf-bJQ" secondAttribute="bottom" constant="32" id="aZS-Da-QSp"/>
-                            <constraint firstItem="Lku-lj-8Uf" firstAttribute="top" secondItem="eXp-RV-NB0" secondAttribute="bottom" constant="39" id="blQ-sg-iK9"/>
+                            <constraint firstItem="Lku-lj-8Uf" firstAttribute="top" secondItem="eXp-RV-NB0" secondAttribute="bottom" constant="51.5" id="blQ-sg-iK9"/>
                             <constraint firstItem="dpJ-RX-eiH" firstAttribute="centerX" secondItem="eXp-RV-NB0" secondAttribute="centerX" id="dA5-oY-0fA"/>
                             <constraint firstAttribute="centerX" secondItem="wOz-Vf-bJQ" secondAttribute="centerX" constant="-70" id="dJ5-SG-Lga"/>
-                            <constraint firstItem="wOz-Vf-bJQ" firstAttribute="top" secondItem="eXp-RV-NB0" secondAttribute="bottom" constant="19" id="fXu-R7-kD9"/>
-                            <constraint firstItem="eXp-RV-NB0" firstAttribute="top" secondItem="5sW-oK-3f1" secondAttribute="bottom" constant="8" id="gef-po-ft0"/>
-                            <constraint firstItem="dpJ-RX-eiH" firstAttribute="bottom" secondItem="T4F-ld-Sip" secondAttribute="top" id="hzd-d2-oa9"/>
+                            <constraint firstItem="wOz-Vf-bJQ" firstAttribute="top" secondItem="eXp-RV-NB0" secondAttribute="bottom" constant="31" id="fXu-R7-kD9"/>
+                            <constraint firstItem="eXp-RV-NB0" firstAttribute="top" secondItem="5sW-oK-3f1" secondAttribute="bottom" constant="23" id="gef-po-ft0"/>
+                            <constraint firstItem="dpJ-RX-eiH" firstAttribute="bottom" secondItem="T4F-ld-Sip" secondAttribute="top" constant="27" id="hzd-d2-oa9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -270,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYU-Lp-cmW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1228" y="219"/>
+            <point key="canvasLocation" x="1204" y="181"/>
         </scene>
     </scenes>
 </document>

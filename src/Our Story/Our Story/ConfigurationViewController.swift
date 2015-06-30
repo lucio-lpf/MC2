@@ -18,9 +18,9 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let styles: [String] = ["padrao_papel"]
+    let styles: [String] = ["padrao_papel", "pink", "blue", "green", "yellow", "purple"]
     
-    var identifier = StyleSample.identifier //trocar pra StoryCell
+    var identifier = StyleSample.identifier 
     
     
     override func viewDidLoad() {
@@ -34,8 +34,8 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
         userNameLabel.text = user?.objectForKey("name") as? String
         
         storyStyleButton.layer.cornerRadius = 10;
-        storyStyleButton.layer.borderColor = UIColor.whiteColor().CGColor
-        storyStyleButton.layer.borderWidth = 2.0
+        storyStyleButton.layer.borderColor = UIColor.blackColor().CGColor
+        storyStyleButton.layer.borderWidth = 1.0
         //        avatarImage.layer.shadowColor = UIColor.grayColor().CGColor;
         //        avatarImage.layer.shadowOffset=CGSizeMake(2, 2);
         //        avatarImage.layer.shadowOpacity=1.0;
@@ -55,26 +55,34 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
     
     @IBAction func changeStyleButtonAction(sender: AnyObject) {
         
-        collectionView.hidden = false
         animateCollectionViewAlphaFadeIn()
     }
     
     func animateCollectionViewAlphaFadeIn(){
         UIView.animateWithDuration(1, animations: {
+            self.collectionView.hidden = false
             self.collectionView.alpha = 1
         })
     }
     
     func animateCollectionViewAlphaFadeOut(){
-        UIView.animateWithDuration(1, animations: {
+        UIView.animateWithDuration(0.7, animations: {
             self.collectionView.alpha = 0
+            
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.7 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+                self.collectionView.hidden = true
+        }
+
         })
+        
+       
     }
     
     
     
     //COLLECTIONVIEW DELEGATE
     //2
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return styles.count
     }
@@ -83,7 +91,38 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.identifier , forIndexPath: indexPath) as! StyleSample
         cell.imageView.image = UIImage(named: self.styles[indexPath.row])
+        cell.imageView.layer.cornerRadius = 6;
+        cell.imageView.layer.borderColor = UIColor.blackColor().CGColor
+        cell.imageView.layer.borderWidth = 1.5
+        cell.imageView.clipsToBounds = true
+        
+        cell.frame.size.width = 60
+        cell.frame.size.height = 60
+     
+        
         // Configure the cell
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+            
+        return CGSizeMake(60, 60)
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
+        
+        self.storyStyleButton.setBackgroundImage(UIImage(named: styles[indexPath.row] as String), forState: UIControlState())
+
+        var user = PFUser.currentUser()
+        if let user = user {
+            user["storyStyle"] = styles[indexPath.row] as String
+            user.saveInBackground()
+        }
+        
+
+        animateCollectionViewAlphaFadeOut()
+        
     }
 }
