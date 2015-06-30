@@ -33,7 +33,6 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         //ADICIONANDO AO MAIN ARRAY OS 10 POSTS
         Story.loadfirststories({ (arraydeposts) -> Void in
             self.postsarray = arraydeposts
-            print (self.postsarray)
             self.tableView.reloadData()
         })
     }
