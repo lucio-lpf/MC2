@@ -19,6 +19,29 @@ class InterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
+        var request = NSDictionary(object: "request", forKey: "5Stories")
+        WKInterfaceController.openParentApplication(request as [NSObject : AnyObject], reply:{(replyFromParent, error) -> Void in
+            
+            if !(error != nil){
+                
+                println(" testanto esse bagulho: \(replyFromParent)")
+                
+                if replyFromParent != nil{
+                    var dict = replyFromParent as NSDictionary
+                    
+               
+                } else {
+                    
+                    
+                }
+                
+                
+                
+            } else {
+                println(error.description)
+            }
+        })
+        
         loadTableData()
         
         // Configure interface objects here.
