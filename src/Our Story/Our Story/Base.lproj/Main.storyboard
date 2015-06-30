@@ -16,47 +16,111 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH5-Ct-yr4">
-                                <rect key="frame" x="231" y="285" width="138" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Icone" translatesAutoresizingMaskIntoConstraints="NO" id="ghZ-hr-PwG">
+                                <rect key="frame" x="264" y="49" width="85" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="i2O-dC-8Ti"/>
+                                    <constraint firstAttribute="height" constant="105" id="uAv-cP-kbd"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="i2O-dC-8Ti"/>
+                                        <exclude reference="uAv-cP-kbd"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="i2O-dC-8Ti"/>
+                                        <include reference="uAv-cP-kbd"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Our Story" translatesAutoresizingMaskIntoConstraints="NO" id="hWw-2p-5Z3">
+                                <rect key="frame" x="172" y="172" width="256" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="7zC-XV-jZF"/>
+                                    <constraint firstAttribute="height" constant="92" id="FQI-gK-m8i"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7zC-XV-jZF"/>
+                                        <exclude reference="FQI-gK-m8i"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="7zC-XV-jZF"/>
+                                        <include reference="FQI-gK-m8i"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH5-Ct-yr4">
+                                <rect key="frame" x="148" y="461" width="305" height="80"/>
                                 <animations/>
-                                <state key="normal" title="Login via Facebook!">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="lcT-ks-OeP"/>
+                                    <constraint firstAttribute="width" constant="256" id="xR8-i2-avF"/>
+                                </constraints>
+                                <state key="normal" image="facebook_icon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="lcT-ks-OeP"/>
+                                        <exclude reference="xR8-i2-avF"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="lcT-ks-OeP"/>
+                                        <include reference="xR8-i2-avF"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="loginButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lya-Rm-YW4"/>
                                 </connections>
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.23977351497900251" green="0.23547650835144485" blue="0.24348839003630363" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="SH5-Ct-yr4" secondAttribute="centerX" id="Bm2-SR-Gjv"/>
-                            <constraint firstAttribute="centerY" secondItem="SH5-Ct-yr4" secondAttribute="centerY" id="gK0-Uf-Rjt"/>
+                            <constraint firstItem="ghZ-hr-PwG" firstAttribute="leading" secondItem="hWw-2p-5Z3" secondAttribute="trailing" constant="-170" id="07e-g6-fKP"/>
+                            <constraint firstAttribute="centerX" secondItem="hWw-2p-5Z3" secondAttribute="centerX" id="Spk-ST-0nk"/>
+                            <constraint firstItem="ghZ-hr-PwG" firstAttribute="top" secondItem="hWw-2p-5Z3" secondAttribute="bottom" constant="24" id="gTy-Pq-vA8"/>
+                            <constraint firstItem="hWw-2p-5Z3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="hmO-PN-icN"/>
+                            <constraint firstAttribute="centerX" secondItem="SH5-Ct-yr4" secondAttribute="centerX" id="iT7-0r-nYB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SH5-Ct-yr4" secondAttribute="bottom" constant="80" id="ksi-PH-BHy"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Spk-ST-0nk"/>
+                                <exclude reference="hmO-PN-icN"/>
+                                <exclude reference="07e-g6-fKP"/>
+                                <exclude reference="gTy-Pq-vA8"/>
+                                <exclude reference="iT7-0r-nYB"/>
+                                <exclude reference="ksi-PH-BHy"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="Spk-ST-0nk"/>
+                                <include reference="hmO-PN-icN"/>
+                                <include reference="07e-g6-fKP"/>
+                                <include reference="gTy-Pq-vA8"/>
+                                <include reference="iT7-0r-nYB"/>
+                                <include reference="ksi-PH-BHy"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="151" y="307"/>
-        </scene>
-        <!--Menu View Controller-->
-        <scene sceneID="KED-yy-N9g">
-            <objects>
-                <viewController id="tta-ak-9oM" customClass="MenuViewController" customModule="Our_Story" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OWd-1H-h7c"/>
-                        <viewControllerLayoutGuide type="bottom" id="nFX-NA-Z2E"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9dd-zI-Iz1">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="URQ-lr-mnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="819" y="301"/>
+            <point key="canvasLocation" x="150" y="307"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icone" width="358" height="478"/>
+        <image name="Our Story" width="543" height="132"/>
+        <image name="facebook_icon" width="505" height="128"/>
+    </resources>
 </document>

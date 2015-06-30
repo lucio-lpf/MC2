@@ -13,7 +13,7 @@ class StyleSample: UICollectionViewCell{
     
     @IBOutlet weak var imageView: UIImageView!
     
-    static let identifier = "styleSampleCell"
+    static let identifier = "StyleSample"
 
     var image: UIImage = UIImage()
 }

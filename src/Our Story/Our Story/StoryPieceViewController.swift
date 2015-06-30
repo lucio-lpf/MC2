@@ -14,7 +14,8 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var tableView: UITableView!
     var newStoryPieceView: AddNewStoryPieceView!
     var parentStory:NSObject!
-    var pieces:[StoryPiece]!
+    var pieces = []
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +23,17 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         tableView.dataSource = self
         
+        //ADICIONADNO O REFRESH
+        refreshControl.addTarget(self, action: Selector("updatePieces"), forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(self.refreshControl)
+        
+       // ADICIONANDO AO MAIN ARRAY OS 10 POSTS
+        
+       //INICIAR AS PIECES
+        updatePieces()
+        
         let nib = UINib(nibName: "StoryPieceCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.StoryPiece)
-        
-        var parent = parentStory as? Story
-        print(parent?.storyName)
         
     }
     
@@ -41,15 +48,15 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return pieces.count
-        return 50
+        return pieces.count 
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = self.tableView.dequeueReusableCellWithIdentifier(StoryCell.indentifier.StoryPiece) as! StoryCell
-//        var storyPiece = pieces[indexPath.row]
+       // var storyPiece = pieces[indexPath.row] as! NSObject
         
-//        cell.loadItem(storyPiece.text! ,image:"teste1")
-        cell.storyPieceMessage.text = "Tudo começou assim..."
+        //cell.loadItem(storyPiece.text! ,image:"teste1")
+        cell.storyPieceMessage.text = self.pieces[indexPath.row].valueForKey("text") as? String
         cell.storyPieceBkgImage.image = UIImage(named: "teste1")
         
         return cell
@@ -58,6 +65,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     
     
     @IBAction func addNewStoryPiece(sender: AnyObject) {
+        
         
         //Create the visual effect
         let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
@@ -87,6 +95,17 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
                 view.removeFromSuperview()
             }
         }
+        updatePieces()
+    }
+    
+    
+    func updatePieces(){
+        //ATUALIZANDO OS 10 PRIMEIROS POSTS (USA O REFRESH)
+        StoryPiece.loadfirstpieces(self.parentStory, completion: { (arraydepieces) -> Void in
+            self.pieces = arraydepieces
+            self.tableView.reloadData()
+        })
+        self.refreshControl.endRefreshing()
     }
     
 }

@@ -24,12 +24,12 @@ class StoryCell: UITableViewCell {
     @IBOutlet var storyPieceMessage: UILabel!
     @IBOutlet var storyPieceBkgImage: UIImageView!
 
-    
-    func loadItens(story:Story){
-        titleLabel.text = story.storyName
-        storylabel.text = story.header
-        informationLabel.text = story.createdBy!.valueForKey("name") as? String
-        
+    func loadItens(story: NSObject){
+    backgroundImage.image = UIImage(named: "padrao_papel")
+//     titleLabel.text = story.valueForKey("storyName") as? String
+//        var pieces = story.valueForKey("storyPieces") aNSArray
+//        storylabel.text = pieces[0] as? String
+//       informationLabel.text = story.valueForKey("createdBy")?.valueForKey("objectId") as? String
     }
 
 }

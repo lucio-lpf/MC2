@@ -41,6 +41,11 @@ class LogInViewController: UIViewController {
 //                        println(image)
 //                    })
                 }
+                
+                
+            var storyboard: UIStoryboard = UIStoryboard(name: "Story", bundle: nil)
+            var vc = storyboard.instantiateViewControllerWithIdentifier("NavegationStory") as! UINavigationController
+            self.showViewController(vc, sender: self)
             } else {
                 println("Uh oh. The user cancelled the Facebook login.")
             }
