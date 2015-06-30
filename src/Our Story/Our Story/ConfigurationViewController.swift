@@ -98,7 +98,6 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
         
         cell.frame.size.width = 60
         cell.frame.size.height = 60
-     
         
         // Configure the cell
         return cell

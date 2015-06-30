@@ -103,12 +103,13 @@
                                             <outlet property="delegate" destination="Kwu-vI-8Ue" id="hCd-3c-Zv5"/>
                                         </connections>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vx-IA-3Lc">
-                                        <rect key="frame" x="546" y="122" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vx-IA-3Lc">
+                                        <rect key="frame" x="562" y="113" width="22" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="Lcl-En-9kg"/>
+                                            <constraint firstAttribute="width" constant="22" id="Lcl-En-9kg"/>
+                                            <constraint firstAttribute="height" constant="22" id="xIO-t9-OWL"/>
                                         </constraints>
-                                        <state key="normal" title="B">
+                                        <state key="normal" title="B" image="conf">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -126,9 +127,9 @@
                                     <constraint firstAttribute="centerX" secondItem="LO9-wY-foj" secondAttribute="centerX" constant="-0.5" id="Nyp-t4-NuK"/>
                                     <constraint firstItem="LO9-wY-foj" firstAttribute="centerX" secondItem="4Lz-Jc-Utj" secondAttribute="centerX" id="RyH-N1-7y9"/>
                                     <constraint firstAttribute="height" secondItem="4Lz-Jc-Utj" secondAttribute="height" multiplier="1.625" id="Z1g-Zc-xfk"/>
-                                    <constraint firstItem="7vx-IA-3Lc" firstAttribute="top" secondItem="MMb-6Z-qV8" secondAttribute="top" constant="122" id="haU-qB-w1T"/>
+                                    <constraint firstItem="7vx-IA-3Lc" firstAttribute="top" secondItem="MMb-6Z-qV8" secondAttribute="top" constant="113" id="haU-qB-w1T"/>
                                     <constraint firstAttribute="bottom" secondItem="4Lz-Jc-Utj" secondAttribute="bottom" id="lqH-zv-2RF"/>
-                                    <constraint firstAttribute="trailing" secondItem="7vx-IA-3Lc" secondAttribute="trailing" constant="24" id="tHa-KC-RHa"/>
+                                    <constraint firstAttribute="trailing" secondItem="7vx-IA-3Lc" secondAttribute="trailing" constant="16" id="tHa-KC-RHa"/>
                                     <constraint firstItem="4Lz-Jc-Utj" firstAttribute="top" secondItem="LO9-wY-foj" secondAttribute="bottom" constant="47" id="yDa-xQ-fgG"/>
                                 </constraints>
                                 <variation key="default">
@@ -251,6 +252,7 @@
                                     <constraint firstAttribute="width" constant="50" id="y1j-Eg-Pb6"/>
                                 </constraints>
                                 <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -286,4 +288,7 @@
             <point key="canvasLocation" x="1204" y="181"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="conf" width="40" height="40"/>
+    </resources>
 </document>
