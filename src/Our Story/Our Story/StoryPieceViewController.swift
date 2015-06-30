@@ -14,13 +14,24 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var tableView: UITableView!
     var newStoryPieceView: AddNewStoryPieceView!
     var parentStory:NSObject!
-    var pieces:[StoryPiece]!
+    var pieces:NSMutableArray!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
+        //ADICIONANDO AO MAIN ARRAY OS 10 POSTS
+        
+//        var objectId = parentStory.valueForKey("objectId") as! String
+//        StoryPiece.loadfirstpieces(String(), completion: { (NSMutableArray) -> Void in
+//            self.pieces = arraydepieces
+//            self.tableView.reloadData()
+//            })
+
+        
         
         let nib = UINib(nibName: "StoryPieceCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.StoryPiece)
@@ -58,6 +69,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     
     
     @IBAction func addNewStoryPiece(sender: AnyObject) {
+        
         
         //Create the visual effect
         let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
