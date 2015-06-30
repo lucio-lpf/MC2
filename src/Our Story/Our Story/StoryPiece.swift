@@ -29,14 +29,27 @@ class StoryPiece: NSObject {
         }
     }
     
-    class func createStoryPiece(message:String, callback:(PFObject,Bool,NSError?)->()) {
+    class func createStoryPiece(message:String, parent:PFObject, callback:(PFObject,Bool,NSError?)->()) {
         
         var piece = PFObject(className: "StoryPieces")
         piece.setValue(message, forKey: "text")
+        piece.setValue(parent, forKey: "parentStory")
 //        piece.setValue(PFUser.currentUser(), forKey: "createdBy")
         piece.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) in
                 callback(piece,success,error)
+        }
+    }
+    
+    
+    class func loadStoryById(objcId:String) -> PFObject? {
+        print("rodei storyby ids")
+        var piece = PFQuery(className: "StoryPieces")
+        piece.whereKey("parentStory", equalTo: objcId)
+        if let obj = piece.getFirstObject(){
+         return obj
+        } else {
+            return nil
         }
     }
 }

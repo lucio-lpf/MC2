@@ -85,18 +85,9 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func createNewStory(title: String, firstPiece: String) {
-        print("StoryTitle: \(title)  -  StoryPiece: \(firstPiece) \n")
+//        print("StoryTitle: \(title)  -  StoryPiece: \(firstPiece) \n")
         
-        StoryPiece.createStoryPiece(firstPiece) {
-            (piece,success, error) in
-            if (success) {
-                
-            } else {
-                print(error)
-            }
-        }
-        
-        Story.createStory(title){
+        Story.createStory(title, header:firstPiece){
             (story,success, error) in
             if (success) {
             } else {
