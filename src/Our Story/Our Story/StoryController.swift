@@ -33,11 +33,13 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         //ADICIONANDO AO MAIN ARRAY OS 10 POSTS
         Story.loadfirststories({ (arraydeposts) -> Void in
             self.postsarray = arraydeposts
+            print (self.postsarray)
             self.tableView.reloadData()
         })
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        //COLOCANDO AS CELLS CUSTOMIZADAS
             var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(StoryCell.indentifier.Story) as! StoryCell
             var story = postsarray.objectAtIndex(indexPath.row) as? NSObject
 
@@ -52,7 +54,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     @IBAction func createNewStory(sender: AnyObject) {
-        
+        //CRIANDO NOVA HISTORIA (POPUP DO BLUR E DA SUBVIEW)
         //Create the visual effect
         let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
         let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
@@ -72,7 +74,8 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 320
+        //TAMANHO DA CELL TEM QUE SER O TAMANHO DA CELL CUSTOMIZADA
+        return 180
     }
     
     func updatePosts(){
@@ -85,7 +88,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func createNewStory(title: String, firstPiece: String) {
-        print("StoryTitle: \(title)  -  StoryPiece: \(firstPiece) \n")
+//        print("StoryTitle: \(title)  -  StoryPiece: \(firstPiece) \n")
         
         StoryPiece.createStoryPiece(firstPiece) {
             (piece,success, error) in
@@ -106,6 +109,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func removeSubViews() {
+        //REMOVE O POPUP
         if let view = self.view.viewWithTag(11){
             if let subview = self.view.viewWithTag(10) {
                 subview.removeFromSuperview()
@@ -124,19 +128,20 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
             }
         }
     }
-
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        //VENDO SE PRECISA DE FOOTER PRA LOAD MAIS POSTS 
-        var tamanho = postsarray.count
-        
-        Story.footerisabletoexist(tamanho) { (Bool) -> Void in
-            if Bool == true{
-                
-            }
-            else{
-                
-            }
-        }
-        return nil
-    }
+//
+//    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        //VENDO SE PRECISA DE FOOTER PRA LOAD MAIS POSTS 
+//        var tamanho = postsarray.count
+//        Story.footerisabletoexist(tamanho) { (Bool) -> Void in
+//            //SE SIM, BOTA UMA SUBVIEW COM BUTTON PRA LOAD MORE
+//            if Bool == true{
+//                
+//                
+//            }
+//            //SE NAO, SO DEIXA NIL
+//            else{
+//            }
+//        }
+//        return nil
+//    }
 }
