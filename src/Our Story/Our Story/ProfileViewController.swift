@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Parse
 
 
 let offset_HeaderStop:CGFloat = 40.0 // At this offset the Header stops its transformations
@@ -87,11 +88,13 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
     
     override func viewDidAppear(animated: Bool) {
         
+        var user = PFUser.currentUser()
         
         // Header - Image
+
         
         headerImageView = UIImageView(frame: header.bounds)
-        headerImageView?.image = UIImage(named: "header_bg")
+        headerImageView?.image = UIImage(named: user?.objectForKey("storyStyle") as! String)
         headerImageView?.contentMode = UIViewContentMode.ScaleAspectFill
         header.insertSubview(headerImageView, belowSubview: headerLabel)
 
@@ -99,7 +102,7 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         // Header - Blurred Image
         
         headerBlurImageView = UIImageView(frame: header.bounds)
-        headerBlurImageView?.image = UIImage(named: "header_bg")?.blurredImageWithRadius(10, iterations: 20, tintColor: UIColor.clearColor())
+        headerBlurImageView?.image = UIImage(named: user?.objectForKey("storyStyle") as! String)?.blurredImageWithRadius(10, iterations: 20, tintColor: UIColor.clearColor())
         headerBlurImageView?.contentMode = UIViewContentMode.ScaleAspectFill
         headerBlurImageView?.alpha = 0.0
         header.insertSubview(headerBlurImageView, belowSubview: headerLabel)
