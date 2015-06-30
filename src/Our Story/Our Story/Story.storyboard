@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="X6X-Sg-f93">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -32,7 +32,7 @@
                         <constraints>
                             <constraint firstItem="5MV-3i-Ahb" firstAttribute="top" secondItem="X6X-Sg-f93" secondAttribute="bottom" id="7gk-Uq-Akt"/>
                             <constraint firstAttribute="trailing" secondItem="X6X-Sg-f93" secondAttribute="trailing" id="LEZ-zU-Jlf"/>
-                            <constraint firstItem="X6X-Sg-f93" firstAttribute="top" secondItem="NbS-13-Cgo" secondAttribute="top" id="atj-TM-Fhr"/>
+                            <constraint firstItem="X6X-Sg-f93" firstAttribute="top" secondItem="NbS-13-Cgo" secondAttribute="top" constant="64" id="atj-TM-Fhr"/>
                             <constraint firstItem="X6X-Sg-f93" firstAttribute="leading" secondItem="NbS-13-Cgo" secondAttribute="leading" id="m8C-6K-7AJ"/>
                         </constraints>
                     </view>
@@ -84,7 +84,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jwc-49-pxc">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.59215686270000001" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -97,7 +97,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jwc-49-pxc" firstAttribute="top" secondItem="iRf-Kh-ON7" secondAttribute="topMargin" id="B90-id-vsT"/>
+                            <constraint firstItem="jwc-49-pxc" firstAttribute="top" secondItem="iRf-Kh-ON7" secondAttribute="topMargin" constant="64" id="B90-id-vsT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jwc-49-pxc" secondAttribute="trailing" constant="-16" id="FLz-cr-c6a"/>
                             <constraint firstItem="jwc-49-pxc" firstAttribute="leading" secondItem="iRf-Kh-ON7" secondAttribute="leadingMargin" constant="-16" id="LyW-uG-mDW"/>
                             <constraint firstItem="idY-MS-2e7" firstAttribute="top" secondItem="jwc-49-pxc" secondAttribute="bottom" id="a8D-F5-7ua"/>
