@@ -18,24 +18,63 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icone" translatesAutoresizingMaskIntoConstraints="NO" id="ghZ-hr-PwG">
                                 <rect key="frame" x="264" y="49" width="85" height="85"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="158" y="45" width="85" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="i2O-dC-8Ti"/>
+                                    <constraint firstAttribute="height" constant="105" id="uAv-cP-kbd"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="i2O-dC-8Ti"/>
+                                        <exclude reference="uAv-cP-kbd"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="i2O-dC-8Ti"/>
+                                        <include reference="uAv-cP-kbd"/>
+                                    </mask>
                                 </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Our Story" translatesAutoresizingMaskIntoConstraints="NO" id="hWw-2p-5Z3">
                                 <rect key="frame" x="172" y="172" width="256" height="92"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="72" y="172" width="256" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="7zC-XV-jZF"/>
+                                    <constraint firstAttribute="height" constant="92" id="FQI-gK-m8i"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7zC-XV-jZF"/>
+                                        <exclude reference="FQI-gK-m8i"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="7zC-XV-jZF"/>
+                                        <include reference="FQI-gK-m8i"/>
+                                    </mask>
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH5-Ct-yr4">
                                 <rect key="frame" x="148" y="461" width="305" height="80"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="lcT-ks-OeP"/>
+                                    <constraint firstAttribute="width" constant="256" id="xR8-i2-avF"/>
+                                </constraints>
                                 <state key="normal" image="facebook_icon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="48" y="485" width="305" height="80"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="lcT-ks-OeP"/>
+                                        <exclude reference="xR8-i2-avF"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="lcT-ks-OeP"/>
+                                        <include reference="xR8-i2-avF"/>
+                                    </mask>
                                 </variation>
                                 <connections>
                                     <action selector="loginButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lya-Rm-YW4"/>
@@ -43,12 +82,40 @@
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.11372549019607843" green="0.29019607843137257" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.23977351497900251" green="0.23547650835144485" blue="0.24348839003630363" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ghZ-hr-PwG" firstAttribute="leading" secondItem="hWw-2p-5Z3" secondAttribute="trailing" constant="-170" id="07e-g6-fKP"/>
+                            <constraint firstAttribute="centerX" secondItem="hWw-2p-5Z3" secondAttribute="centerX" id="Spk-ST-0nk"/>
+                            <constraint firstItem="ghZ-hr-PwG" firstAttribute="top" secondItem="hWw-2p-5Z3" secondAttribute="bottom" constant="24" id="gTy-Pq-vA8"/>
+                            <constraint firstItem="hWw-2p-5Z3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="hmO-PN-icN"/>
+                            <constraint firstAttribute="centerX" secondItem="SH5-Ct-yr4" secondAttribute="centerX" id="iT7-0r-nYB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SH5-Ct-yr4" secondAttribute="bottom" constant="80" id="ksi-PH-BHy"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Spk-ST-0nk"/>
+                                <exclude reference="hmO-PN-icN"/>
+                                <exclude reference="07e-g6-fKP"/>
+                                <exclude reference="gTy-Pq-vA8"/>
+                                <exclude reference="iT7-0r-nYB"/>
+                                <exclude reference="ksi-PH-BHy"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="Spk-ST-0nk"/>
+                                <include reference="hmO-PN-icN"/>
+                                <include reference="07e-g6-fKP"/>
+                                <include reference="gTy-Pq-vA8"/>
+                                <include reference="iT7-0r-nYB"/>
+                                <include reference="ksi-PH-BHy"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="151" y="307"/>
+            <point key="canvasLocation" x="150" y="307"/>
         </scene>
     </scenes>
     <resources>
