@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="styleSampleCell" id="FsF-zw-HKk" customClass="StyleSample" customModule="Our_Story" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NlN-fj-38A">
+                        <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="NlN-fj-38A" secondAttribute="bottom" id="D0S-dN-bqa"/>
+                <constraint firstItem="NlN-fj-38A" firstAttribute="leading" secondItem="FsF-zw-HKk" secondAttribute="leading" id="GiX-xt-1WW"/>
+                <constraint firstAttribute="trailing" secondItem="NlN-fj-38A" secondAttribute="trailing" id="lCV-PF-Ibk"/>
+                <constraint firstItem="NlN-fj-38A" firstAttribute="top" secondItem="FsF-zw-HKk" secondAttribute="top" id="tT7-jY-DSv"/>
+            </constraints>
+            <size key="customSize" width="89" height="89"/>
+            <connections>
+                <outlet property="imageView" destination="NlN-fj-38A" id="zbV-ph-I3i"/>
+            </connections>
+            <point key="canvasLocation" x="339.5" y="554.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
