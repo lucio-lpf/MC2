@@ -101,6 +101,7 @@
                 <outlet property="firstStoryPiece" destination="Go5-I1-tCH" id="jpL-wv-0tC"/>
                 <outlet property="storyTitle" destination="tBu-Yg-eyD" id="pDS-iU-Bwm"/>
             </connections>
+            <point key="canvasLocation" x="272" y="351"/>
         </view>
     </objects>
 </document>

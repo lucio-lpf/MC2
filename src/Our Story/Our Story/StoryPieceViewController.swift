@@ -65,8 +65,6 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     
     
     @IBAction func addNewStoryPiece(sender: AnyObject) {
-        
-        
         //Create the visual effect
         let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
         let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
