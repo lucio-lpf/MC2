@@ -23,8 +23,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     @IBOutlet weak var okokok: UIBarButtonItem!
     override func viewDidLoad() {
-        
-        
+
         
         //ADICIONADNO O REFRESH
         refreshControl.addTarget(self, action: Selector("updatePosts"), forControlEvents: UIControlEvents.ValueChanged)
@@ -35,11 +34,6 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.Story)
         
         
-        //ADICIONANDO AO MAIN ARRAY OS 10 POSTS
-//        Story.loadfirststories({ (arraydeposts) -> Void in
-//            self.postsarray = arraydeposts
-//            self.tableView.reloadData()
-//        })
         updatePosts()
         tapGesture.addTarget(self, action: "cancelCreateStory")
     }
