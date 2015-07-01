@@ -59,8 +59,11 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         
         //cell.loadItem(storyPiece.text! ,image:"teste1")
         cell.storyPieceMessage.text = self.pieces[indexPath.row].valueForKey("text") as? String
-        var style = PFUser.currentUser()?.valueForKey("storyStyle") as? String
-        cell.storyPieceBkgImage.image = UIImage(named: style)
+        if let style = PFUser.currentUser()?.valueForKey("storyStyle") as? String{
+            cell.storyPieceBkgImage.image = UIImage(named: style)
+        } else {
+            cell.storyPieceBkgImage.image = UIImage(named: "yellow")
+        }
         
         return cell
     }

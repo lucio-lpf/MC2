@@ -27,12 +27,13 @@ class StoryCell: UITableViewCell {
     func loadItens(story: NSObject){
 //        backgroundImage.image = UIImage(named: "yellow")
         
-        if let user: AnyObject = story.valueForKey("createdBy") {
-            backgroundImage.image = UIImage(named: (user.valueForKey("storyStyle") as? String)!)
+//        if let user: AnyObject = story.valueForKey("createdBy") {
+//            backgroundImage.image = UIImage(named: (story.valueForKey("createdBy")!.valueForKey("storyStyle") as? String)!)
+            backgroundImage.image = UIImage(named: "post-it")
             titleLabel.text = story.valueForKey("storyName") as? String
             storylabel.text = story.valueForKey("header") as? String
-            informationLabel.text = user.valueForKey("name") as? String
-        }
+            informationLabel.text = story.valueForKey("createdBy")!.valueForKey("name") as? String
+//        }
     }
 
 }

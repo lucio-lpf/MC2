@@ -455,6 +455,7 @@
 					};
 					83F2F5EF1B430E0000B41DA5 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = TY5QM4UU69;
 					};
 				};
 			};
@@ -826,6 +827,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -844,6 +846,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				IBSC_MODULE = Our_Story_WatchKit_Extension;
 				INFOPLIST_FILE = "Our Story WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
