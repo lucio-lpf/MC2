@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Dm-On-mNz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Qx-qe-wMa">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -50,12 +50,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwQ-Nj-bbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3672" y="661"/>
+            <point key="canvasLocation" x="4484" y="661"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="tJY-BX-TtD">
             <objects>
                 <navigationController storyboardIdentifier="NavegationStory" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Dm-On-mNz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="CA5-i8-jLo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wim-f6-bBS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -64,12 +65,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="TWx-OS-n9c" kind="relationship" relationship="rootViewController" id="inf-E3-A6X"/>
+                        <segue destination="20f-b4-IWQ" kind="relationship" relationship="rootViewController" id="bP5-b0-Wcw"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Paw-en-NmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="661"/>
+            <point key="canvasLocation" x="2813" y="661"/>
         </scene>
         <!--Item-->
         <scene sceneID="XFC-c8-ab2">
@@ -108,7 +109,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="aqB-0c-PV5">
                             <color key="tintColor" red="0.15686274510000001" green="0.086274509799999996" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="createNewStory:" destination="20f-b4-IWQ" id="YRP-tZ-na1"/>
+                                <action selector="createNewStory:" destination="20f-b4-IWQ" id="5lG-QL-dh7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -119,27 +120,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DqW-Xa-e0d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2776" y="661"/>
+            <point key="canvasLocation" x="3588" y="661"/>
         </scene>
         <!--Tab Bar Controller-->
-        <scene sceneID="MLZ-vt-xE7">
+        <scene sceneID="6XH-Qr-S3z">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TWx-OS-n9c" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="initialTabView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Qx-qe-wMa" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="EbF-z2-qi2"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="cO2-Qc-a7D">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="TXp-WH-sjZ">
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="20f-b4-IWQ" kind="relationship" relationship="viewControllers" id="tQW-x7-Uh4"/>
+                        <segue destination="6Dm-On-mNz" kind="relationship" relationship="viewControllers" id="N9M-XW-cpc"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K2a-UG-wEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lam-5i-CMD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1964" y="661"/>
+            <point key="canvasLocation" x="2001" y="661"/>
         </scene>
     </scenes>
 </document>

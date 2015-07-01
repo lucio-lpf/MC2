@@ -19,6 +19,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     var currentStory:NSObject!
     var createdStoryId:String!
     var celltouched: NSObject!
+    let tapGesture = UITapGestureRecognizer()
     
     override func viewDidLoad() {
         
@@ -37,6 +38,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
 //            self.tableView.reloadData()
 //        })
         updatePosts()
+        tapGesture.addTarget(self, action: "cancelCreateStory")
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
@@ -61,7 +63,9 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
         blurView.tag = 10
-        self.view.addSubview(blurView)
+        blurView.userInteractionEnabled = true
+        blurView.addGestureRecognizer(tapGesture)
+
         
         newStoryView = AddNewStoryView.instanceFromNib()
         newStoryView.frame  = CGRectMake(0, 0, self.view.frame.size.width - 20, 300)
@@ -69,8 +73,15 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         newStoryView.tag = 11
         
         newStoryView.delegate = self
+
         
-        self.view.addSubview(newStoryView)
+        if (self.view.viewWithTag(10) == nil) {
+            self.view.addSubview(blurView)
+        }
+        
+        if (self.view.viewWithTag(11) == nil) {
+            self.view.addSubview(newStoryView)
+        }
         
     }
 
@@ -88,12 +99,18 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.refreshControl.endRefreshing()
     }
     
+    
+    func cancelCreateStory() {
+        removeSubViews()
+    }
+    
     func createNewStory(title: String, firstPiece: String) {
 //        print("StoryTitle: \(title)  -  StoryPiece: \(firstPiece) \n")
         
-        Story.createStory(title, header:firstPiece){
+        Story.createStory(title, header:firstPiece) {
             (story,success, error) in
             if (success) {
+                self.updatePosts()
             } else {
                 print(error)
             }
