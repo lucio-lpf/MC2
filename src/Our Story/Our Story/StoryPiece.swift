@@ -20,7 +20,7 @@ class StoryPiece: NSObject {
         var piecessarray:NSMutableArray = []
         var piecesquery = PFQuery(className: "StoryPieces")
         piecesquery.whereKey("parentStory", equalTo: object)
-        piecesquery.orderByDescending("createdAt")
+        piecesquery.orderByAscending("createdAt")
         //ADICIONANDO AO MAIN ARRAY OS 10 POSTS
         piecesquery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
