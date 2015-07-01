@@ -24,6 +24,8 @@ class AddNewStoryPieceView: UIView, UITextViewDelegate {
     class func instanceFromNib() -> AddNewStoryPieceView {
         var instance = UINib(nibName: "AddNewStoryPieceView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! AddNewStoryPieceView
         
+        instance.backgroundColor = UIColor(red: 255, green: 238, blue: 129, alpha: 1)
+        
        var txt = instance.viewWithTag(1) as! UITextView
         txt.delegate = instance as UITextViewDelegate
         txt.layer.cornerRadius = 5

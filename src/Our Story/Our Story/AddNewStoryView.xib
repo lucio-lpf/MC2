@@ -69,7 +69,6 @@
                 </textField>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="1" green="1" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="BX1-k5-K4N" firstAttribute="leading" secondItem="Go5-I1-tCH" secondAttribute="trailing" constant="-25" id="37m-kt-WRf"/>
                 <constraint firstAttribute="centerX" secondItem="wNg-N1-JxH" secondAttribute="centerX" id="EUm-xB-h8K"/>

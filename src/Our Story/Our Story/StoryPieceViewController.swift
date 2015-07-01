@@ -59,7 +59,8 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         
         //cell.loadItem(storyPiece.text! ,image:"teste1")
         cell.storyPieceMessage.text = self.pieces[indexPath.row].valueForKey("text") as? String
-        cell.storyPieceBkgImage.image = UIImage(named: "teste1")
+        var style = PFUser.currentUser()?.valueForKey("storyStyle") as? String
+        cell.storyPieceBkgImage.image = UIImage(named: style)
         
         return cell
     }
@@ -81,7 +82,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         newStoryPieceView.center = self.view.center
         newStoryPieceView.tag = 11
         newStoryPieceView.delegate = self
-        newStoryPieceView.backgroundColor = UIColor(red: 255, green: 238, blue: 129, alpha: 1)
+//        newStoryPieceView.backgroundColor = UIColor(red: 255, green: 238, blue: 129, alpha: 1)
         
         if (self.view.viewWithTag(10) == nil) {
             self.view.addSubview(blurView)
@@ -98,7 +99,11 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func createNewStoryPiece(message: String) {
-        
+        StoryPiece.createStoryPiece(message, parent: parentStory as! PFObject) {
+            (piece, success, error) -> () in
+            print(piece)
+            self.updatePieces()
+        }
     }
     
     func removeSubViews() {

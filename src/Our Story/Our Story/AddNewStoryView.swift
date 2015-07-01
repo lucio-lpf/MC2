@@ -23,6 +23,8 @@ class AddNewStoryView: UIView, UITextViewDelegate {
     class func instanceFromNib() -> AddNewStoryView {
         var instance = UINib(nibName: "AddNewStoryView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! AddNewStoryView
         
+        
+        
         var title = instance.viewWithTag(1) as! UITextField
         title.layer.cornerRadius = 5
         title.layer.borderWidth = 0.3

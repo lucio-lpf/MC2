@@ -77,7 +77,7 @@
                 <outlet property="contChar" destination="LnP-mx-GRu" id="Eui-YF-Hk8"/>
                 <outlet property="message" destination="M6m-YU-41D" id="od7-iH-lJj"/>
             </connections>
-            <point key="canvasLocation" x="-269" y="281"/>
+            <point key="canvasLocation" x="-218" y="47"/>
         </view>
     </objects>
 </document>
