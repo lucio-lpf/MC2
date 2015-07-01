@@ -23,8 +23,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     @IBOutlet weak var okokok: UIBarButtonItem!
     override func viewDidLoad() {
-        
-        self.navigationController.B
+
         
         //ADICIONADNO O REFRESH
         refreshControl.addTarget(self, action: Selector("updatePosts"), forControlEvents: UIControlEvents.ValueChanged)
