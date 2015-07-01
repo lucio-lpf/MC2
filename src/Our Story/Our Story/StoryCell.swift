@@ -25,7 +25,7 @@ class StoryCell: UITableViewCell {
     @IBOutlet var storyPieceBkgImage: UIImageView!
 
     func loadItens(story: NSObject){
-        backgroundImage.image = UIImage(named: "padrao_papel")
+        backgroundImage.image = UIImage(named: "post-it")
         titleLabel.text = story.valueForKey("storyName") as? String
         storylabel.text = story.valueForKey("header") as? String
 //        informationLabel.text = story.valueForKey("createdBy")?.valueForKey("name") as? String
