@@ -40,6 +40,7 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         scrollView.delegate = self
         
         tableView.delegate = self

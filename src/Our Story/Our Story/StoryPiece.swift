@@ -25,7 +25,7 @@ class StoryPiece: NSObject {
         piecesquery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 
-                print(error)
+                print("ERRO  \(error)")
                 
                 for var index = 0; index != results!.count; ++index{
                     piecessarray.addObject(results![index])

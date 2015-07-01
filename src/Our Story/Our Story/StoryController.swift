@@ -23,7 +23,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     @IBOutlet weak var okokok: UIBarButtonItem!
     override func viewDidLoad() {
-
+        self.navigationController?.navigationBar.barTintColor = UIColor.grayColor()
         
         //ADICIONADNO O REFRESH
         refreshControl.addTarget(self, action: Selector("updatePosts"), forControlEvents: UIControlEvents.ValueChanged)
@@ -56,6 +56,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBAction func createNewStory(sender: AnyObject) {
         //CRIANDO NOVA HISTORIA (POPUP DO BLUR E DA SUBVIEW)
         //Create the visual effect
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
         let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
@@ -122,6 +123,8 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
                 view.removeFromSuperview()
             }
         }
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        updatePosts()
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //SABENDO A CELL SELECIONADA, EU SEI A POSIÇAO NO VETOR

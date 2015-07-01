@@ -72,6 +72,8 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBAction func addNewStoryPiece(sender: AnyObject) {
         //Create the visual effect
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
         let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
@@ -116,6 +118,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
                 view.removeFromSuperview()
             }
         }
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         updatePieces()
     }
     
