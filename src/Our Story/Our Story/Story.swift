@@ -97,6 +97,7 @@ class Story: NSObject {
         var newStory = PFObject(className: "Story")
         newStory.setValue(titulo, forKey: "storyName")
         newStory.setValue(header, forKey: "header")
+        newStory.setValue(false, forKey: "editing")
         newStory.setValue(PFUser.currentUser(), forKey: "createdBy")
         newStory.saveInBackgroundWithBlock {
             (bool, error) in

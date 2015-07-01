@@ -18,7 +18,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     var refreshControl = UIRefreshControl()
     var currentStory:NSObject!
     var createdStoryId:String!
-    var celltouched: NSObject!
+    var celltouched: PFObject!
     let tapGesture = UITapGestureRecognizer()
     
     @IBOutlet weak var okokok: UIBarButtonItem!
@@ -124,7 +124,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //SABENDO A CELL SELECIONADA, EU SEI A POSIÇAO NO VETOR
         
-        self.celltouched = postsarray.objectAtIndex(indexPath.row) as! NSObject
+        self.celltouched = postsarray.objectAtIndex(indexPath.row) as! PFObject
         
        self.performSegueWithIdentifier("goToStoryPieces", sender: nil)
         

@@ -16,7 +16,7 @@ class StoryPiece: NSObject {
 
     
     
-    class func loadfirstpieces(object:NSObject,completion: (NSMutableArray) -> Void ) {
+    class func loadfirstpieces(object:PFObject,completion: (NSMutableArray) -> Void ) {
         var piecessarray:NSMutableArray = []
         var piecesquery = PFQuery(className: "StoryPieces")
         piecesquery.whereKey("parentStory", equalTo: object)
