@@ -20,12 +20,15 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     var createdStoryId:String!
     var celltouched: NSObject!
     
+    @IBOutlet weak var okokok: UIBarButtonItem!
     override func viewDidLoad() {
+        
+        
         
         //ADICIONADNO O REFRESH
         refreshControl.addTarget(self, action: Selector("updatePosts"), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(self.refreshControl)
-            
+        
         //ADICIONANDO AS CELLS COSTUMIZADAS
         var nib = UINib(nibName: "StoryCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.Story)

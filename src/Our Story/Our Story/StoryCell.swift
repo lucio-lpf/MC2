@@ -25,7 +25,7 @@ class StoryCell: UITableViewCell {
     @IBOutlet var storyPieceBkgImage: UIImageView!
     
     func loadItens(story: NSObject){
-    backgroundImage.image = UIImage(named: "padrao_papel")
+        backgroundImage.image = UIImage(named: "post-it")
 //     titleLabel.text = story.valueForKey("storyName") as? String
 //        var pieces = story.valueForKey("storyPieces") aNSArray
 //        storylabel.text = pieces[0] as? String

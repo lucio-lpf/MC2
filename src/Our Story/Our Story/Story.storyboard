@@ -113,6 +113,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="okokok" destination="aqB-0c-PV5" id="SPU-Ay-XBB"/>
                         <outlet property="tableView" destination="jwc-49-pxc" id="OlX-5q-m5p"/>
                         <segue destination="lqP-Oh-zFB" kind="show" identifier="goToStoryPieces" id="0Q9-pm-ges"/>
                     </connections>
