@@ -11,15 +11,16 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your contribution??" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VF-xa-2wK">
-                    <rect key="frame" x="196" y="55" width="208" height="21"/>
+                    <rect key="frame" x="197" y="55" width="206" height="20"/>
                     <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVE-wA-75l">
-                    <rect key="frame" x="225" y="215" width="148" height="30"/>
+                    <rect key="frame" x="227" y="214" width="145" height="30"/>
                     <animations/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <state key="normal" title="Add my contribution!!">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -28,30 +29,43 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnP-mx-GRu">
-                    <rect key="frame" x="569" y="202" width="21" height="15"/>
+                    <rect key="frame" x="569" y="201" width="21" height="15"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6m-YU-41D">
-                    <rect key="frame" x="8" y="106" width="584" height="80"/>
+                    <rect key="frame" x="8" y="105" width="584" height="80"/>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="o1h-sZ-zuZ"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9I-1e-ZaS">
+                    <rect key="frame" x="111" y="50" width="30" height="30"/>
+                    <animations/>
+                    <state key="normal" title="X">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="closeView:" destination="5a6-dV-Dnl" eventType="touchUpInside" id="fQn-Jg-fCI"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <constraints>
+                <constraint firstItem="2VF-xa-2wK" firstAttribute="leading" secondItem="L9I-1e-ZaS" secondAttribute="trailing" constant="55.5" id="2Kw-iz-J8E"/>
+                <constraint firstItem="2VF-xa-2wK" firstAttribute="baseline" secondItem="L9I-1e-ZaS" secondAttribute="baseline" id="4yE-dg-DUa"/>
                 <constraint firstAttribute="centerX" secondItem="2VF-xa-2wK" secondAttribute="centerX" id="5je-Q2-Y0v"/>
                 <constraint firstItem="M6m-YU-41D" firstAttribute="leading" secondItem="5a6-dV-Dnl" secondAttribute="leading" constant="8" id="GmB-4c-Spe"/>
                 <constraint firstItem="M6m-YU-41D" firstAttribute="centerX" secondItem="cVE-wA-75l" secondAttribute="centerX" constant="1" id="IeS-Vm-3vB"/>
                 <constraint firstAttribute="trailing" secondItem="M6m-YU-41D" secondAttribute="trailing" constant="8" id="RYf-QS-0He"/>
                 <constraint firstItem="LnP-mx-GRu" firstAttribute="top" secondItem="M6m-YU-41D" secondAttribute="bottom" constant="8" id="SDN-ZK-dUx"/>
+                <constraint firstItem="L9I-1e-ZaS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5a6-dV-Dnl" secondAttribute="leading" id="Tmc-Xe-p7w"/>
                 <constraint firstItem="M6m-YU-41D" firstAttribute="centerX" secondItem="2VF-xa-2wK" secondAttribute="centerX" id="UqR-eG-kcN"/>
                 <constraint firstItem="M6m-YU-41D" firstAttribute="top" secondItem="2VF-xa-2wK" secondAttribute="bottom" constant="8" id="Viy-ou-dvR"/>
                 <constraint firstItem="cVE-wA-75l" firstAttribute="top" secondItem="M6m-YU-41D" secondAttribute="bottom" constant="29" id="Wba-9m-MBg"/>

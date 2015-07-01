@@ -69,17 +69,12 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         newStoryView.frame  = CGRectMake(0, 0, self.view.frame.size.width - 20, 300)
         newStoryView.center = self.view.center
         newStoryView.tag = 11
+        newStoryView.backgroundColor = UIColor.blueColor()
         
         newStoryView.delegate = self
-
         
-        if (self.view.viewWithTag(10) == nil) {
             self.view.addSubview(blurView)
-        }
-        
-        if (self.view.viewWithTag(11) == nil) {
             self.view.addSubview(newStoryView)
-        }
         
     }
 

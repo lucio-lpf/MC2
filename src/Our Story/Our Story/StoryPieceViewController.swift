@@ -64,7 +64,6 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         } else {
             cell.storyPieceBkgImage.image = UIImage(named: "yellow")
         }
-        
         return cell
     }
     
@@ -87,15 +86,10 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         newStoryPieceView.center = self.view.center
         newStoryPieceView.tag = 11
         newStoryPieceView.delegate = self
-//        newStoryPieceView.backgroundColor = UIColor(red: 255, green: 238, blue: 129, alpha: 1)
+        newStoryPieceView.backgroundColor = UIColor.blueColor()
         
-        if (self.view.viewWithTag(10) == nil) {
-            self.view.addSubview(blurView)
-        }
-        
-        if (self.view.viewWithTag(11) == nil) {
-            self.view.addSubview(newStoryPieceView)
-        }
+        self.view.addSubview(blurView)
+        self.view.addSubview(newStoryPieceView)
     }
     
     

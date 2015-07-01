@@ -32,7 +32,7 @@ class StoryCell: UITableViewCell {
             backgroundImage.image = UIImage(named: "post-it")
             titleLabel.text = story.valueForKey("storyName") as? String
             storylabel.text = story.valueForKey("header") as? String
-            informationLabel.text = story.valueForKey("createdBy")!.valueForKey("name") as? String
+//            informationLabel.text = story.valueForKey("createdBy")!.valueForKey("name") as? String
 //        }
     }
 

@@ -59,4 +59,7 @@ class AddNewStoryView: UIView, UITextViewDelegate {
         self.delegate?.removeSubViews()
     }
     
+    @IBAction func closeView(sender: AnyObject) {
+        self.delegate?.removeSubViews()
+    }
 }

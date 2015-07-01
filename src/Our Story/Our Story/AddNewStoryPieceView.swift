@@ -37,8 +37,10 @@ class AddNewStoryPieceView: UIView, UITextViewDelegate {
     }
     
     @IBAction func addContribution(sender: AnyObject) {
-//        StoryPiece.createStoryPiece(message.text)
         self.delegate?.createNewStoryPiece(message.text)
+        self.delegate?.removeSubViews()
+    }
+    @IBAction func closeView(sender: AnyObject) {
         self.delegate?.removeSubViews()
     }
     
