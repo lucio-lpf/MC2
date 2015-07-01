@@ -45,6 +45,7 @@
 		83F2F5F91B430E0000B41DA5 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83F2F5F71B430E0000B41DA5 /* Interface.storyboard */; };
 		83F2F5FB1B430E0000B41DA5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83F2F5FA1B430E0000B41DA5 /* Images.xcassets */; };
 		83F2F5FE1B430E0000B41DA5 /* Our Story WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 83F2F5E11B430DFF00B41DA5 /* Our Story WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		83F2F6071B4315C400B41DA5 /* TableRowControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F2F6061B4315C400B41DA5 /* TableRowControlller.swift */; };
 		8A1E49F6709BF045818542C6 /* Pods_Our_Story.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E98D86373E3AC3F91D987C /* Pods_Our_Story.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -136,6 +137,7 @@
 		83F2F5F61B430E0000B41DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83F2F5F81B430E0000B41DA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		83F2F5FA1B430E0000B41DA5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		83F2F6061B4315C400B41DA5 /* TableRowControlller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowControlller.swift; sourceTree = "<group>"; };
 		C48328B1226D75D12ACBBE9A /* Pods-Our Story.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.debug.xcconfig"; sourceTree = "<group>"; };
 		F72C86A04BF1515663E85E85 /* Pods-Our Story.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Our Story.release.xcconfig"; path = "Pods/Target Support Files/Pods-Our Story/Pods-Our Story.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -314,6 +316,7 @@
 				83F2F5E61B430DFF00B41DA5 /* InterfaceController.swift */,
 				83F2F5E81B430DFF00B41DA5 /* NotificationController.swift */,
 				83F2F5EA1B430DFF00B41DA5 /* GlanceController.swift */,
+				83F2F6061B4315C400B41DA5 /* TableRowControlller.swift */,
 				83F2F5EC1B430DFF00B41DA5 /* Images.xcassets */,
 				83F2F5E31B430DFF00B41DA5 /* Supporting Files */,
 			);
@@ -605,6 +608,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83F2F6071B4315C400B41DA5 /* TableRowControlller.swift in Sources */,
 				83F2F5E91B430DFF00B41DA5 /* NotificationController.swift in Sources */,
 				83F2F5E71B430DFF00B41DA5 /* InterfaceController.swift in Sources */,
 				83F2F5EB1B430DFF00B41DA5 /* GlanceController.swift in Sources */,

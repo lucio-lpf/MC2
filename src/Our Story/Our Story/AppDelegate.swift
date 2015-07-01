@@ -77,5 +77,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
+    
+    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+        
+        if let infoDictionary = userInfo as? [String: String]{
+            
+            println("testando esse bagulho \(infoDictionary)")
+            if infoDictionary["request"] == "5Stories" {
+                Story.cincoultimas({ (fiveStoriesArray) -> Void in
+                    let responseDict = [["firstStoryTitle","secondStoryTitle","thirdStoryTitle","fourthStoryTitle","fifthStoryTitle"] : [fiveStoriesArray.objectAtIndex(0).objectForKey("storyName"), fiveStoriesArray.objectAtIndex(1).objectForKey("storyName"), fiveStoriesArray.objectAtIndex(2).objectForKey("storyName"), fiveStoriesArray.objectAtIndex(3).objectForKey("storyName"), fiveStoriesArray.objectAtIndex(4).objectForKey("storyName")]]
+                    println(responseDict)
+//                    reply(infoDictionary)
+                    reply(["blabla":"oi "])
+                })
+                
+            }
+        } else{
+            println("fail")
+        }
+        
+
+        
+        reply(["blabla":""])
+    }
 }
 

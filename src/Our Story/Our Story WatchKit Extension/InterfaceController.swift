@@ -12,8 +12,37 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
 
+    @IBOutlet weak var tableView: WKInterfaceTable!
+    
+    var items = ["um app daora muito louco mano", "dois", "tres", "quatro", "cinco"]
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        
+        var request = NSDictionary(object: "request", forKey: "5Stories")
+        WKInterfaceController.openParentApplication(request as [NSObject : AnyObject], reply:{(replyFromParent, error) -> Void in
+            
+            if !(error != nil){
+                
+                println(" testanto esse bagulho: \(replyFromParent)")
+                
+                if replyFromParent != nil{
+                    var dict = replyFromParent as NSDictionary
+                    
+               
+                } else {
+                    
+                    
+                }
+                
+                
+                
+            } else {
+                println(error.description)
+            }
+        })
+        
+        loadTableData()
         
         // Configure interface objects here.
     }
@@ -26,6 +55,17 @@ class InterfaceController: WKInterfaceController {
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+    }
+    
+    func loadTableData(){
+        tableView.setNumberOfRows(items.count, withRowType: "TableRow")
+        
+        var i = 0
+        for item in items {
+            let row = tableView.rowControllerAtIndex(i) as! TableRowObject
+            row.titleLabel.setText(item)
+            i++
+        }
     }
 
 }
