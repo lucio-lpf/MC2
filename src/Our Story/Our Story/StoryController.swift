@@ -26,7 +26,15 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     override func viewDidLoad() {
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar
+        
+        var title:UILabel = UILabel()
+        
+        title.textColor = UIColor(red:124/255 , green: 197/255, blue: 135/255, alpha: 1.00)
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        self.navigationItem.titleView?.tintColor = UIColor(red:124/255 , green: 197/255, blue: 135/255, alpha: 1.00)
+
         
         //ADICIONADNO O REFRESH
         refreshControl.addTarget(self, action: Selector("updatePosts"), forControlEvents: UIControlEvents.ValueChanged)

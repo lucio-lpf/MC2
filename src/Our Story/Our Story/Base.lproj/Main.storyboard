@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="69" id="9xZ-E7-zXh"/>
                                     <constraint firstAttribute="width" constant="258" id="mQN-jw-ZKS"/>
                                 </constraints>
-                                <state key="normal" image="facebook_icon">
+                                <state key="normal" image="login-facebook">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -33,23 +33,22 @@
                                     <action selector="loginButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lya-Rm-YW4"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Our Story" translatesAutoresizingMaskIntoConstraints="NO" id="hWw-2p-5Z3">
-                                <rect key="frame" x="172" y="61" width="256" height="92"/>
-                                <animations/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our Story" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32O-r0-PJ5">
+                                <rect key="frame" x="172" y="59" width="256" height="84"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="3Al-wD-1QV"/>
-                                    <constraint firstAttribute="width" constant="256" id="UvR-EA-16F"/>
+                                    <constraint firstAttribute="width" constant="256" id="EYh-6x-YG3"/>
+                                    <constraint firstAttribute="height" constant="84" id="mAo-Lk-y4A"/>
                                 </constraints>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="72" y="62" width="256" height="92"/>
-                                </variation>
-                            </imageView>
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icone" translatesAutoresizingMaskIntoConstraints="NO" id="ghZ-hr-PwG">
-                                <rect key="frame" x="258" y="190" width="85" height="85"/>
+                                <rect key="frame" x="258" y="244" width="85" height="111"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="Sxe-sp-9br"/>
-                                    <constraint firstAttribute="width" constant="85" id="hId-mV-sXb"/>
+                                    <constraint firstAttribute="height" constant="111" id="TWG-5G-gMx"/>
+                                    <constraint firstAttribute="width" constant="85" id="cz1-hY-kY6"/>
                                 </constraints>
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="158" y="193" width="85" height="85"/>
@@ -57,14 +56,15 @@
                             </imageView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.23921568627450981" green="0.23529411764705882" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.83137254901960789" green="0.83921568627450982" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ghZ-hr-PwG" firstAttribute="top" secondItem="hWw-2p-5Z3" secondAttribute="bottom" constant="37" id="0Hb-LD-2Ye"/>
-                            <constraint firstAttribute="centerX" secondItem="hWw-2p-5Z3" secondAttribute="centerX" id="CQP-lL-rPK"/>
-                            <constraint firstItem="ghZ-hr-PwG" firstAttribute="centerX" secondItem="hWw-2p-5Z3" secondAttribute="centerX" constant="0.5" id="RS1-xe-BDW"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SH5-Ct-yr4" secondAttribute="bottom" constant="58" id="StV-X1-Vja"/>
-                            <constraint firstItem="hWw-2p-5Z3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="41" id="VYl-Sc-1HE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SH5-Ct-yr4" secondAttribute="bottom" constant="58" id="NBw-Rm-04d"/>
+                            <constraint firstItem="32O-r0-PJ5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="39" id="Ryt-nL-jHK"/>
+                            <constraint firstItem="32O-r0-PJ5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="39" id="TG1-HO-myu"/>
+                            <constraint firstAttribute="centerX" secondItem="ghZ-hr-PwG" secondAttribute="centerX" constant="-0.5" id="XSY-nK-KFh"/>
                             <constraint firstAttribute="centerX" secondItem="SH5-Ct-yr4" secondAttribute="centerX" id="Y8Y-56-512"/>
+                            <constraint firstAttribute="centerY" secondItem="ghZ-hr-PwG" secondAttribute="centerY" constant="0.5" id="fZs-Aq-wwW"/>
+                            <constraint firstItem="32O-r0-PJ5" firstAttribute="centerX" secondItem="SH5-Ct-yr4" secondAttribute="centerX" id="nGD-Gq-RR3"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -75,7 +75,6 @@
     </scenes>
     <resources>
         <image name="Icone" width="358" height="478"/>
-        <image name="Our Story" width="543" height="132"/>
-        <image name="facebook_icon" width="505" height="128"/>
+        <image name="login-facebook" width="205" height="45"/>
     </resources>
 </document>
