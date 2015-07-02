@@ -11,26 +11,32 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController {
-
-    @IBOutlet weak var tableView: WKInterfaceTable!
     
-    var items = ["um app daora muito louco mano", "dois", "tres", "quatro", "cinco"]
+    
+    @IBOutlet weak var lblText: WKInterfaceLabel!
+    
+    @IBOutlet weak var loadButton: WKInterfaceButton!
+    
+
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        WKInterfaceController.openParentApplication(["request": "Stories"], reply:{(replyFromParent, error) -> Void in
+        let request = ["request":"Stories"]
+        
+        WKInterfaceController.openParentApplication(request, reply:{(replyFromParent, error) -> Void in
             
             if !(error != nil){
                 
                 println(" testando esse bagulho: \(replyFromParent)")
                 
-                if replyFromParent != nil{
+                if replyFromParent["name"] as! String != "" {
                     var dict = replyFromParent as NSDictionary
-                    
+                    self.lblText.setText(dict["name"] as? String)
                
                 } else {
-                    
+                    self.loadButton.setTitle("Recarregar")
+                    self.lblText.setText("Você não possui nenhuma história.")
                     
                 }
                 
@@ -38,10 +44,12 @@ class InterfaceController: WKInterfaceController {
                 
             } else {
                 println(error.description)
+                self.loadButton.setTitle("Toque para tentar novamente 😉")
+                self.lblText.setText("Não conseguimos carregar sua última história.")
             }
         })
         
-        loadTableData()
+//        loadTableData()
         
         // Configure interface objects here.
     }
@@ -55,16 +63,49 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+  
     
-    func loadTableData(){
-        tableView.setNumberOfRows(items.count, withRowType: "TableRow")
+    @IBAction func loadButtonAction() {
         
-        var i = 0
-        for item in items {
-            let row = tableView.rowControllerAtIndex(i) as! TableRowObject
-            row.titleLabel.setText(item)
-            i++
-        }
+        self.lblText.setText("Carregando última história...")
+        
+        WKInterfaceController.openParentApplication(["request": "Stories"], reply:{(replyFromParent, error) -> Void in
+            
+            if !(error != nil){
+                
+                println(" testando esse bagulho: \(replyFromParent)")
+                
+                if replyFromParent["name"] as! String != "" {
+                    var dict = replyFromParent as NSDictionary
+                    self.lblText.setText(dict["name"] as? String)
+                    self.loadButton.setTitle("Recarregar")
+                    
+                } else {
+                    self.loadButton.setTitle("Recarregar")
+                    self.lblText.setText("Você não possui nenhuma história.")
+                    
+                }
+                
+            } else {
+                println(error.description)
+                self.loadButton.setTitle("Toque para tentar novamente 😉")
+                self.lblText.setText("Não conseguimos carregar sua última história.")
+            }
+        })
+
     }
+    
+    
+    
+//    func loadTableData(){
+//        tableView.setNumberOfRows(items.count, withRowType: "TableRow")
+//        
+//        var i = 0
+//        for item in items {
+//            let row = tableView.rowControllerAtIndex(i) as! TableRowObject
+//            row.titleLabel.setText(item)
+//            i++
+//        }
+//    }
 
 }

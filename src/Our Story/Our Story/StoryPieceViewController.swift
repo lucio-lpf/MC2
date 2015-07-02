@@ -97,10 +97,13 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         self.view.addSubview(blurView)
         self.view.addSubview(newStoryPieceView)
 
+        self.parentStory.fetch()
+
         var editing = self.parentStory.valueForKey("editing") as! Bool
         if !editing{
             
             self.parentStory.setValue(true, forKey: "editing")
+            self.parentStory.save()
             self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(120), target: self, selector: Selector("removeSubViews"), userInfo: nil, repeats: false)
             
             self.navigationController?.setNavigationBarHidden(true, animated: false)
