@@ -76,7 +76,7 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         let nibStoryPiece = UINib(nibName: "StoryPieceCell", bundle: nil)
         self.tableView.registerNib(nibStoryPiece, forCellReuseIdentifier: identifierStoryPiece)
         
-        var nibStory = UINib(nibName: "CustomTableCell", bundle: nil) //Trocar para StoryCell
+        var nibStory = UINib(nibName: "StoryCell", bundle: nil) //Trocar para StoryCell
         tableView.registerNib(nibStory, forCellReuseIdentifier: identifierStory)
         
     }

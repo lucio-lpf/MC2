@@ -44,7 +44,7 @@ class LogInViewController: UIViewController {
                 
                 
             var storyboard: UIStoryboard = UIStoryboard(name: "Story", bundle: nil)
-            var vc = storyboard.instantiateViewControllerWithIdentifier("NavegationStory") as! UINavigationController
+            var vc = storyboard.instantiateViewControllerWithIdentifier("MyCustomTabBarViewController") as! UITabBarController
             self.showViewController(vc, sender: self)
             } else {
                 println("Uh oh. The user cancelled the Facebook login.")

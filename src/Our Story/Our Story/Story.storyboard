@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="3588" y="661"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--My Custom Tab Bar View Controller-->
         <scene sceneID="6XH-Qr-S3z">
             <objects>
-                <tabBarController storyboardIdentifier="initialTabView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Qx-qe-wMa" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MyCustomTabBarViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Qx-qe-wMa" customClass="MyCustomTabBarViewController" customModule="Our_Story" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="TXp-WH-sjZ">

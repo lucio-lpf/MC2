@@ -69,12 +69,18 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBAction func addNewStoryPiece(sender: AnyObject) {
         //Create the visual effect
-        self.parentStory.fetch()
+        self.parentStory.fetchInBackgroundWithBlock { (newobject, error) -> Void in
+            self.parentStory = newobject
+        }
         var editing = self.parentStory.valueForKey("editing") as! Bool
         if !editing{
             
             self.parentStory.setValue(true, forKey: "editing")
-            self.parentStory.save()
+            self.parentStory.saveInBackgroundWithBlock { (bool, error) -> Void in
+                if (error != nil){
+                    print (error)
+                }
+            }
             self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(120), target: self, selector: Selector("removeSubViews"), userInfo: nil, repeats: false)
             
             self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -124,6 +130,11 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         
         self.timer?.invalidate()
         self.parentStory.setValue(false, forKey: "editing")
+        self.parentStory.saveInBackgroundWithBlock { (bool, error) -> Void in
+            if (error != nil){
+                print (error)
+            }
+        }
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         updatePieces()
     }
