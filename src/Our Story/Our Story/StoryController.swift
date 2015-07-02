@@ -20,8 +20,10 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     var createdStoryId:String!
     var celltouched: PFObject!
     let tapGesture = UITapGestureRecognizer()
+    var initialPosition:CGFloat!
     
     @IBOutlet weak var okokok: UIBarButtonItem!
+    
     override func viewDidLoad() {
         self.navigationController?.navigationBar.barTintColor = UIColor.grayColor()
         
@@ -35,7 +37,12 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         
         updatePosts()
-        tapGesture.addTarget(self, action: "cancelCreateStory")
+        tapGesture.addTarget(self, action: "dismissKeyboard")
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil);
+        initialPosition = self.view.center.y
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
@@ -71,15 +78,9 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         newStoryView.tag = 11
         
         newStoryView.delegate = self
-
         
-        if (self.view.viewWithTag(10) == nil) {
             self.view.addSubview(blurView)
-        }
-        
-        if (self.view.viewWithTag(11) == nil) {
             self.view.addSubview(newStoryView)
-        }
         
     }
 
@@ -98,8 +99,10 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     
-    func cancelCreateStory() {
-        removeSubViews()
+    func dismissKeyboard() {
+        if let subview = self.view.viewWithTag(11) {
+            subview.endEditing(true)
+        }
     }
     
     func createNewStory(title: String, firstPiece: String) {
@@ -126,14 +129,12 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         updatePosts()
     }
+    
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //SABENDO A CELL SELECIONADA, EU SEI A POSIÇAO NO VETOR
-        
         self.celltouched = postsarray.objectAtIndex(indexPath.row) as! PFObject
-        
-       self.performSegueWithIdentifier("goToStoryPieces", sender: nil)
-        
-        
+        self.performSegueWithIdentifier("goToStoryPieces", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -142,9 +143,28 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
             if let newStoryPiece = segue.destinationViewController as? StoryPieceViewController {
                 newStoryPiece.parentStory = self.celltouched
             }
-            
         }
     }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        
+        if let keyboardSize = (sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            if let subview = self.view.viewWithTag(11) {
+                subview.center.y -= keyboardSize.height/4
+            }
+        }
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        
+        if let keyboardSize = (sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            if let subview = self.view.viewWithTag(11) {
+                subview.center.y = initialPosition
+            }
+        }
+    }
+    
+    
    
 //
 //    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
