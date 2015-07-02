@@ -18,6 +18,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     var refreshControl = UIRefreshControl()
     let tapGesture = UITapGestureRecognizer()
     var timer: NSTimer?
+    var initialPosition:CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,11 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         
         let nib = UINib(nibName: "StoryPieceCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.StoryPiece)
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil);
+        initialPosition = self.view.center.y
         
     }
     
@@ -60,8 +66,11 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         
         //cell.loadItem(storyPiece.text! ,image:"teste1")
         cell.storyPieceMessage.text = self.pieces[indexPath.row].valueForKey("text") as? String
-        cell.storyPieceBkgImage.image = UIImage(named: "teste1")
-        
+        if let style = PFUser.currentUser()?.valueForKey("storyStyle") as? String{
+            cell.storyPieceBkgImage.image = UIImage(named: style)
+        } else {
+            cell.storyPieceBkgImage.image = UIImage(named: "yellow")
+        }
         return cell
     }
     
@@ -69,10 +78,18 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBAction func addNewStoryPiece(sender: AnyObject) {
         //Create the visual effect
+        self.parentStory.fetchInBackgroundWithBlock { (newobject, error) -> Void in
+            self.parentStory = newobject
+        }
         var editing = self.parentStory.valueForKey("editing") as! Bool
         if !editing{
             
             self.parentStory.setValue(true, forKey: "editing")
+            self.parentStory.saveInBackgroundWithBlock { (bool, error) -> Void in
+                if (error != nil){
+                    print (error)
+                }
+            }
             self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(120), target: self, selector: Selector("removeSubViews"), userInfo: nil, repeats: false)
             
             self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -103,13 +120,18 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    
-    func cancelCreateStory() {
-        removeSubViews()
+    func dismissKeyboard() {
+        if let subview = self.view.viewWithTag(11) {
+            subview.endEditing(true)
+        }
     }
     
     func createNewStoryPiece(message: String) {
-        
+        StoryPiece.createStoryPiece(message, parent: parentStory as PFObject) {
+            (piece, success, error) -> () in
+            print(piece)
+            self.updatePieces()
+        }
     }
     
     func removeSubViews() {
@@ -122,6 +144,11 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         
         self.timer?.invalidate()
         self.parentStory.setValue(false, forKey: "editing")
+        self.parentStory.saveInBackgroundWithBlock { (bool, error) -> Void in
+            if (error != nil){
+                print (error)
+            }
+        }
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         updatePieces()
     }
@@ -134,6 +161,25 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
             self.tableView.reloadData()
         })
         self.refreshControl.endRefreshing()
+    }
+    
+    
+    
+    
+    func keyboardWillShow(sender: NSNotification) {
+        if let keyboardSize = (sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            if let subview = self.view.viewWithTag(11) {
+                subview.center.y -= keyboardSize.height/4
+            }
+        }
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        if let keyboardSize = (sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            if let subview = self.view.viewWithTag(11) {
+                subview.center.y = initialPosition
+            }
+        }
     }
     
 }

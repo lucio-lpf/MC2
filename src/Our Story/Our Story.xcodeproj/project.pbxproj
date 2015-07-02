@@ -29,6 +29,7 @@
 		5A0766311B3B3410005418AB /* StoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0766301B3B3410005418AB /* StoryController.swift */; };
 		5A64EEF41B3C3A7B00DB0819 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64EEF31B3C3A7B00DB0819 /* StoryCell.swift */; };
 		5A64EEF61B3C416900DB0819 /* StoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A64EEF51B3C416900DB0819 /* StoryCell.xib */; };
+		5A82B8151B4582AF00687C28 /* MyCustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A82B8141B4582AF00687C28 /* MyCustomTabBarViewController.swift */; };
 		8368D3701B39EF910007E8E0 /* FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D36F1B39EF910007E8E0 /* FacebookLogin.swift */; };
 		8368D3721B3C60F80007E8E0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8368D3711B3C60F80007E8E0 /* Profile.storyboard */; };
 		8368D3741B3C611A0007E8E0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D3731B3C611A0007E8E0 /* ProfileViewController.swift */; };
@@ -116,6 +117,7 @@
 		5A64EEF31B3C3A7B00DB0819 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
 		5A64EEF51B3C416900DB0819 /* StoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryCell.xib; sourceTree = "<group>"; };
 		5A7DCA2C1B43155500AA3FA5 /* Our Story.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Our Story.entitlements"; sourceTree = "<group>"; };
+		5A82B8141B4582AF00687C28 /* MyCustomTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomTabBarViewController.swift; sourceTree = "<group>"; };
 		72E98D86373E3AC3F91D987C /* Pods_Our_Story.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Our_Story.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8368D36F1B39EF910007E8E0 /* FacebookLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLogin.swift; sourceTree = "<group>"; };
 		8368D3711B3C60F80007E8E0 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				8368D3731B3C611A0007E8E0 /* ProfileViewController.swift */,
 				5A0766301B3B3410005418AB /* StoryController.swift */,
 				837942DA1B41B90E00BEB265 /* ConfigurationViewController.swift */,
+				5A82B8141B4582AF00687C28 /* MyCustomTabBarViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				837942E11B41CCE400BEB265 /* StyleSample.swift in Sources */,
 				5A07662E1B3B31BB005418AB /* Story.swift in Sources */,
 				83F2F5DC1B42FC1600B41DA5 /* UserConfiguration.swift in Sources */,
+				5A82B8151B4582AF00687C28 /* MyCustomTabBarViewController.swift in Sources */,
 				5A64EEF41B3C3A7B00DB0819 /* StoryCell.swift in Sources */,
 				5A07662F1B3B31BB005418AB /* StoryPiece.swift in Sources */,
 			);
