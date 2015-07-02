@@ -164,13 +164,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func handleUserActivity(userInfo: [NSObject : AnyObject]!) {
-        // 1
-        if let objectId = userInfo["objectId"] as? String {
-            // 2
-            
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]!) -> Void) -> Bool {
+        
+        if userActivity.activityType == "com.mc2.Our-Story.WatchHandoff" {
+            if let win = window {
+                var viewController = win.rootViewController as! StoryPieceViewController
+                viewController.restoreUserActivityState(userActivity)
+            }
         }
+        return true
     }
-    
-}
 
+}

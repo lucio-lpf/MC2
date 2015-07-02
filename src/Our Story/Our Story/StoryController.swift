@@ -25,7 +25,8 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var okokok: UIBarButtonItem!
     
     override func viewDidLoad() {
-        self.navigationController?.navigationBar.barTintColor = UIColor.grayColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar
         
         //ADICIONADNO O REFRESH
         refreshControl.addTarget(self, action: Selector("updatePosts"), forControlEvents: UIControlEvents.ValueChanged)

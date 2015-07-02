@@ -14,6 +14,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var tableView: UITableView!
     var newStoryPieceView: AddNewStoryPieceView!
     var parentStory:PFObject!
+    var parentStoryObjectId: String = String()
     var pieces = []
     var refreshControl = UIRefreshControl()
     let tapGesture = UITapGestureRecognizer()
@@ -180,6 +181,17 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
                 subview.center.y = initialPosition
             }
         }
+    }
+    
+    override func restoreUserActivityState(activity: NSUserActivity) {
+
+        if let userInfo = activity.userInfo{
+            self.parentStoryObjectId = userInfo["objectId"] as! String
+        }
+        
+
+        
+        super.restoreUserActivityState(activity)
     }
     
 }
