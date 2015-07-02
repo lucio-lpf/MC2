@@ -6,33 +6,6 @@
     </dependencies>
     <scenes>
         <!--Interface Controller-->
-        <scene sceneID="aou-V4-d1y">
-            <objects>
-                <controller id="AgC-eL-Hgc">
-                    <items>
-                        <table alignment="left" id="toL-L7-KKC">
-                            <items>
-                                <tableRow identifier="TableRow" id="NIe-0M-jqp" customClass="TableRowObject" customModule="Our_Story_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="CNl-cc-hdC">
-                                        <items>
-                                            <label width="1" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" numberOfLines="0" id="iUR-Jj-xN9"/>
-                                        </items>
-                                    </group>
-                                    <connections>
-                                        <outlet property="titleLabel" destination="iUR-Jj-xN9" id="hSk-3k-G7f"/>
-                                    </connections>
-                                </tableRow>
-                            </items>
-                        </table>
-                    </items>
-                    <connections>
-                        <outlet property="tableView" destination="toL-L7-KKC" id="20T-hw-uRl"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="235" y="370"/>
-        </scene>
-        <!--Interface Controller-->
         <scene sceneID="dS6-UF-wZQ">
             <objects>
                 <controller id="HgY-Mi-14V" customClass="InterfaceController" customModule="Our_Story_WatchKit_Extension">

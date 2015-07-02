@@ -29,7 +29,7 @@ class StoryCell: UITableViewCell {
         
 //        if let user: AnyObject = story.valueForKey("createdBy") {
 //            backgroundImage.image = UIImage(named: (story.valueForKey("createdBy")!.valueForKey("storyStyle") as? String)!)
-            backgroundImage.image = UIImage(named: "post-it")
+            backgroundImage.image = UIImage(named: "blue")
             titleLabel.text = story.valueForKey("storyName") as? String
             storylabel.text = story.valueForKey("header") as? String
 //            informationLabel.text = story.valueForKey("createdBy")!.valueForKey("name") as? String

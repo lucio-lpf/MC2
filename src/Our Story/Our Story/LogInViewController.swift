@@ -13,7 +13,16 @@ class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if ((PFUser.currentUser()) != nil){
+            var storyboard: UIStoryboard = UIStoryboard(name: "Story", bundle: nil)
+            var vc = storyboard.instantiateViewControllerWithIdentifier("MyCustomTabBarViewController") as! UITabBarController
+            self.showViewController(vc, sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {

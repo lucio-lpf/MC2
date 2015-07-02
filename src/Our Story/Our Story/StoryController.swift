@@ -62,6 +62,11 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
             self.currentStory = story
         
             cell.loadItens(story!)
+        
+            var view = UIView()
+            view.backgroundColor = UIColor.whiteColor()
+            cell.selectedBackgroundView = view
+        
             return cell
     }
     
