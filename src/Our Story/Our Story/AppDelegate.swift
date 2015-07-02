@@ -100,9 +100,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         var dict: NSDictionary = NSDictionary()
                         if results != nil { //possui história
                
-                                dict = ["name": results![0].objectForKey("storyName") as! String]
+//                                dict = ["name": results![0].objectForKey("storyName") as! String]
 //                                  dict.setValue(results![0].objectId as String?!, forKey: "objectId")
-                                reply(dict as [NSObject : AnyObject])
+                            var nome = results![0].objectForKey("storyName") as! String
+                            var objectId = results![0].objectId as String!
+                            dict = ["name": nome, "objectId":objectId]
+                            reply(dict as [NSObject : AnyObject])
+
 
                         } else { //senão, devolve um string vazio, que vai ser tratado no watch como "o usuário não possui nenhuma história criada"
                             dict = ["name": ""]
