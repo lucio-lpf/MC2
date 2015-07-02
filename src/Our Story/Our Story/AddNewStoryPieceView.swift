@@ -30,6 +30,7 @@ class AddNewStoryPieceView: UIView, UITextViewDelegate {
         txt.layer.borderWidth = 0.3
         txt.layer.borderColor = UIColor.blackColor().CGColor
         
+        
         return instance
     }
     

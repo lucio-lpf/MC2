@@ -18,12 +18,12 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     var refreshControl = UIRefreshControl()
     var currentStory:NSObject!
     var createdStoryId:String!
-    var celltouched: NSObject!
+    var celltouched: PFObject!
+    let tapGesture = UITapGestureRecognizer()
     
     @IBOutlet weak var okokok: UIBarButtonItem!
     override func viewDidLoad() {
-        
-        
+        self.navigationController?.navigationBar.barTintColor = UIColor.grayColor()
         
         //ADICIONADNO O REFRESH
         refreshControl.addTarget(self, action: Selector("updatePosts"), forControlEvents: UIControlEvents.ValueChanged)
@@ -34,12 +34,8 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.Story)
         
         
-        //ADICIONANDO AO MAIN ARRAY OS 10 POSTS
-//        Story.loadfirststories({ (arraydeposts) -> Void in
-//            self.postsarray = arraydeposts
-//            self.tableView.reloadData()
-//        })
         updatePosts()
+        tapGesture.addTarget(self, action: "cancelCreateStory")
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
@@ -60,11 +56,14 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBAction func createNewStory(sender: AnyObject) {
         //CRIANDO NOVA HISTORIA (POPUP DO BLUR E DA SUBVIEW)
         //Create the visual effect
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
         let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
         blurView.tag = 10
-        self.view.addSubview(blurView)
+        blurView.userInteractionEnabled = true
+        blurView.addGestureRecognizer(tapGesture)
+
         
         newStoryView = AddNewStoryView.instanceFromNib()
         newStoryView.frame  = CGRectMake(0, 0, self.view.frame.size.width - 20, 300)
@@ -72,8 +71,15 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         newStoryView.tag = 11
         
         newStoryView.delegate = self
+
         
-        self.view.addSubview(newStoryView)
+        if (self.view.viewWithTag(10) == nil) {
+            self.view.addSubview(blurView)
+        }
+        
+        if (self.view.viewWithTag(11) == nil) {
+            self.view.addSubview(newStoryView)
+        }
         
     }
 
@@ -91,21 +97,18 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.refreshControl.endRefreshing()
     }
     
+    
+    func cancelCreateStory() {
+        removeSubViews()
+    }
+    
     func createNewStory(title: String, firstPiece: String) {
 //        print("StoryTitle: \(title)  -  StoryPiece: \(firstPiece) \n")
         
-        StoryPiece.createStoryPiece(firstPiece) {
-            (piece,success, error) in
-            if (success) {
-                
-            } else {
-                print(error)
-            }
-        }
-        
-        Story.createStory(title){
+        Story.createStory(title, header:firstPiece) {
             (story,success, error) in
             if (success) {
+                self.updatePosts()
             } else {
                 print(error)
             }
@@ -120,11 +123,13 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
                 view.removeFromSuperview()
             }
         }
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        updatePosts()
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //SABENDO A CELL SELECIONADA, EU SEI A POSIÇAO NO VETOR
         
-        self.celltouched = postsarray.objectAtIndex(indexPath.row) as! NSObject
+        self.celltouched = postsarray.objectAtIndex(indexPath.row) as! PFObject
         
        self.performSegueWithIdentifier("goToStoryPieces", sender: nil)
         

@@ -13,9 +13,11 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
  
     @IBOutlet var tableView: UITableView!
     var newStoryPieceView: AddNewStoryPieceView!
-    var parentStory:NSObject!
+    var parentStory:PFObject!
     var pieces = []
     var refreshControl = UIRefreshControl()
+    let tapGesture = UITapGestureRecognizer()
+    var timer: NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         
        //INICIAR AS PIECES
         updatePieces()
+        tapGesture.addTarget(self, action: "cancelCreateStory")
         
         let nib = UINib(nibName: "StoryPieceCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.StoryPiece)
@@ -65,23 +68,44 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     
     
     @IBAction func addNewStoryPiece(sender: AnyObject) {
-        
-        
         //Create the visual effect
-        let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
-        let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
-        blurView.tag = 10
-        self.view.addSubview(blurView)
-        
-        newStoryPieceView = AddNewStoryPieceView.instanceFromNib()
-        newStoryPieceView.frame = CGRectMake(0, 0, self.view.frame.size.width - 20, 250)
-        newStoryPieceView.center = self.view.center
-        newStoryPieceView.tag = 11
-        newStoryPieceView.delegate = self
-        
-        self.view.addSubview(newStoryPieceView)
-        
+        var editing = self.parentStory.valueForKey("editing") as! Bool
+        if !editing{
+            
+            self.parentStory.setValue(true, forKey: "editing")
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(120), target: self, selector: Selector("removeSubViews"), userInfo: nil, repeats: false)
+            
+            self.navigationController?.setNavigationBarHidden(true, animated: false)
+            let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
+            let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
+            blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+            blurView.tag = 10
+            blurView.userInteractionEnabled = true
+            blurView.addGestureRecognizer(tapGesture)
+            
+            
+            newStoryPieceView = AddNewStoryPieceView.instanceFromNib()
+            newStoryPieceView.frame = CGRectMake(0, 0, self.view.frame.size.width - 20, 250)
+            newStoryPieceView.center = self.view.center
+            newStoryPieceView.tag = 11
+            newStoryPieceView.delegate = self
+            newStoryPieceView.backgroundColor = UIColor(red: 255, green: 238, blue: 129, alpha: 1)
+            
+            if (self.view.viewWithTag(10) == nil) {
+                self.view.addSubview(blurView)
+            }
+            
+            if (self.view.viewWithTag(11) == nil) {
+                self.view.addSubview(newStoryPieceView)
+            }
+            else{
+            }
+        }
+    }
+    
+    
+    func cancelCreateStory() {
+        removeSubViews()
     }
     
     func createNewStoryPiece(message: String) {
@@ -95,6 +119,10 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
                 view.removeFromSuperview()
             }
         }
+        
+        self.timer?.invalidate()
+        self.parentStory.setValue(false, forKey: "editing")
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         updatePieces()
     }
     

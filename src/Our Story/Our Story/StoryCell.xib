@@ -40,7 +40,6 @@
                     </label>
                 </subviews>
                 <animations/>
-                <color key="backgroundColor" red="0.54901960780000003" green="0.47450980390000003" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="dZn-f8-ylm" firstAttribute="trailing" secondItem="hYn-4L-dvG" secondAttribute="trailingMargin" constant="2" id="0GK-sb-k27"/>
                     <constraint firstItem="kPk-Tx-SSe" firstAttribute="leading" secondItem="hYn-4L-dvG" secondAttribute="leadingMargin" constant="41" id="1JE-qG-PRw"/>

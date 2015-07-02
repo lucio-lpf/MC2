@@ -23,12 +23,12 @@ class StoryCell: UITableViewCell {
     
     @IBOutlet var storyPieceMessage: UILabel!
     @IBOutlet var storyPieceBkgImage: UIImageView!
-    
+
     func loadItens(story: NSObject){
         backgroundImage.image = UIImage(named: "post-it")
-//     titleLabel.text = story.valueForKey("storyName") as? String
-//        var pieces = story.valueForKey("storyPieces") aNSArray
-//        storylabel.text = pieces[0] as? String
-//       informationLabel.text = story.valueForKey("createdBy")?.valueForKey("objectId") as? String
+        titleLabel.text = story.valueForKey("storyName") as? String
+        storylabel.text = story.valueForKey("header") as? String
+//        informationLabel.text = story.valueForKey("createdBy")?.valueForKey("name") as? String
     }
+
 }
