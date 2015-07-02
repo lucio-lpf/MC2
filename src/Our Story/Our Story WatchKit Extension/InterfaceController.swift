@@ -33,11 +33,28 @@ class InterfaceController: WKInterfaceController {
                 if replyFromParent["name"] as! String != "" {
                     var dict = replyFromParent as NSDictionary
                     self.lblText.setText(dict["name"] as? String)
+                    
+                    self.updateUserActivity("com.mc2.Our-Story.WatchHandoff", userInfo: ["objectId": dict["objectId"] as! String], webpageURL: nil)
+
                
                 } else {
-                    self.loadButton.setTitle("Recarregar")
-                    self.lblText.setText("Você não possui nenhuma história.")
-                    
+                    if replyFromParent["erro"] as! String == "Usuário não possui histórias criadas." {
+//                        self.loadButton.setTitle("Recarregar")
+                        self.loadButton.setTitle("Toque para tentar novamente 😉")
+//                        self.lblText.setText("Você não possui nenhuma história.")
+                        self.lblText.setText("Um erro ocorreu ao tentar alcançar sua última história.")
+
+                    } else
+                        if replyFromParent["erro"] as! String == "Conexão não estabelecida."{
+                            self.loadButton.setTitle("Toque para tentar novamente 😉")
+//                            self.lblText.setText("Não conseguimos carregar sua última história. Confira sua conexão e tente novamente.")
+                            self.lblText.setText("Um erro ocorreu ao tentar alcançar sua última história.")
+                            
+                        }else {
+                            self.loadButton.setTitle("Recarregar")
+                            self.lblText.setText("Você não está logado. Faça o login e tente novamente.")
+
+                        }
                 }
                 
                 
@@ -45,7 +62,8 @@ class InterfaceController: WKInterfaceController {
             } else {
                 println(error.description)
                 self.loadButton.setTitle("Toque para tentar novamente 😉")
-                self.lblText.setText("Não conseguimos carregar sua última história.")
+//                self.lblText.setText("Não conseguimos carregar sua última história.")
+                self.lblText.setText("Um erro ocorreu ao tentar alcançar sua última história.")
             }
         })
         
@@ -69,27 +87,75 @@ class InterfaceController: WKInterfaceController {
         
         self.lblText.setText("Carregando última história...")
         
-        WKInterfaceController.openParentApplication(["request": "Stories"], reply:{(replyFromParent, error) -> Void in
+//        WKInterfaceController.openParentApplication(["request": "Stories"], reply:{(replyFromParent, error) -> Void in
+//            
+//            if !(error != nil){
+//                
+//                println(" testando esse bagulho: \(replyFromParent)")
+//                
+//                if replyFromParent["name"] as! String != "" {
+//                    var dict = replyFromParent as NSDictionary
+//                    self.lblText.setText(dict["name"] as? String)
+//                    self.loadButton.setTitle("Recarregar")
+//                    
+//                } else {
+//                    self.loadButton.setTitle("Recarregar")
+//                    self.lblText.setText("Você não possui nenhuma história.")
+//                    
+//                }
+//                
+//            } else {
+//                println(error.description)
+//                self.loadButton.setTitle("Toque para tentar novamente 😉")
+//                self.lblText.setText("Não conseguimos carregar sua última história.")
+//            }
+//        })
+        
+        let request = ["request":"Stories"]
+        
+        WKInterfaceController.openParentApplication(request, reply:{(replyFromParent, error) -> Void in
             
             if !(error != nil){
                 
                 println(" testando esse bagulho: \(replyFromParent)")
                 
                 if replyFromParent["name"] as! String != "" {
+                    
                     var dict = replyFromParent as NSDictionary
-                    self.lblText.setText(dict["name"] as? String)
+                    
                     self.loadButton.setTitle("Recarregar")
+                    self.lblText.setText(dict["name"] as? String)
+                    
+                    self.updateUserActivity("com.mc2.Our-Story.WatchHandoff", userInfo: ["objectId": dict["objectId"] as! String], webpageURL: nil)
+                    
                     
                 } else {
-                    self.loadButton.setTitle("Recarregar")
-                    self.lblText.setText("Você não possui nenhuma história.")
-                    
+                    if replyFromParent["erro"] as! String == "Usuário não possui histórias criadas." {
+//                        self.loadButton.setTitle("Recarregar")
+                        self.loadButton.setTitle("Toque para tentar novamente 😉")
+//                        self.lblText.setText("Você não possui nenhuma história.")
+                        self.lblText.setText("Um erro ocorreu ao tentar alcançar sua última história.")
+                        
+                    } else
+                        if replyFromParent["erro"] as! String == "Conexão não estabelecida."{
+                            self.loadButton.setTitle("Toque para tentar novamente 😉")
+//                            self.lblText.setText("Não conseguimos carregar sua última história. Confira sua conexão e tente novamente.")
+                            self.lblText.setText("Um erro ocorreu ao tentar alcançar sua última história.")
+                            
+                        }else {
+                            self.loadButton.setTitle("Recarregar")
+                            self.lblText.setText("Você não está logado. Faça o login e tente novamente.")
+                            
+                    }
                 }
+                
+                
                 
             } else {
                 println(error.description)
                 self.loadButton.setTitle("Toque para tentar novamente 😉")
-                self.lblText.setText("Não conseguimos carregar sua última história.")
+//                self.lblText.setText("Não conseguimos carregar sua última história.")
+                self.lblText.setText("Um erro ocorreu ao tentar alcançar sua última história.")
             }
         })
 

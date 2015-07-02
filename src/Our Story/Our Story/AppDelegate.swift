@@ -85,38 +85,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let info = userInfo?["request"] as? String {
             
             if info == "Stories" {
-            //Fazendo query pra pegar a última história
                 
-                var postquery = PFQuery(className: "Story")
-                postquery.orderByDescending("createdAt")
-                postquery.whereKey("createdBy", equalTo: PFUser.currentUser()!)                           
-                postquery.limit = 1
+                var dict: NSDictionary = NSDictionary()
                 
-                postquery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
-                
-                    //cria um dict e se ele tiver uma última história, devolve o título dela
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                if PFUser.currentUser() != nil {
+                    //Fazendo query pra pegar a última história
+                    var postquery = PFQuery(className: "Story")
+                    postquery.orderByDescending("createdAt")
+                    postquery.whereKey("createdBy", equalTo: PFUser.currentUser()!)
+//                    postquery.whereKey("createdBy", equalTo: "bla")
+                    
+                    postquery.limit = 1
+                    
+                    postquery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
                         
-                        var dict: NSDictionary = NSDictionary()
-                        if results != nil { //possui história
-               
-//                                dict = ["name": results![0].objectForKey("storyName") as! String]
-//                                  dict.setValue(results![0].objectId as String?!, forKey: "objectId")
-                            var nome = results![0].objectForKey("storyName") as! String
-                            var objectId = results![0].objectId as String!
-                            dict = ["name": nome, "objectId":objectId]
-                            reply(dict as [NSObject : AnyObject])
-
-
-                        } else { //senão, devolve um string vazio, que vai ser tratado no watch como "o usuário não possui nenhuma história criada"
-                            dict = ["name": ""]
-                            reply(dict as [NSObject : AnyObject])
-                        }
+                        //cria um dict e se ele tiver uma última história, devolve o título dela
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            if !(error != nil) {
+                                if results != nil { //possui história
+                                    
+                                    //                                dict = ["name": results![0].objectForKey("storyName") as! String]
+                                    //                                  dict.setValue(results![0].objectId as String?!, forKey: "objectId")
+                                    var nome = results![0].objectForKey("storyName") as! String
+                                    var objectId = results![0].objectId as String!
+                                    dict = ["name": nome, "objectId":objectId]
+                                    reply(dict as [NSObject : AnyObject])
+                                    
+                                    
+                                } else { //senão, devolve um string vazio, que vai ser tratado baseado no erro que for enviado junto
+                                    dict = ["name": "", "erro":"Usuário não possui histórias criadas."]//esse else não necessariamente corresponde a esse erro - verificar depois
+                                    reply(dict as [NSObject : AnyObject])
+                                }
+                            } else{
+                                dict = ["name": "", "erro": "Conexão não estabelecida."]//esse else não necessariamente corresponde a esse erro - verificar depois
+                                reply(dict as [NSObject : AnyObject])
+                            }
+                            
+                        })
+                        
                     })
 
-                })
+                } else{
+                    dict = ["name": "", "erro": "Você não está logado. Faça o login e tente novamente."]
+                    reply(dict as [NSObject : AnyObject])
+                }
+                
             }
-
+//problema aqui encima. Dificuldade para diferenciar quando o parse devolve nil (user não possui história criada) de quando dá erro de conexão. VER PELO TIPO DO ERRO QUE O PARSE DEVOLVE.
             
         } else{
             println("fail")
@@ -147,5 +162,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
+    
+    
+    func handleUserActivity(userInfo: [NSObject : AnyObject]!) {
+        // 1
+        if let objectId = userInfo["objectId"] as? String {
+            // 2
+            
+        }
+    }
+    
 }
 

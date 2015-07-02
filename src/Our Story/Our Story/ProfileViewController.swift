@@ -63,12 +63,10 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         
         //preenchendo os campos de informacão do user
         var facebookLogin = FacebookLogin()
-        facebookLogin.login { (user, error) -> Void in
-            facebookLogin.returnUserDataWithImage { (fetchedName, fetchedEmail, fetchedImage, error) -> Void in
+        facebookLogin.returnUserDataWithImage { (fetchedName, fetchedEmail, fetchedImage, error) -> Void in
             self.avatarImage.image = fetchedImage
             self.userNameScrollView.text = fetchedName as? String
             self.headerLabel.text = fetchedName as? String
-            }
         }
         
         
