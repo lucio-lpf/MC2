@@ -23,10 +23,14 @@ class StoryCell: UITableViewCell {
     
     @IBOutlet var storyPieceMessage: UILabel!
     @IBOutlet var storyPieceBkgImage: UIImageView!
-
+    
     func loadItens(story: NSObject){
 //        backgroundImage.image = UIImage(named: "yellow")
-        
+        self.backgroundImage.layer.cornerRadius = 10;
+        self.backgroundImage.layer.borderColor = UIColor.whiteColor().CGColor
+        self.backgroundImage.layer.borderWidth = 0.3
+        self.backgroundImage.clipsToBounds = true
+   
 //        if let user: AnyObject = story.valueForKey("createdBy") {
 //            backgroundImage.image = UIImage(named: (story.valueForKey("createdBy")!.valueForKey("storyStyle") as? String)!)
             backgroundImage.image = UIImage(named: "blue")
@@ -34,6 +38,21 @@ class StoryCell: UITableViewCell {
             storylabel.text = story.valueForKey("header") as? String
 //            informationLabel.text = story.valueForKey("createdBy")!.valueForKey("name") as? String
 //        }
+    }
+    
+    class func instanceFromNib() -> AddNewStoryPieceView {
+        var instance = UINib(nibName: "AddNewStoryPieceView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! AddNewStoryPieceView
+        
+        instance.backgroundColor = UIColor(red: 255, green: 238, blue: 129, alpha: 1)
+        
+        var txt = instance.viewWithTag(1) as! UITextView
+        txt.delegate = instance as UITextViewDelegate
+        txt.layer.cornerRadius = 5
+        txt.layer.borderWidth = 0.3
+        txt.layer.borderColor = UIColor.blackColor().CGColor
+        
+        
+        return instance
     }
 
 }

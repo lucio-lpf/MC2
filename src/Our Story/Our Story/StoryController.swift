@@ -77,9 +77,10 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBAction func createNewStory(sender: AnyObject) {
         //CRIANDO NOVA HISTORIA (POPUP DO BLUR E DA SUBVIEW)
         //Create the visual effect
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
         let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
+        blurView.alpha = 0.0
         blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
         blurView.tag = 10
         blurView.userInteractionEnabled = true
@@ -90,11 +91,18 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         newStoryView.frame  = CGRectMake(0, 0, self.view.frame.size.width - 20, 300)
         newStoryView.center = self.view.center
         newStoryView.tag = 11
+        newStoryView.alpha = 0.0
         
         newStoryView.delegate = self
+        self.view.addSubview(blurView)
+        self.view.addSubview(newStoryView)
         
-            self.view.addSubview(blurView)
-            self.view.addSubview(newStoryView)
+        UIView.animateWithDuration(0.4, animations: {
+            blurView.alpha = 1.0
+            self.newStoryView.alpha = 1.0
+        })
+        
+        
         
     }
 
@@ -136,11 +144,15 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         //REMOVE O POPUP
         if let view = self.view.viewWithTag(11){
             if let subview = self.view.viewWithTag(10) {
+                UIView.animateWithDuration(0.4, animations: {
+                    subview.alpha = 0.0
+                })
+                
                 subview.removeFromSuperview()
                 view.removeFromSuperview()
             }
         }
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         updatePosts()
     }
     

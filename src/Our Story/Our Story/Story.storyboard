@@ -107,7 +107,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="yGC-OL-umt"/>
                     <navigationItem key="navigationItem" title="Our Story" id="OjH-6U-YGM">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="aqB-0c-PV5">
-                            <color key="tintColor" red="0.15686274510000001" green="0.086274509799999996" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="createNewStory:" destination="20f-b4-IWQ" id="5lG-QL-dh7"/>
                             </connections>
