@@ -85,19 +85,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let info = userInfo?["request"] as? String {
             
             if info == "Stories" {
-            
+            //Fazendo query pra pegar a última história
+                
                 var postquery = PFQuery(className: "Story")
                 postquery.orderByDescending("createdAt")
-//                postquery.whereKey("createdBy", equalTo: PFUser.currentUser()!)
+                postquery.whereKey("createdBy", equalTo: PFUser.currentUser()!)                           
                 postquery.limit = 1
+                
                 postquery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
-                    
+                
+                    //cria um dict e se ele tiver uma última história, devolve o título dela
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        
+                        var dict: NSDictionary = NSDictionary()
+                        if results != nil { //possui história
+               
+                                dict = ["name": results![0].objectForKey("storyName") as! String]
+//                                  dict.setValue(results![0].objectId as String?!, forKey: "objectId")
+                                reply(dict as [NSObject : AnyObject])
 
-                        for var index = 0; index != results!.count; ++index{
-                            var dict: NSDictionary = NSDictionary()
-                            dict = ["name": results![0].objectForKey("storyName") as! String]
-//                            dict.setValue(results![0].objectId, forKey: "objectId")
+                        } else { //senão, devolve um string vazio, que vai ser tratado no watch como "o usuário não possui nenhuma história criada"
+                            dict = ["name": ""]
                             reply(dict as [NSObject : AnyObject])
                         }
                     })

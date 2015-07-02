@@ -22,19 +22,21 @@ class InterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        WKInterfaceController.openParentApplication(["request": "Stories"], reply:{(replyFromParent, error) -> Void in
+        let request = ["request":"Stories"]
+        
+        WKInterfaceController.openParentApplication(request, reply:{(replyFromParent, error) -> Void in
             
             if !(error != nil){
                 
                 println(" testando esse bagulho: \(replyFromParent)")
                 
-                if replyFromParent != nil{
+                if replyFromParent["name"] as! String != "" {
                     var dict = replyFromParent as NSDictionary
                     self.lblText.setText(dict["name"] as? String)
                
                 } else {
-                    self.loadButton.setTitle("Toque para tentar novamente 😉")
-                    self.lblText.setText("Não conseguimos carregar sua última história.")
+                    self.loadButton.setTitle("Recarregar")
+                    self.lblText.setText("Você não possui nenhuma história.")
                     
                 }
                 
@@ -71,18 +73,19 @@ class InterfaceController: WKInterfaceController {
             
             if !(error != nil){
                 
-                println(" testando esse bagulho no reload: \(replyFromParent)")
+                println(" testando esse bagulho: \(replyFromParent)")
                 
-                if replyFromParent != nil{
+                if replyFromParent["name"] as! String != "" {
                     var dict = replyFromParent as NSDictionary
                     self.lblText.setText(dict["name"] as? String)
                     self.loadButton.setTitle("Recarregar")
                     
                 } else {
-                    self.loadButton.setTitle("Toque para tentar novamente 😉")
-                    self.lblText.setText("Não conseguimos carregar sua última história.")
+                    self.loadButton.setTitle("Recarregar")
+                    self.lblText.setText("Você não possui nenhuma história.")
                     
                 }
+                
             } else {
                 println(error.description)
                 self.loadButton.setTitle("Toque para tentar novamente 😉")
