@@ -43,8 +43,9 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
                     println(results![index].objectForKey("storyName"))
                 }
                 var dict: NSDictionary = NSDictionary()
-//                dict.setValue(results![0]["storyName"] as! String, forKey: "request")
-                dict = ["string": results![0].objectForKey("storyName") as! String]
+//                dict = ["string": results![0].objectForKey("storyName") as! String]
+                dict = ["name": (results![0].objectForKey("storyName") as! String)]
+                
                 println(dict)
 
             })

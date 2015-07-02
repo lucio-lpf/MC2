@@ -83,6 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
         
         if let info = userInfo?["request"] as? String {
+            
             if info == "Stories" {
             
                 var postquery = PFQuery(className: "Story")
@@ -95,7 +96,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
                         for var index = 0; index != results!.count; ++index{
                             var dict: NSDictionary = NSDictionary()
-                            dict = ["string": results![0].objectForKey("storyName") as! String]
+                            dict = ["name": results![0].objectForKey("storyName") as! String]
+//                            dict.setValue(results![0].objectId, forKey: "objectId")
                             reply(dict as [NSObject : AnyObject])
                         }
                     })
