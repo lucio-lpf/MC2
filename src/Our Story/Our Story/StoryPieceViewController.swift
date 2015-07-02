@@ -18,6 +18,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     var refreshControl = UIRefreshControl()
     let tapGesture = UITapGestureRecognizer()
     var timer: NSTimer?
+    var initialPosition:CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,11 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         
         let nib = UINib(nibName: "StoryPieceCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.StoryPiece)
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil);
+        initialPosition = self.view.center.y
         
     }
     
@@ -87,7 +93,6 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         newStoryPieceView.center = self.view.center
         newStoryPieceView.tag = 11
         newStoryPieceView.delegate = self
-        newStoryPieceView.backgroundColor = UIColor.blueColor()
         
         self.view.addSubview(blurView)
         self.view.addSubview(newStoryPieceView)
@@ -126,13 +131,14 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    
-    func cancelCreateStory() {
-        removeSubViews()
+    func dismissKeyboard() {
+        if let subview = self.view.viewWithTag(11) {
+            subview.endEditing(true)
+        }
     }
     
     func createNewStoryPiece(message: String) {
-        StoryPiece.createStoryPiece(message, parent: parentStory as! PFObject) {
+        StoryPiece.createStoryPiece(message, parent: parentStory as PFObject) {
             (piece, success, error) -> () in
             print(piece)
             self.updatePieces()
@@ -161,6 +167,25 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
             self.tableView.reloadData()
         })
         self.refreshControl.endRefreshing()
+    }
+    
+    
+    
+    
+    func keyboardWillShow(sender: NSNotification) {
+        if let keyboardSize = (sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            if let subview = self.view.viewWithTag(11) {
+                subview.center.y -= keyboardSize.height/4
+            }
+        }
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        if let keyboardSize = (sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            if let subview = self.view.viewWithTag(11) {
+                subview.center.y = initialPosition
+            }
+        }
     }
     
 }
