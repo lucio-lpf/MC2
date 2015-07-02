@@ -27,6 +27,29 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        var postquery = PFQuery(className: "Story")
+        var postsarray: NSMutableArray = []
+        postquery.orderByDescending("createdAt")
+        //        postquery.whereKey("createdBy", equalTo: PFUser.currentUser()!)
+        postquery.limit = 1 //PEGANDO OS 5 PRIMEIROS POSTS
+        //ADICIONANDO AO MAIN ARRAY OS 5 POSTS
+        postquery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                println(["oi": "oi"])
+                println(results)
+                for var index = 0; index != results!.count; ++index{
+                    postsarray.addObject(results![index])
+                    println(results![index].objectForKey("storyName"))
+                }
+                var dict: NSDictionary = NSDictionary()
+//                dict.setValue(results![0]["storyName"] as! String, forKey: "request")
+                dict = ["string": results![0].objectForKey("storyName") as! String]
+                println(dict)
+
+            })
+        })
+        
         showCollectionView = true
         
         self.collectionView.alpha = 0

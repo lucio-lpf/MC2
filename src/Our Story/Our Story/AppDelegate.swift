@@ -78,27 +78,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
+    
+    
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
         
-        if let infoDictionary = userInfo as? [String: String]{
+        if let info = userInfo?["request"] as? String {
+            if info == "Stories" {
             
-            println("testando esse bagulho \(infoDictionary)")
-            if infoDictionary["request"] == "5Stories" {
-                Story.cincoultimas({ (fiveStoriesArray) -> Void in
-                    let responseDict = [["firstStoryTitle","secondStoryTitle","thirdStoryTitle","fourthStoryTitle","fifthStoryTitle"] : [fiveStoriesArray.objectAtIndex(0).objectForKey("storyName"), fiveStoriesArray.objectAtIndex(1).objectForKey("storyName"), fiveStoriesArray.objectAtIndex(2).objectForKey("storyName"), fiveStoriesArray.objectAtIndex(3).objectForKey("storyName"), fiveStoriesArray.objectAtIndex(4).objectForKey("storyName")]]
-                    println(responseDict)
-//                    reply(infoDictionary)
-                    reply(["blabla":"oi "])
+                var postquery = PFQuery(className: "Story")
+                postquery.orderByDescending("createdAt")
+//                postquery.whereKey("createdBy", equalTo: PFUser.currentUser()!)
+                postquery.limit = 1
+                postquery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+
+                        for var index = 0; index != results!.count; ++index{
+                            var dict: NSDictionary = NSDictionary()
+                            dict = ["string": results![0].objectForKey("storyName") as! String]
+                            reply(dict as [NSObject : AnyObject])
+                        }
+                    })
+
                 })
-                
             }
+
+            
         } else{
             println("fail")
+            reply(["fail":"fail"])
         }
         
 
         
-        reply(["blabla":""])
+        
+        //        var bogusWorkaroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier()
+//        
+//        bogusWorkaroundTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({ () -> Void in
+//            UIApplication.sharedApplication().endBackgroundTask(bogusWorkaroundTask)
+//        })
+//        
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(2 * NSEC_PER_MSEC)), dispatch_get_main_queue()) { () -> Void in
+//            UIApplication.sharedApplication().endBackgroundTask(bogusWorkaroundTask)
+//        }
+//        
+//        
+//        
+//        var realBackgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier()
+//        realBackgroundTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({ () -> Void in
+//            reply(nil)
+//            UIApplication.sharedApplication().endBackgroundTask(realBackgroundTask)
+//        })
+
+        
+        
     }
 }
 
