@@ -59,11 +59,12 @@ class Story: NSObject {
     
     
     
-    class func cincoultimas(completion: (NSMutableArray)-> Void){
+    class func ultima(completion: (NSMutableArray)-> Void){
         var postquery = PFQuery(className: "Story")
         var postsarray: NSMutableArray = []
         postquery.orderByDescending("createdAt")
-        postquery.limit = 5 //PEGANDO OS 5 PRIMEIROS POSTS
+//        postquery.whereKey("createdBy", equalTo: PFUser.currentUser()!)
+        postquery.limit = 1 //PEGANDO OS 5 PRIMEIROS POSTS
         //ADICIONANDO AO MAIN ARRAY OS 5 POSTS
         postquery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -88,7 +89,7 @@ class Story: NSObject {
             else{
                 verificador = false
             }
-        completion(verificador)
+            completion(verificador)
         }
     }
     

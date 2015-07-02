@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HgY-Mi-14V">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="7701"/>
@@ -8,7 +8,7 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Our_Story_WatchKit_App" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc">
                     <items>
                         <table alignment="left" id="toL-L7-KKC">
                             <items>
@@ -35,17 +35,30 @@
         <!--Interface Controller-->
         <scene sceneID="dS6-UF-wZQ">
             <objects>
-                <controller id="HgY-Mi-14V">
+                <controller id="HgY-Mi-14V" customClass="InterfaceController" customModule="Our_Story_WatchKit_Extension">
                     <items>
-                        <group width="1" height="152" alignment="left" id="veF-L4-Lyr">
+                        <group width="1" alignment="left" radius="8" id="bDR-ho-Lid">
                             <items>
-                                <label width="136" height="47.5" alignment="left" text="Handoff ativo" textAlignment="center" id="qu5-r3-B3N"/>
+                                <label width="1" alignment="left" text="Úlltima história criada:" textAlignment="center" numberOfLines="0" id="czd-sN-IMt">
+                                    <color key="textColor" red="0.1960784314" green="0.93333333330000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </label>
                             </items>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </group>
+                        <label width="1" alignment="left" text="Carregando história..." textAlignment="center" numberOfLines="0" id="YhL-Q5-K7t"/>
+                        <button width="1" alignment="center" title="Recarregar" id="y8m-5k-nPS">
+                            <connections>
+                                <action selector="loadButtonAction" destination="HgY-Mi-14V" id="YrK-1C-ecq"/>
+                            </connections>
+                        </button>
                     </items>
+                    <connections>
+                        <outlet property="lblText" destination="YhL-Q5-K7t" id="Jw9-2P-GVt"/>
+                        <outlet property="loadButton" destination="y8m-5k-nPS" id="FRp-ae-jue"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="492" y="381.5"/>
+            <point key="canvasLocation" x="492" y="381"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">
