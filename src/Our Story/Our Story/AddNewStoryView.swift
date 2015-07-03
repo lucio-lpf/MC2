@@ -55,13 +55,13 @@ class AddNewStoryView: UIView, UITextViewDelegate {
         }
     }
     @IBAction func createNewStory(sender: AnyObject) {
-        print("createNewStory")
-        self.delegate?.createNewStory(storyTitle.text, firstPiece: firstStoryPiece.text)
-        self.delegate?.removeSubViews()
+        if firstStoryPiece.text != nil && storyTitle.text != nil {
+            self.delegate?.createNewStory(storyTitle.text, firstPiece: firstStoryPiece.text)
+            self.delegate?.removeSubViews()
+        }
     }
     
     @IBAction func closeView(sender: AnyObject) {
-        print("closeView")
         self.delegate?.removeSubViews()
     }
 }
