@@ -85,10 +85,6 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         view.backgroundColor = UIColor.whiteColor()
         cell.selectedBackgroundView = view
         
-        var view = UIView()
-        view.backgroundColor = UIColor.whiteColor()
-        cell.selectedBackgroundView = view
-        
         return cell
     }
     

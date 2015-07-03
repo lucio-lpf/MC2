@@ -63,6 +63,13 @@ class Story: NSObject {
         newStory.setValue(PFUser.currentUser(), forKey: "createdBy")
         newStory.saveInBackgroundWithBlock {
             (bool, error) in
+            if error == nil{
+                StoryPiece.createStoryPiece(header, parent: newStory, callback: { (pieces, bulian, error) -> () in
+                    if error != nil{
+                        print(error)
+                    }
+                })
+            }
             callback(newStory,bool,error)
         }
     }
