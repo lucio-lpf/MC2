@@ -17,6 +17,8 @@ let distance_W_LabelHeader:CGFloat = 35.0 // The distance between the bottom of 
 
 class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var storyCount: UILabel!
+    @IBOutlet weak var piecesStory: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var userNameScrollView: UILabel!
@@ -268,7 +270,19 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
     func update5Last(){
         
         UserConfiguration.contMyPieces { (cont, error) -> () in
-            
+            if cont == 1{
+                self.piecesStory.text = ("Faz parte de \(cont) História")
+            }else{
+            self.piecesStory.text = ("Faz parte de \(cont) Histórias")
+            }
+        }
+        
+        UserConfiguration.contMyStory { (cont, error) -> () in
+            if cont == 1{
+                 self.storyCount.text = (" \(cont) História iniciada")
+            }else{
+            self.storyCount.text = (" \(cont) Histórias iniciadas")
+            }
         }
         
         
