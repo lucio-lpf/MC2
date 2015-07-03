@@ -94,46 +94,32 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         //Create the visual effect
         self.parentStory.fetchInBackgroundWithBlock { (newobject, error) -> Void in
             self.parentStory = newobject
+            var editing = self.parentStory.valueForKey("editing") as! Bool
+            if !editing{
+                
+                self.parentStory.setValue(true, forKey: "editing")
+                self.parentStory.saveInBackgroundWithBlock { (bool, error) -> Void in
+                    if (error == nil){
+                        self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(120), target: self, selector: Selector("removeSubViews"), userInfo: nil, repeats: false)
+                        
+                        
+                        self.view.addSubview(self.addBlurView())
+                        self.view.addSubview(self.addStoryPieceView())
+                        
+                    }
+
+                    }
+                }
+                
+            else{
+                var alert = UIAlertController(title: "Desculpe ", message: "Você não pode editar no momento, tente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+
         }
         
-        var editing = self.parentStory.valueForKey("editing") as! Bool
-        if !editing{
-            
-            self.parentStory.setValue(true, forKey: "editing")
-            self.parentStory.saveInBackgroundWithBlock { (bool, error) -> Void in
-                if (error != nil){
-                    print (error)
-                }
             }
-            
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(120), target: self, selector: Selector("removeSubViews"), userInfo: nil, repeats: false)
-            
-//            self.navigationController?.setNavigationBarHidden(true, animated: false)
-//            let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
-//            let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
-//            blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
-//            blurView.tag = 10
-//            blurView.userInteractionEnabled = true
-//            blurView.addGestureRecognizer(tapGesture)
-            
-            
-//            newStoryPieceView = AddNewStoryPieceView.instanceFromNib()
-//            newStoryPieceView.frame = CGRectMake(0, 0, self.view.frame.size.width - 20, 250)
-//            newStoryPieceView.center = self.view.center
-//            newStoryPieceView.tag = 11
-//            newStoryPieceView.delegate = self
-//            newStoryPieceView.backgroundColor = UIColor(red: 255, green: 238, blue: 129, alpha: 1)
-            
-            self.view.addSubview(addBlurView())
-            self.view.addSubview(addStoryPieceView())
-            
-        }
-        else{
-            var alert = UIAlertController(title: "Desculpe ", message: "Você não pode editar no momento, tente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-    }
     
     func addStoryPieceView() -> AddNewStoryPieceView {
         newStoryPieceView = AddNewStoryPieceView.instanceFromNib()
