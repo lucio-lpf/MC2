@@ -141,15 +141,27 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     func createNewStory(title: String, firstPiece: String) {
 //        print("StoryTitle: \(title)  -  StoryPiece: \(firstPiece) \n")
         
-        Story.createStory(title, header:firstPiece) {
-            (story,success, error) in
-            if (success) {
-                self.updatePosts()
-            } else {
-                print(error)
+        if !title.isEmpty && !firstPiece.isEmpty {
+            Story.createStory(title, header:firstPiece) {
+                (story,success, error) in
+                if (success) {
+                    self.updatePosts()
+                } else {
+                    print(error)
+                }
             }
+        } else {
+            showAlert("Sem dados", msg: "Preencha os campos da história", action: "Ok")
         }
     }
+    
+    
+    func showAlert(title:String, msg:String, action:String){
+        var alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: action, style: UIAlertActionStyle.Default, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
     
     func removeSubViews() {
         //REMOVE O POPUP

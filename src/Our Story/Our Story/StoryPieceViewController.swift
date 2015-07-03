@@ -14,7 +14,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var tableView: UITableView!
     var newStoryPieceView: AddNewStoryPieceView!
     var parentStory:PFObject!
-    var parentStoryObjectId: String = String()
+    var parentStoryObjectId: String = "ok"
     var piecesArray = []
     var refreshControl = UIRefreshControl()
     let tapGesture = UITapGestureRecognizer()
@@ -32,9 +32,15 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         self.tableView.addSubview(self.refreshControl)
         
        // ADICIONANDO AO MAIN ARRAY OS 10 POSTS
-        
-       //INICIAR AS PIECES
+        if self.parentStoryObjectId != "ok"{
+            StoryPiece.piecesQuery("objectId", compare: self.parentStoryObjectId, limite: nil, order: 1, callback: { (arrayDePieces) -> Void in
+                self.piecesArray = arrayDePieces
+                self.tableView.reloadData()
+            })
+        }else{
+                            //INICIAR AS PIECES
         updatePieces()
+        }
         tapGesture.addTarget(self, action: "dismissKeyboard")
         
         let nib = UINib(nibName: "StoryPieceCell", bundle: nil)
@@ -165,16 +171,29 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func createNewStoryPiece(message: String) {
-        StoryPiece.createStoryPiece(message, parent: parentStory as PFObject) {
-            (piece, success, error) -> () in
-            print(piece)
-            self.updatePieces()
+        if !message.isEmpty {
+            StoryPiece.createStoryPiece(message, parent: parentStory as PFObject) {
+                (piece, success, error) -> () in
+                self.updatePieces()
+            }
+        } else {
+            showAlert("Sem dados", msg: "Preencha os campos da história", action: "Ok")
         }
+    }
+    
+    
+    func showAlert(title:String, msg:String, action:String){
+        var alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: action, style: UIAlertActionStyle.Default, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     func removeSubViews() {
         if let view = self.view.viewWithTag(11){
             if let subview = self.view.viewWithTag(10) {
+                UIView.animateWithDuration(0.4, animations: {
+                    subview.alpha = 0.0
+                })
                 subview.removeFromSuperview()
                 view.removeFromSuperview()
             }

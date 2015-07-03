@@ -11,8 +11,6 @@ import Parse
 
 class UserConfiguration {
     
-    
-    
     func changeStoryStyle(newStyle: String, completion: (Bool) -> Void) {
         var user = PFUser.currentUser()
         if let user = user {
@@ -23,5 +21,21 @@ class UserConfiguration {
         }
     }
     
+    class func contMyStory(callback:(cont:Int32,error:NSError?) ->()) {
+        var query = PFQuery(className: "Story")
+        query.whereKey("createdBy", equalTo: PFUser.currentUser()!)
+        query.countObjectsInBackgroundWithBlock {
+            (cont, error) in
+            callback(cont: cont, error: error)
+        }
+    }
     
+    class func contMyPieces(callback:(cont:Int32,error:NSError?) ->()) {
+        var query = PFQuery(className: "StoryPieces")
+        query.whereKey("createdBy", equalTo: PFUser.currentUser()!)
+        query.countObjectsInBackgroundWithBlock {
+            (cont, error) in
+            callback(cont: cont, error: error)
+        }
+    }
 }
