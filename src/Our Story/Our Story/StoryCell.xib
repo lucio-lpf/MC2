@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -18,7 +18,7 @@
                         <animations/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelgxhaiushxuashuihuiashduahsduihsadsa" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ri9-B1-1da">
-                        <rect key="frame" x="36" y="59" width="233" height="24"/>
+                        <rect key="frame" x="36" y="59" width="233" height="37"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="19" id="ycA-Jf-8E5"/>
@@ -37,16 +37,6 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpz-uo-ZHk">
-                        <rect key="frame" x="36" y="91" width="233" height="19"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="19" id="87q-Kf-gm1"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="13"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <animations/>
                 <constraints>
@@ -54,23 +44,17 @@
                     <constraint firstItem="kPk-Tx-SSe" firstAttribute="leading" secondItem="hYn-4L-dvG" secondAttribute="leadingMargin" constant="28" id="1JE-qG-PRw"/>
                     <constraint firstAttribute="trailingMargin" secondItem="kPk-Tx-SSe" secondAttribute="trailing" constant="23" id="218-cN-1iN"/>
                     <constraint firstItem="dZn-f8-ylm" firstAttribute="top" secondItem="hYn-4L-dvG" secondAttribute="topMargin" constant="2" id="9rm-PB-ngO"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Wpz-uo-ZHk" secondAttribute="trailing" constant="23" id="GMe-fi-KAT"/>
                     <constraint firstItem="dZn-f8-ylm" firstAttribute="top" secondItem="kPk-Tx-SSe" secondAttribute="bottom" constant="-41" id="HXf-fD-ViR"/>
-                    <constraint firstItem="Wpz-uo-ZHk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ri9-B1-1da" secondAttribute="bottom" constant="8" id="JNE-9T-d78"/>
                     <constraint firstItem="Ri9-B1-1da" firstAttribute="leading" secondItem="hYn-4L-dvG" secondAttribute="leadingMargin" constant="28" id="Ken-r3-Arz"/>
-                    <constraint firstItem="Wpz-uo-ZHk" firstAttribute="leading" secondItem="hYn-4L-dvG" secondAttribute="leadingMargin" constant="28" id="WK4-l0-kuD"/>
                     <constraint firstAttribute="bottomMargin" secondItem="dZn-f8-ylm" secondAttribute="bottom" constant="2" id="Y5W-dQ-wMP"/>
-                    <constraint firstItem="Wpz-uo-ZHk" firstAttribute="top" relation="lessThanOrEqual" secondItem="dZn-f8-ylm" secondAttribute="bottom" constant="-69" id="azw-ta-P8K"/>
                     <constraint firstItem="dZn-f8-ylm" firstAttribute="leading" secondItem="hYn-4L-dvG" secondAttribute="leadingMargin" constant="2" id="cOv-LF-oCe"/>
                     <constraint firstItem="Ri9-B1-1da" firstAttribute="top" secondItem="kPk-Tx-SSe" secondAttribute="bottom" constant="8" id="dqb-Lf-jnZ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Ri9-B1-1da" secondAttribute="trailing" constant="23" id="frF-p3-f4g"/>
-                    <constraint firstItem="Wpz-uo-ZHk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dZn-f8-ylm" secondAttribute="bottom" constant="-69" id="xcQ-CW-OX6"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
             <connections>
                 <outlet property="backgroundImage" destination="dZn-f8-ylm" id="fXE-s0-lc7"/>
-                <outlet property="informationLabel" destination="Wpz-uo-ZHk" id="Ndx-0z-giX"/>
                 <outlet property="storylabel" destination="Ri9-B1-1da" id="l1s-MI-dNy"/>
                 <outlet property="titleLabel" destination="kPk-Tx-SSe" id="92B-y2-FQi"/>
             </connections>

@@ -37,6 +37,10 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    var postsArray:NSMutableArray = []
+    
+    var piecesArray:NSMutableArray = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,6 +80,8 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         
         var nibStory = UINib(nibName: "StoryCell", bundle: nil) //Trocar para StoryCell
         tableView.registerNib(nibStory, forCellReuseIdentifier: identifierStory)
+        
+        self.update5Last()
         
     }
     
@@ -120,46 +126,59 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         
         //Alterar depois de 2 custom cells pra uma só
         
-        if(segmentedControl.selectedSegmentIndex == 0)
-        {
-            tableView.rowHeight = 320
-            var vcell = self.tableView.dequeueReusableCellWithIdentifier(identifierStory) as! StoryCell
-            return vcell
-        }
-        else {
-            //if(segmentedControl.isEnabledForSegmentAtIndex(1))
+        if(segmentedControl.selectedSegmentIndex == 0) {
+            tableView.rowHeight = 180
+            var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(StoryCell.indentifier.Story) as! StoryCell
+            var story = postsArray.objectAtIndex(indexPath.row) as? NSObject
             
-            println("entrei no else")
+            cell.loadStory(story!)
+            return cell
+            
+        } else {
             tableView.rowHeight = 95
-            println("passou por aqui")
-            var vcell = self.tableView.dequeueReusableCellWithIdentifier(identifierStoryPiece) as! StoryCell
-            vcell.storyPieceMessage.text = "Tudo começou assim..."
-            vcell.storyPieceBkgImage.image = UIImage(named: "teste1")
+            var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(StoryCell.indentifier.StoryPiece) as! StoryCell
             
-            return vcell
+            var piece = piecesArray.objectAtIndex(indexPath.row) as? NSObject
+            
+            cell.loadStoryPiece(piece!)
+            return cell
+            
+//            
+//            //if(segmentedControl.isEnabledForSegmentAtIndex(1))
+//            println("entrei no else")
+//            tableView.rowHeight = 95
+//            println("passou por aqui")
+//            var vcell = self.tableView.dequeueReusableCellWithIdentifier(identifierStoryPiece) as! StoryCell
+//            vcell.storyPieceMessage.text = "Tudo começou assim..."
+//            vcell.storyPieceBkgImage.image = UIImage(named: "teste1")
+//            
+//            return vcell
         }
+        
     }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 30
+        if(segmentedControl.selectedSegmentIndex == 0){
+            return self.postsArray.count
+        }
+        else{
+            return self.piecesArray.count
+        }
     }
     
     
     @IBAction func segmentedControlAction(sender: AnyObject) {
         
-        if(segmentedControl.selectedSegmentIndex == 0)
-        {
+        if(segmentedControl.selectedSegmentIndex == 0) {
             println("First Segment Selected")
         }
-        else if(segmentedControl.selectedSegmentIndex == 1)
-        {
+        else if(segmentedControl.selectedSegmentIndex == 1) {
             println("Second Segment Selected")
         }
         tableView.reloadData()
-//        tableView.reloadInputViews()
         
+//        tableView.reloadInputViews()
 //        tableView.beginUpdates()
 //        tableView.endUpdates()
         
@@ -232,8 +251,18 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
             header.layer.transform = headerTransform
             avatarImage.layer.transform = avatarTransform 
         }
-  
-
+    }
+    
+    
+    func update5Last(){
+        StoryPiece.piecesQuery("createdBy", compare: PFUser.currentUser()!, limite: 5, order: 0, callback: { (arrayDePieces) -> Void in
+            self.piecesArray = arrayDePieces
+            self.tableView.reloadData()
+        })
+        Story.storyQuery("createdBy", compare: PFUser.currentUser()!, limite: 5, order: 0, callback: { (arrayDePosts) -> Void in
+            self.postsArray = arrayDePosts
+            self.tableView.reloadData()
+        })   
     }
 
     

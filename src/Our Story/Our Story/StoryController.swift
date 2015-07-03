@@ -16,13 +16,10 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var tableView: UITableView!
     var newStoryView: AddNewStoryView!
     var refreshControl = UIRefreshControl()
-    var currentStory:NSObject!
     var createdStoryId:String!
     var celltouched: PFObject!
     let tapGesture = UITapGestureRecognizer()
     var initialPosition:CGFloat!
-    
-    @IBOutlet weak var okokok: UIBarButtonItem!
     
     override func viewDidLoad() {
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
@@ -31,9 +28,8 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         title.textColor = UIColor(red:124/255 , green: 197/255, blue: 135/255, alpha: 1.00)
         
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
-        self.navigationItem.titleView?.tintColor = UIColor(red:124/255 , green: 197/255, blue: 135/255, alpha: 1.00)
+//        self.navigationItem.titleView?.tintColor = UIColor(red:124/255 , green: 197/255, blue: 135/255, alpha: 1.00)
 
         
         //ADICIONADNO O REFRESH
@@ -58,14 +54,12 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         //COLOCANDO AS CELLS CUSTOMIZADAS
             var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(StoryCell.indentifier.Story) as! StoryCell
             var story = postsarray.objectAtIndex(indexPath.row) as? NSObject
+        
+            cell.loadStory(story!)
 
-            self.currentStory = story
-        
-            cell.loadItens(story!)
-        
-            var view = UIView()
-            view.backgroundColor = UIColor.whiteColor()
-            cell.selectedBackgroundView = view
+//            var view = UIView()
+//            view.backgroundColor = UIColor.whiteColor()
+//            cell.selectedBackgroundView = view
         
             return cell
     }
@@ -78,32 +72,30 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         //CRIANDO NOVA HISTORIA (POPUP DO BLUR E DA SUBVIEW)
         //Create the visual effect
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
-        let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
-        blurView.alpha = 0.0
-        blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
-        blurView.tag = 10
-        blurView.userInteractionEnabled = true
-        blurView.addGestureRecognizer(tapGesture)
-
+        self.view.addSubview(addBlurView())
+        self.view.addSubview(addStoryView())
         
+    }
+    
+    
+    func addStoryView() -> AddNewStoryView {
         newStoryView = AddNewStoryView.instanceFromNib()
         newStoryView.frame  = CGRectMake(0, 0, self.view.frame.size.width - 20, 300)
         newStoryView.center = self.view.center
         newStoryView.tag = 11
-        newStoryView.alpha = 0.0
-        
         newStoryView.delegate = self
-        self.view.addSubview(blurView)
-        self.view.addSubview(newStoryView)
-        
-        UIView.animateWithDuration(0.4, animations: {
-            blurView.alpha = 1.0
-            self.newStoryView.alpha = 1.0
-        })
-        
-        
-        
+        return newStoryView
+    }
+    
+    
+    func addBlurView() -> UIVisualEffectView {
+        let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
+        let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+        blurView.tag = 10
+        blurView.userInteractionEnabled = true
+        blurView.addGestureRecognizer(tapGesture)
+        return blurView
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -111,12 +103,15 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         return 180
     }
     
-    func updatePosts(){
+    func updatePosts() {
+        
         //ATUALIZANDO OS 10 PRIMEIROS POSTS (USA O REFRESH)
-        Story.loadfirststories({ (arraydeposts) -> Void in
-            self.postsarray = arraydeposts
+        Story.storyQuery(nil, compare: nil, limite: 100, order: 0, callback: {
+            (arrayDePosts) in
+            self.postsarray = arrayDePosts
             self.tableView.reloadData()
         })
+        
         self.refreshControl.endRefreshing()
     }
     

@@ -91,7 +91,7 @@
                 <outlet property="contChar" destination="LnP-mx-GRu" id="Eui-YF-Hk8"/>
                 <outlet property="message" destination="M6m-YU-41D" id="od7-iH-lJj"/>
             </connections>
-            <point key="canvasLocation" x="-218" y="47"/>
+            <point key="canvasLocation" x="-184" y="-9"/>
         </view>
     </objects>
 </document>

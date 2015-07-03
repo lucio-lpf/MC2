@@ -15,7 +15,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     var newStoryPieceView: AddNewStoryPieceView!
     var parentStory:PFObject!
     var parentStoryObjectId: String = String()
-    var pieces = []
+    var piecesArray = []
     var refreshControl = UIRefreshControl()
     let tapGesture = UITapGestureRecognizer()
     var timer: NSTimer?
@@ -35,7 +35,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         
        //INICIAR AS PIECES
         updatePieces()
-        tapGesture.addTarget(self, action: "cancelCreateStory")
+        tapGesture.addTarget(self, action: "dismissKeyboard")
         
         let nib = UINib(nibName: "StoryPieceCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: StoryCell.indentifier.StoryPiece)
@@ -52,26 +52,33 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
-         var nav = self.navigationController?.navigationBar
-    }
+//    override func viewDidAppear(animated: Bool) {
+//         var nav = self.navigationController?.navigationBar
+//    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return pieces.count
-        return pieces.count 
+        return piecesArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = self.tableView.dequeueReusableCellWithIdentifier(StoryCell.indentifier.StoryPiece) as! StoryCell
        // var storyPiece = pieces[indexPath.row] as! NSObject
         
+        
+        var piece = piecesArray.objectAtIndex(indexPath.row) as? NSObject
+        
+        cell.loadStoryPiece(piece!)
+        
         //cell.loadItem(storyPiece.text! ,image:"teste1")
-        cell.storyPieceMessage.text = self.pieces[indexPath.row].valueForKey("text") as? String
-        if let style = PFUser.currentUser()?.valueForKey("storyStyle") as? String{
-            cell.storyPieceBkgImage.image = UIImage(named: style)
-        } else {
-            cell.storyPieceBkgImage.image = UIImage(named: "yellow")
-        }
+//        cell.storyPieceMessage.text = self.pieces[indexPath.row].valueForKey("text") as? String
+        
+//        if let style = PFUser.currentUser()?.valueForKey("storyStyle") as? String{
+//            cell.storyPieceBkgImage.image = UIImage(named: style)
+//        } else {
+//            cell.storyPieceBkgImage.image = UIImage(named: "yellow")
+//        }
+        
         return cell
     }
     
@@ -82,6 +89,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         self.parentStory.fetchInBackgroundWithBlock { (newobject, error) -> Void in
             self.parentStory = newobject
         }
+        
         var editing = self.parentStory.valueForKey("editing") as! Bool
         if !editing{
             
@@ -91,34 +99,53 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
                     print (error)
                 }
             }
+            
             self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(120), target: self, selector: Selector("removeSubViews"), userInfo: nil, repeats: false)
             
-            self.navigationController?.setNavigationBarHidden(true, animated: false)
-            let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
-            let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
-            blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
-            blurView.tag = 10
-            blurView.userInteractionEnabled = true
-            blurView.addGestureRecognizer(tapGesture)
+//            self.navigationController?.setNavigationBarHidden(true, animated: false)
+//            let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
+//            let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
+//            blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+//            blurView.tag = 10
+//            blurView.userInteractionEnabled = true
+//            blurView.addGestureRecognizer(tapGesture)
             
             
-            newStoryPieceView = AddNewStoryPieceView.instanceFromNib()
-            newStoryPieceView.frame = CGRectMake(0, 0, self.view.frame.size.width - 20, 250)
-            newStoryPieceView.center = self.view.center
-            newStoryPieceView.tag = 11
-            newStoryPieceView.delegate = self
-            newStoryPieceView.backgroundColor = UIColor(red: 255, green: 238, blue: 129, alpha: 1)
+//            newStoryPieceView = AddNewStoryPieceView.instanceFromNib()
+//            newStoryPieceView.frame = CGRectMake(0, 0, self.view.frame.size.width - 20, 250)
+//            newStoryPieceView.center = self.view.center
+//            newStoryPieceView.tag = 11
+//            newStoryPieceView.delegate = self
+//            newStoryPieceView.backgroundColor = UIColor(red: 255, green: 238, blue: 129, alpha: 1)
             
-            if (self.view.viewWithTag(10) == nil) {
-                self.view.addSubview(blurView)
-            }
+            self.view.addSubview(addBlurView())
+            self.view.addSubview(addStoryPieceView())
             
-            if (self.view.viewWithTag(11) == nil) {
-                self.view.addSubview(newStoryPieceView)
-            }
-            else{
-            }
         }
+    }
+    
+    func addStoryPieceView() -> AddNewStoryPieceView {
+        newStoryPieceView = AddNewStoryPieceView.instanceFromNib()
+        newStoryPieceView.frame = CGRectMake(0, 0, self.view.frame.size.width - 20, 250)
+        newStoryPieceView.center = self.view.center
+        newStoryPieceView.tag = 11
+        newStoryPieceView.delegate = self
+        newStoryPieceView.backgroundColor = UIColor(red: 255, green: 238, blue: 129, alpha: 1)
+        
+        return newStoryPieceView
+    }
+    
+    
+    func addBlurView() -> UIVisualEffectView {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
+        let blurView: UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+        blurView.tag = 10
+        blurView.userInteractionEnabled = true
+        blurView.addGestureRecognizer(tapGesture)
+        
+        return blurView
     }
     
     func dismissKeyboard() {
@@ -157,10 +184,15 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     
     func updatePieces(){
         //ATUALIZANDO OS 10 PRIMEIROS POSTS (USA O REFRESH)
-        StoryPiece.loadfirstpieces(self.parentStory, completion: { (arraydepieces) -> Void in
-            self.pieces = arraydepieces
+//        StoryPiece.loadfirstpieces(self.parentStory, completion: { (arraydepieces) -> Void in
+//            self.piecesArray = arraydepieces
+//            self.tableView.reloadData()
+//        })
+        StoryPiece.piecesQuery("parentStory", compare: self.parentStory, limite: 300, order: 0, callback:{ (arrayDePieces) -> Void in
+            self.piecesArray = arrayDePieces
             self.tableView.reloadData()
         })
+        
         self.refreshControl.endRefreshing()
     }
     

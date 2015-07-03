@@ -7,8 +7,8 @@
 //
 
 protocol StoryViewDelegate:NSObjectProtocol{
-    func removeSubViews()
     func createNewStory(title:String,firstPiece:String)
+    func removeSubViews()
 }
 
 class AddNewStoryView: UIView, UITextViewDelegate {
@@ -55,11 +55,13 @@ class AddNewStoryView: UIView, UITextViewDelegate {
         }
     }
     @IBAction func createNewStory(sender: AnyObject) {
+        print("createNewStory")
         self.delegate?.createNewStory(storyTitle.text, firstPiece: firstStoryPiece.text)
         self.delegate?.removeSubViews()
     }
     
     @IBAction func closeView(sender: AnyObject) {
+        print("closeView")
         self.delegate?.removeSubViews()
     }
 }
