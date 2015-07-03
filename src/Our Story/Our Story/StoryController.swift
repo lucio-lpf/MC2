@@ -22,14 +22,17 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     var initialPosition:CGFloat!
     
     override func viewDidLoad() {
-        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+//        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor(red:212/255 , green: 214/255, blue: 218/255, alpha: 1.00)
+    
+        self.tabBarController?.tabBar.tintColor = UIColor(red:63/255 , green: 63/255, blue: 63/255, alpha: 1.00)
         
         var title:UILabel = UILabel()
         
-        title.textColor = UIColor(red:124/255 , green: 197/255, blue: 135/255, alpha: 1.00)
+        title.textColor = UIColor(red:212/255 , green: 214/255, blue: 218/255, alpha: 1.00)
         
         
-//        self.navigationItem.titleView?.tintColor = UIColor(red:124/255 , green: 197/255, blue: 135/255, alpha: 1.00)
+        self.navigationItem.titleView?.tintColor = UIColor(red:124/255 , green: 197/255, blue: 135/255, alpha: 1.00)
 
         
         //ADICIONADNO O REFRESH
