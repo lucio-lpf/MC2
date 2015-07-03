@@ -144,6 +144,12 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
             var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(StoryCell.indentifier.Story) as! StoryCell
             var story = postsArray.objectAtIndex(indexPath.row) as? NSObject
             
+            
+            
+            var view = UIView()
+            view.backgroundColor = UIColor.whiteColor()
+            cell.selectedBackgroundView = view
+            
             cell.loadStory(story!)
             return cell
             
@@ -152,6 +158,15 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
             var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(StoryCell.indentifier.StoryPiece) as! StoryCell
             
             var piece = piecesArray.objectAtIndex(indexPath.row) as? NSObject
+            
+            cell.storyPieceBkgImage.layer.cornerRadius = 10;
+            cell.storyPieceBkgImage.layer.borderColor = UIColor.whiteColor().CGColor
+            cell.storyPieceBkgImage.layer.borderWidth = 0.3
+            cell.storyPieceBkgImage.clipsToBounds = true
+            
+            var view = UIView()
+            view.backgroundColor = UIColor.whiteColor()
+            cell.selectedBackgroundView = view
             
             cell.loadStoryPiece(piece!)
             return cell
