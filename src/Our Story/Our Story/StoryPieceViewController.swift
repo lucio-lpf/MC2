@@ -81,14 +81,9 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         cell.storyPieceBkgImage.layer.borderWidth = 0.3
         cell.storyPieceBkgImage.clipsToBounds = true
         
-        //cell.loadItem(storyPiece.text! ,image:"teste1")
-//        cell.storyPieceMessage.text = self.pieces[indexPath.row].valueForKey("text") as? String
-        
-//        if let style = PFUser.currentUser()?.valueForKey("storyStyle") as? String{
-//            cell.storyPieceBkgImage.image = UIImage(named: style)
-//        } else {
-//            cell.storyPieceBkgImage.image = UIImage(named: "yellow")
-//        }
+        var view = UIView()
+        view.backgroundColor = UIColor.whiteColor()
+        cell.selectedBackgroundView = view
         
         return cell
     }
