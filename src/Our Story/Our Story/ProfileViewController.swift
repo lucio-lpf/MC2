@@ -85,29 +85,7 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         
         self.update5Last()
         
-        UserConfiguration.contMyPieces {
-            (cont, error) in
-            if error != nil {
-                if cont < 1 {
-                    self.takePartStoriesScrollView.text = "Participou de 0 Histórias."
-                } else {
-                    self.takePartStoriesScrollView.text = "Faz parte de \(cont) Histórias."
-                }
-            }
-        }
-        
-        UserConfiguration.contMyStory {
-            (cont, error) in
-            if error != nil {
-                if cont < 1 {
-                    self.createdStoriesScrollView.text = " 0 histórias criadas."
-                } else {
-                    self.createdStoriesScrollView.text = " \(cont) histórias criadas."
-                }
-            }
-        }
     }
-    
     override func viewWillAppear(animated: Bool) {
         self.activityIndicator.startAnimating()
         self.activityIndicator.hidden = false
@@ -284,6 +262,12 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
     
     
     func update5Last(){
+        
+        UserConfiguration.contMyPieces { (cont, error) -> () in
+            
+        }
+        
+        
         StoryPiece.piecesQuery("createdBy", compare: PFUser.currentUser()!, limite: 5, order: 0, callback: { (arrayDePieces) -> Void in
             self.piecesArray = arrayDePieces
             self.tableView.reloadData()
