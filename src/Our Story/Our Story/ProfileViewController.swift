@@ -37,6 +37,10 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    @IBOutlet weak var beenPartOfXStories: UILabel!
+    
+    @IBOutlet weak var xStoriesCreated: UILabel!
+    
     var postsArray:NSMutableArray = []
     
     var piecesArray:NSMutableArray = []
