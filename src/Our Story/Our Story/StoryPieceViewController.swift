@@ -70,6 +70,11 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         
         cell.loadStoryPiece(piece!)
         
+        cell.storyPieceBkgImage.layer.cornerRadius = 10;
+        cell.storyPieceBkgImage.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.storyPieceBkgImage.layer.borderWidth = 0.3
+        cell.storyPieceBkgImage.clipsToBounds = true
+        
         //cell.loadItem(storyPiece.text! ,image:"teste1")
 //        cell.storyPieceMessage.text = self.pieces[indexPath.row].valueForKey("text") as? String
         

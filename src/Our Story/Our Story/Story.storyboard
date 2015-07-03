@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Qx-qe-wMa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Qx-qe-wMa">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -74,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="2813" y="661"/>
         </scene>
-        <!--Our Story-->
+        <!--Feed-->
         <scene sceneID="XFC-c8-ab2">
             <objects>
                 <viewController id="20f-b4-IWQ" customClass="StoryController" customModule="Our_Story" customModuleProvider="target" sceneMemberID="viewController">
@@ -105,11 +105,17 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="yGC-OL-umt"/>
-                    <navigationItem key="navigationItem" title="Our Story" id="OjH-6U-YGM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="aqB-0c-PV5">
+                    <navigationItem key="navigationItem" title="Feed" id="OjH-6U-YGM">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="j8e-OJ-uVC">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="createNewStory:" destination="20f-b4-IWQ" id="5lG-QL-dh7"/>
+                                <action selector="logOutButtonAction:" destination="20f-b4-IWQ" id="Foj-Vy-KXP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="w2a-oz-O2c">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="createNewStory:" destination="20f-b4-IWQ" id="toF-lb-6AB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
