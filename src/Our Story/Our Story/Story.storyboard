@@ -74,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="2813" y="661"/>
         </scene>
-        <!--Our Story-->
+        <!--Feed-->
         <scene sceneID="XFC-c8-ab2">
             <objects>
                 <viewController id="20f-b4-IWQ" customClass="StoryController" customModule="Our_Story" customModuleProvider="target" sceneMemberID="viewController">
@@ -105,7 +105,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="yGC-OL-umt"/>
-                    <navigationItem key="navigationItem" title="Our Story" id="OjH-6U-YGM">
+                    <navigationItem key="navigationItem" title="Feed" id="OjH-6U-YGM">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="aqB-0c-PV5">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>

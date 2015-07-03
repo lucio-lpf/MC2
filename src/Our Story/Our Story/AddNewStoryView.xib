@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -10,28 +10,28 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BX1-k5-K4N">
-                    <rect key="frame" x="567" y="240" width="21" height="14.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BX1-k5-K4N">
+                    <rect key="frame" x="562" y="240" width="26" height="18"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start to tell your story" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNg-N1-JxH">
-                    <rect key="frame" x="231.5" y="24" width="137.5" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start telling your story" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNg-N1-JxH">
+                    <rect key="frame" x="216" y="21" width="168.5" height="23"/>
                     <animations/>
-                    <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="19"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2he-gc-39s">
-                    <rect key="frame" x="268" y="56.5" width="35" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2he-gc-39s">
+                    <rect key="frame" x="278" y="51" width="42" height="20.5"/>
                     <animations/>
-                    <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="19"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Go5-I1-tCH">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Go5-I1-tCH">
                     <rect key="frame" x="8" y="158" width="584" height="80"/>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -41,17 +41,17 @@
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write the first piece" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgQ-Up-ldi">
-                    <rect key="frame" x="237" y="129.5" width="127.5" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Write the first piece" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgQ-Up-ldi">
+                    <rect key="frame" x="222" y="131" width="155.5" height="20.5"/>
                     <animations/>
-                    <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="19"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpj-SF-LGD">
-                    <rect key="frame" x="265" y="252" width="71" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpj-SF-LGD">
+                    <rect key="frame" x="260" y="252" width="81" height="30"/>
                     <animations/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="17"/>
                     <state key="normal" title="Post Story">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,7 +61,7 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tBu-Yg-eyD">
-                    <rect key="frame" x="6" y="84.5" width="586" height="28"/>
+                    <rect key="frame" x="6" y="86" width="586" height="28"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="qdU-gf-e93"/>
@@ -70,8 +70,12 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zp9-dC-qYj">
-                    <rect key="frame" x="156.5" y="17" width="30" height="30"/>
+                    <rect key="frame" x="8" y="18" width="30" height="30"/>
                     <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="dlv-Lp-Apg"/>
+                        <constraint firstAttribute="height" constant="30" id="s3f-GE-2OY"/>
+                    </constraints>
                     <state key="normal" title="X">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,22 +87,21 @@
             </subviews>
             <animations/>
             <constraints>
-                <constraint firstItem="BX1-k5-K4N" firstAttribute="leading" secondItem="Go5-I1-tCH" secondAttribute="trailing" constant="-25" id="37m-kt-WRf"/>
+                <constraint firstItem="BX1-k5-K4N" firstAttribute="leading" secondItem="Go5-I1-tCH" secondAttribute="trailing" constant="-30" id="37m-kt-WRf"/>
                 <constraint firstAttribute="centerX" secondItem="wNg-N1-JxH" secondAttribute="centerX" id="EUm-xB-h8K"/>
                 <constraint firstItem="Fpj-SF-LGD" firstAttribute="centerX" secondItem="Go5-I1-tCH" secondAttribute="centerX" id="F07-Ra-WS3"/>
                 <constraint firstItem="BX1-k5-K4N" firstAttribute="top" secondItem="Go5-I1-tCH" secondAttribute="bottom" constant="2" id="Mbb-eQ-vwC"/>
-                <constraint firstItem="Zp9-dC-qYj" firstAttribute="baseline" secondItem="wNg-N1-JxH" secondAttribute="baseline" constant="-2.5" id="Q3R-hx-z75"/>
-                <constraint firstItem="2he-gc-39s" firstAttribute="top" secondItem="wNg-N1-JxH" secondAttribute="bottom" constant="12" id="SlN-Bn-ZvV"/>
+                <constraint firstItem="Zp9-dC-qYj" firstAttribute="baseline" secondItem="wNg-N1-JxH" secondAttribute="baseline" constant="-0.5" id="Q3R-hx-z75"/>
+                <constraint firstItem="2he-gc-39s" firstAttribute="top" secondItem="wNg-N1-JxH" secondAttribute="bottom" constant="7.5" id="SlN-Bn-ZvV"/>
                 <constraint firstItem="Go5-I1-tCH" firstAttribute="centerX" secondItem="EgQ-Up-ldi" secondAttribute="centerX" constant="-0.5" id="Uga-Jr-k1E"/>
-                <constraint firstItem="wNg-N1-JxH" firstAttribute="leading" secondItem="Zp9-dC-qYj" secondAttribute="trailing" constant="45" id="WoE-Hr-FBC"/>
-                <constraint firstItem="2he-gc-39s" firstAttribute="leading" secondItem="wNg-N1-JxH" secondAttribute="trailing" constant="-101" id="Y0f-zf-Orf"/>
+                <constraint firstItem="2he-gc-39s" firstAttribute="leading" secondItem="wNg-N1-JxH" secondAttribute="trailing" constant="-106.5" id="Y0f-zf-Orf"/>
                 <constraint firstAttribute="trailing" secondItem="Go5-I1-tCH" secondAttribute="trailing" constant="8" id="bxc-sT-v7F"/>
                 <constraint firstItem="Go5-I1-tCH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="hsi-Q7-w3t"/>
-                <constraint firstItem="Go5-I1-tCH" firstAttribute="top" secondItem="EgQ-Up-ldi" secondAttribute="bottom" constant="8" id="l6U-Cw-Lt0"/>
-                <constraint firstItem="wNg-N1-JxH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="o51-e5-DQF"/>
+                <constraint firstItem="Go5-I1-tCH" firstAttribute="top" secondItem="EgQ-Up-ldi" secondAttribute="bottom" constant="6.5" id="l6U-Cw-Lt0"/>
+                <constraint firstItem="wNg-N1-JxH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="21" id="o51-e5-DQF"/>
                 <constraint firstItem="Fpj-SF-LGD" firstAttribute="top" secondItem="Go5-I1-tCH" secondAttribute="bottom" constant="14" id="qlh-Zf-yTS"/>
-                <constraint firstItem="tBu-Yg-eyD" firstAttribute="top" secondItem="wNg-N1-JxH" secondAttribute="bottom" constant="40" id="sQm-Nx-cIT"/>
-                <constraint firstItem="Zp9-dC-qYj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" id="sy5-UY-S3J"/>
+                <constraint firstItem="tBu-Yg-eyD" firstAttribute="top" secondItem="wNg-N1-JxH" secondAttribute="bottom" constant="42.5" id="sQm-Nx-cIT"/>
+                <constraint firstItem="Zp9-dC-qYj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="sy5-UY-S3J"/>
                 <constraint firstItem="EgQ-Up-ldi" firstAttribute="centerX" secondItem="tBu-Yg-eyD" secondAttribute="centerX" constant="1.5" id="uZw-ZY-Zxp"/>
                 <constraint firstItem="EgQ-Up-ldi" firstAttribute="top" secondItem="tBu-Yg-eyD" secondAttribute="bottom" constant="17" id="vTK-6z-HvP"/>
                 <constraint firstAttribute="trailing" secondItem="tBu-Yg-eyD" secondAttribute="trailing" constant="8" id="wm7-PH-MQG"/>
@@ -108,7 +111,7 @@
                 <outlet property="firstStoryPiece" destination="Go5-I1-tCH" id="jpL-wv-0tC"/>
                 <outlet property="storyTitle" destination="tBu-Yg-eyD" id="pDS-iU-Bwm"/>
             </connections>
-            <point key="canvasLocation" x="272" y="351"/>
+            <point key="canvasLocation" x="281" y="372"/>
         </view>
     </objects>
 </document>

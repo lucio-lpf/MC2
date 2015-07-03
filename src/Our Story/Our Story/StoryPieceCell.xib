@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YA-fq-eif">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                        <rect key="frame" x="13" y="4" width="295" height="82"/>
                         <animations/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7f-wD-WbA">
@@ -27,14 +27,14 @@
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="3YA-fq-eif" firstAttribute="top" secondItem="p6a-l8-VS5" secondAttribute="top" id="2TF-oG-7M9"/>
+                    <constraint firstItem="3YA-fq-eif" firstAttribute="top" secondItem="p6a-l8-VS5" secondAttribute="top" constant="4" id="2TF-oG-7M9"/>
                     <constraint firstAttribute="trailing" secondItem="i7f-wD-WbA" secondAttribute="trailing" constant="8" id="7IV-FH-KOa"/>
                     <constraint firstItem="i7f-wD-WbA" firstAttribute="top" secondItem="p6a-l8-VS5" secondAttribute="top" constant="17" id="Ag3-lu-sIu"/>
-                    <constraint firstAttribute="bottom" secondItem="3YA-fq-eif" secondAttribute="bottom" id="Q8Z-3r-saM"/>
+                    <constraint firstAttribute="bottom" secondItem="3YA-fq-eif" secondAttribute="bottom" constant="3.5" id="Q8Z-3r-saM"/>
                     <constraint firstAttribute="bottom" secondItem="i7f-wD-WbA" secondAttribute="bottom" constant="17" id="WQh-EJ-745"/>
-                    <constraint firstAttribute="trailing" secondItem="3YA-fq-eif" secondAttribute="trailing" id="Y3I-cd-kSl"/>
+                    <constraint firstAttribute="trailing" secondItem="3YA-fq-eif" secondAttribute="trailing" constant="12" id="Y3I-cd-kSl"/>
                     <constraint firstItem="i7f-wD-WbA" firstAttribute="leading" secondItem="p6a-l8-VS5" secondAttribute="leading" constant="8" id="cHo-NB-Fn3"/>
-                    <constraint firstItem="3YA-fq-eif" firstAttribute="leading" secondItem="p6a-l8-VS5" secondAttribute="leading" id="wcA-06-n2x"/>
+                    <constraint firstItem="3YA-fq-eif" firstAttribute="leading" secondItem="p6a-l8-VS5" secondAttribute="leading" constant="13" id="wcA-06-n2x"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
