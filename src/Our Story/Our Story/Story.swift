@@ -37,44 +37,6 @@ class Story: NSObject {
         }
     }
     
-//    class func loadfirststories(completion: (NSMutableArray) -> Void ) {
-//        var postsarray:NSMutableArray = []
-//        var postquery = PFQuery(className: "Story")
-//        postquery.orderByDescending("createdAt")
-//        postquery.limit = 100 //PEGANDO OS 10 PRIMEIROS POSTS
-//        //ADICIONANDO AO MAIN ARRAY OS 10 POSTS
-//        postquery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
-//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                for var index = 0; index != results!.count; ++index{
-//                    postsarray.addObject(results![index])
-//                }
-//                completion(postsarray)
-//            })
-//        })
-//    }
-//    
-//    class func moreposts(postsarray: NSMutableArray, completion: (NSMutableArray) -> Void){
-//        
-//    }
-    
-    
-    
-//    class func ultima(completion: (NSMutableArray)-> Void){
-//        var postquery = PFQuery(className: "Story")
-//        var postsarray: NSMutableArray = []
-//        postquery.orderByDescending("createdAt")
-////        postquery.whereKey("createdBy", equalTo: PFUser.currentUser()!)
-//        postquery.limit = 1 //PEGANDO OS 5 PRIMEIROS POSTS
-//        //ADICIONANDO AO MAIN ARRAY OS 5 POSTS
-//        postquery.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
-//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                for var index = 0; index != results!.count; ++index{
-//                    postsarray.addObject(results![index])
-//                }
-//                completion(postsarray)
-//            })
-//        })
-//    }
     
 //    class func footerisabletoexist(tamanho:Int,completion: (Bool) -> Void){
 //        var queryposts = PFQuery(className: "Story")

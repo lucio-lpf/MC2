@@ -85,6 +85,27 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         
         self.update5Last()
         
+        UserConfiguration.contMyPieces {
+            (cont, error) in
+            if error != nil {
+                if cont < 1 {
+                    self.takePartStoriesScrollView.text = "Participou de 0 Histórias."
+                } else {
+                    self.takePartStoriesScrollView.text = "Faz parte de \(cont) Histórias."
+                }
+            }
+        }
+        
+        UserConfiguration.contMyStory {
+            (cont, error) in
+            if error != nil {
+                if cont < 1 {
+                    self.createdStoriesScrollView.text = " 0 histórias criadas."
+                } else {
+                    self.createdStoriesScrollView.text = " \(cont) histórias criadas."
+                }
+            }
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -92,6 +113,7 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         self.activityIndicator.hidden = false
         update5Last()
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
