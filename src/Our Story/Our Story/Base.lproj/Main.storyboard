@@ -74,7 +74,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icone" width="358" height="478"/>
+        <image name="Icone" width="475" height="716"/>
         <image name="login-facebook" width="205" height="45"/>
     </resources>
 </document>
