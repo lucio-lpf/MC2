@@ -52,11 +52,11 @@
             </objects>
             <point key="canvasLocation" x="4484" y="661"/>
         </scene>
-        <!--Item-->
+        <!--Feed-->
         <scene sceneID="tJY-BX-TtD">
             <objects>
                 <navigationController storyboardIdentifier="NavegationStory" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Dm-On-mNz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="CA5-i8-jLo"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="pilhaDeHistorias" id="CA5-i8-jLo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wim-f6-bBS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -106,7 +106,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="yGC-OL-umt"/>
                     <navigationItem key="navigationItem" title="Feed" id="OjH-6U-YGM">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="j8e-OJ-uVC">
+                        <barButtonItem key="leftBarButtonItem" image="logout" id="j8e-OJ-uVC">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="logOutButtonAction:" destination="20f-b4-IWQ" id="Foj-Vy-KXP"/>
@@ -148,4 +148,8 @@
             <point key="canvasLocation" x="2001" y="661"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logout" width="25" height="25"/>
+        <image name="pilhaDeHistorias" width="50" height="50"/>
+    </resources>
 </document>
