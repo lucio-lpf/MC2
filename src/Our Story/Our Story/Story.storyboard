@@ -106,10 +106,16 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="yGC-OL-umt"/>
                     <navigationItem key="navigationItem" title="Feed" id="OjH-6U-YGM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="aqB-0c-PV5">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="j8e-OJ-uVC">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="createNewStory:" destination="20f-b4-IWQ" id="5lG-QL-dh7"/>
+                                <action selector="logOutButtonAction:" destination="20f-b4-IWQ" id="Foj-Vy-KXP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="w2a-oz-O2c">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="createNewStory:" destination="20f-b4-IWQ" id="toF-lb-6AB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

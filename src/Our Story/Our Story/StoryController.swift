@@ -78,6 +78,22 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     
+    @IBAction func logOutButtonAction(sender: AnyObject) {
+        PFUser.logOutInBackgroundWithBlock { (err) -> Void in
+            if !(err != nil) {
+                self.navigationController?.setNavigationBarHidden(true, animated: false)
+                self.tabBarController?.tabBar.hidden = true
+                
+                var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                var vc = storyboard.instantiateViewControllerWithIdentifier("LoginStoryboard") as! LogInViewController
+                self.showViewController(vc, sender: self)
+            }
+        }
+        
+        
+    }
+    
+    
     func addStoryView() -> AddNewStoryView {
         newStoryView = AddNewStoryView.instanceFromNib()
         newStoryView.frame  = CGRectMake(0, 0, self.view.frame.size.width - 20, 300)
