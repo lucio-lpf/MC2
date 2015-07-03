@@ -17,6 +17,8 @@ let distance_W_LabelHeader:CGFloat = 35.0 // The distance between the bottom of 
 
 class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var storyCount: UILabel!
+    @IBOutlet weak var piecesStory: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var userNameScrollView: UILabel!
@@ -89,29 +91,7 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         
         self.update5Last()
         
-        UserConfiguration.contMyPieces {
-            (cont, error) in
-            if error != nil {
-                if cont < 1 {
-                    self.takePartStoriesScrollView.text = "Participou de 0 Histórias."
-                } else {
-                    self.takePartStoriesScrollView.text = "Faz parte de \(cont) Histórias."
-                }
-            }
-        }
-        
-        UserConfiguration.contMyStory {
-            (cont, error) in
-            if error != nil {
-                if cont < 1 {
-                    self.createdStoriesScrollView.text = " 0 histórias criadas."
-                } else {
-                    self.createdStoriesScrollView.text = " \(cont) histórias criadas."
-                }
-            }
-        }
     }
-    
     override func viewWillAppear(animated: Bool) {
         self.activityIndicator.startAnimating()
         self.activityIndicator.hidden = false
@@ -288,6 +268,24 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
     
     
     func update5Last(){
+        
+        UserConfiguration.contMyPieces { (cont, error) -> () in
+            if cont == 1{
+                self.piecesStory.text = ("Faz parte de \(cont) História")
+            }else{
+            self.piecesStory.text = ("Faz parte de \(cont) Histórias")
+            }
+        }
+        
+        UserConfiguration.contMyStory { (cont, error) -> () in
+            if cont == 1{
+                 self.storyCount.text = (" \(cont) História iniciada")
+            }else{
+            self.storyCount.text = (" \(cont) Histórias iniciadas")
+            }
+        }
+        
+        
         StoryPiece.piecesQuery("createdBy", compare: PFUser.currentUser()!, limite: 5, order: 0, callback: { (arrayDePieces) -> Void in
             self.piecesArray = arrayDePieces
             self.tableView.reloadData()

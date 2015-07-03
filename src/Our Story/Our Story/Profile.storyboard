@@ -60,13 +60,6 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="x Histórias iniciadas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qg1-Mx-ibi">
-                                        <rect key="frame" x="94" y="167" width="170" height="20"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LO9-wY-foj">
                                         <rect key="frame" x="179" y="232" width="243" height="29"/>
                                         <animations/>
@@ -121,6 +114,13 @@
                                         <rect key="frame" x="564" y="151" width="20" height="20"/>
                                         <animations/>
                                     </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="x Histórias iniciadas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qg1-Mx-ibi">
+                                        <rect key="frame" x="108" y="167" width="170" height="20"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <animations/>
                                 <constraints>
@@ -186,8 +186,10 @@
                         <outlet property="createdStoriesScrollView" destination="Qg1-Mx-ibi" id="E1i-jf-1HH"/>
                         <outlet property="header" destination="4yw-HY-BKV" id="whG-ZE-Ks7"/>
                         <outlet property="headerLabel" destination="Sm5-cv-5S7" id="uIK-H9-gq9"/>
+                        <outlet property="piecesStory" destination="KKe-Kv-hyH" id="YiS-dv-UpJ"/>
                         <outlet property="scrollView" destination="MMb-6Z-qV8" id="ics-eJ-MtK"/>
                         <outlet property="segmentedControl" destination="LO9-wY-foj" id="eBJ-se-kqr"/>
+                        <outlet property="storyCount" destination="Qg1-Mx-ibi" id="rgQ-ux-87P"/>
                         <outlet property="tableView" destination="4Lz-Jc-Utj" id="bAa-An-Tb4"/>
                         <outlet property="takePartStoriesScrollView" destination="KKe-Kv-hyH" id="bte-yN-VJc"/>
                         <outlet property="userNameScrollView" destination="wue-4F-gbm" id="YQ1-hw-4B1"/>

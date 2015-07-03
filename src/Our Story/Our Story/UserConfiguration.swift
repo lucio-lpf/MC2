@@ -26,7 +26,7 @@ class UserConfiguration {
         query.whereKey("createdBy", equalTo: PFUser.currentUser()!)
         query.countObjectsInBackgroundWithBlock {
             (cont, error) in
-            callback(cont: cont, error: error)
+            callback(cont: cont,error: error)
         }
     }
     
