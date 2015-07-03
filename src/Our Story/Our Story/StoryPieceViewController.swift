@@ -165,6 +165,9 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     func removeSubViews() {
         if let view = self.view.viewWithTag(11){
             if let subview = self.view.viewWithTag(10) {
+                UIView.animateWithDuration(0.4, animations: {
+                    subview.alpha = 0.0
+                })
                 subview.removeFromSuperview()
                 view.removeFromSuperview()
             }
