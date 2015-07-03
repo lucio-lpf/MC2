@@ -57,9 +57,9 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
             cell.loadStory(story!)
 
-//            var view = UIView()
-//            view.backgroundColor = UIColor.whiteColor()
-//            cell.selectedBackgroundView = view
+            var view = UIView()
+            view.backgroundColor = UIColor.whiteColor()
+            cell.selectedBackgroundView = view
         
             return cell
     }
@@ -74,6 +74,22 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.view.addSubview(addBlurView())
         self.view.addSubview(addStoryView())
+        
+    }
+    
+    
+    @IBAction func logOutButtonAction(sender: AnyObject) {
+        PFUser.logOutInBackgroundWithBlock { (err) -> Void in
+            if !(err != nil) {
+                self.navigationController?.setNavigationBarHidden(true, animated: false)
+                self.tabBarController?.tabBar.hidden = true
+                
+                var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                var vc = storyboard.instantiateViewControllerWithIdentifier("LoginStoryboard") as! LogInViewController
+                self.showViewController(vc, sender: self)
+            }
+        }
+        
         
     }
     

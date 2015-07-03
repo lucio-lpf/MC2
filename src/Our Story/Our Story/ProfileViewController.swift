@@ -41,6 +41,7 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
     
     var piecesArray:NSMutableArray = []
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +50,7 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         
         tableView.delegate = self
         tableView.dataSource = self
+        
         
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         
@@ -106,6 +108,11 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.hidden = false
+        update5Last()
+    }
     
     
     override func didReceiveMemoryWarning() {
@@ -284,7 +291,10 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         Story.storyQuery("createdBy", compare: PFUser.currentUser()!, limite: 5, order: 0, callback: { (arrayDePosts) -> Void in
             self.postsArray = arrayDePosts
             self.tableView.reloadData()
-        })   
+        })
+        
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.hidden = true
     }
 
     

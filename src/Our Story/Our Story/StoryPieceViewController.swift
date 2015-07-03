@@ -70,6 +70,11 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         
         cell.loadStoryPiece(piece!)
         
+        cell.storyPieceBkgImage.layer.cornerRadius = 10;
+        cell.storyPieceBkgImage.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.storyPieceBkgImage.layer.borderWidth = 0.3
+        cell.storyPieceBkgImage.clipsToBounds = true
+        
         //cell.loadItem(storyPiece.text! ,image:"teste1")
 //        cell.storyPieceMessage.text = self.pieces[indexPath.row].valueForKey("text") as? String
         
@@ -191,7 +196,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
 //            self.piecesArray = arraydepieces
 //            self.tableView.reloadData()
 //        })
-        StoryPiece.piecesQuery("parentStory", compare: self.parentStory, limite: 300, order: 0, callback:{ (arrayDePieces) -> Void in
+        StoryPiece.piecesQuery("parentStory", compare: self.parentStory, limite: 300, order: 1, callback:{ (arrayDePieces) -> Void in
             self.piecesArray = arrayDePieces
             self.tableView.reloadData()
         })
