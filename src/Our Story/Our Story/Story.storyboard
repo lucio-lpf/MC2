@@ -38,7 +38,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="2gt-8Y-Vze">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="rIX-h1-57c">
-                            <color key="tintColor" red="0.15686274510000001" green="0.086274509799999996" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addNewStoryPiece:" destination="lqP-Oh-zFB" id="uqS-Vc-PKM"/>
                             </connections>

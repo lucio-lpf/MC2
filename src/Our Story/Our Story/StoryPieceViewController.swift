@@ -90,6 +90,10 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
 //            cell.storyPieceBkgImage.image = UIImage(named: "yellow")
 //        }
         
+        var view = UIView()
+        view.backgroundColor = UIColor.whiteColor()
+        cell.selectedBackgroundView = view
+        
         return cell
     }
     
@@ -146,7 +150,8 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         newStoryPieceView.center = self.view.center
         newStoryPieceView.tag = 11
         newStoryPieceView.delegate = self
-        newStoryPieceView.backgroundColor = UIColor(red: 255, green: 238, blue: 129, alpha: 1)
+//        newStoryPieceView.backgroundColor = UIColor(red: 255, green: 238, blue: 129, alpha: 1)
+        newStoryPieceView.backgroundColor = UIColor.clearColor()
         
         return newStoryPieceView
     }
