@@ -127,6 +127,11 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
             self.view.addSubview(addStoryPieceView())
             
         }
+        else{
+            var alert = UIAlertController(title: "Desculpe ", message: "Você não pode editar no momento, tente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     func addStoryPieceView() -> AddNewStoryPieceView {
@@ -193,7 +198,7 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
 //            self.piecesArray = arraydepieces
 //            self.tableView.reloadData()
 //        })
-        StoryPiece.piecesQuery("parentStory", compare: self.parentStory, limite: 300, order: 0, callback:{ (arrayDePieces) -> Void in
+        StoryPiece.piecesQuery("parentStory", compare: self.parentStory, limite: 300, order: 1, callback:{ (arrayDePieces) -> Void in
             self.piecesArray = arrayDePieces
             self.tableView.reloadData()
         })
