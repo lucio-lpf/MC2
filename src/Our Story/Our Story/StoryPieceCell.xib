@@ -17,8 +17,8 @@
                         <rect key="frame" x="13" y="4" width="295" height="82"/>
                         <animations/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7f-wD-WbA">
-                        <rect key="frame" x="8" y="17" width="304" height="56"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7f-wD-WbA">
+                        <rect key="frame" x="8" y="10" width="304" height="69.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,9 +29,9 @@
                 <constraints>
                     <constraint firstItem="3YA-fq-eif" firstAttribute="top" secondItem="p6a-l8-VS5" secondAttribute="top" constant="4" id="2TF-oG-7M9"/>
                     <constraint firstAttribute="trailing" secondItem="i7f-wD-WbA" secondAttribute="trailing" constant="8" id="7IV-FH-KOa"/>
-                    <constraint firstItem="i7f-wD-WbA" firstAttribute="top" secondItem="p6a-l8-VS5" secondAttribute="top" constant="17" id="Ag3-lu-sIu"/>
+                    <constraint firstItem="i7f-wD-WbA" firstAttribute="top" secondItem="p6a-l8-VS5" secondAttribute="top" constant="10" id="Ag3-lu-sIu"/>
                     <constraint firstAttribute="bottom" secondItem="3YA-fq-eif" secondAttribute="bottom" constant="3.5" id="Q8Z-3r-saM"/>
-                    <constraint firstAttribute="bottom" secondItem="i7f-wD-WbA" secondAttribute="bottom" constant="17" id="WQh-EJ-745"/>
+                    <constraint firstAttribute="bottom" secondItem="i7f-wD-WbA" secondAttribute="bottom" constant="10" id="WQh-EJ-745"/>
                     <constraint firstAttribute="trailing" secondItem="3YA-fq-eif" secondAttribute="trailing" constant="12" id="Y3I-cd-kSl"/>
                     <constraint firstItem="i7f-wD-WbA" firstAttribute="leading" secondItem="p6a-l8-VS5" secondAttribute="leading" constant="8" id="cHo-NB-Fn3"/>
                     <constraint firstItem="3YA-fq-eif" firstAttribute="leading" secondItem="p6a-l8-VS5" secondAttribute="leading" constant="13" id="wcA-06-n2x"/>
