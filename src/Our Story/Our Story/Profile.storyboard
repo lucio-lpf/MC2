@@ -83,7 +83,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4Lz-Jc-Utj">
-                                        <rect key="frame" x="0.0" y="307" width="600" height="536.5"/>
+                                        <rect key="frame" x="0.0" y="307" width="600" height="462"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -174,7 +174,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="perfil_icon" id="v3F-F6-i6H"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="icone_perfil" id="v3F-F6-i6H"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="800"/>
@@ -309,6 +309,6 @@
     </scenes>
     <resources>
         <image name="conf" width="40" height="40"/>
-        <image name="perfil_icon" width="28" height="31"/>
+        <image name="icone_perfil" width="23" height="25"/>
     </resources>
 </document>
