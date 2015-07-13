@@ -23,8 +23,10 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     override func viewDidLoad() {
 //        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.barTintColor = UIColor(red:212/255 , green: 214/255, blue: 218/255, alpha: 1.00)
-    
+//        self.navigationController?.navigationBar.barTintColor = UIColor(red:212/255 , green: 214/255, blue: 218/255, alpha: 1.00)
+
+        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        
         self.tabBarController?.tabBar.tintColor = UIColor(red:63/255 , green: 63/255, blue: 63/255, alpha: 1.00)
         
         var title:UILabel = UILabel()
