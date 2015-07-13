@@ -16,7 +16,6 @@
 		30639DCD1B38D67100A40B51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30639DCB1B38D67100A40B51 /* Main.storyboard */; };
 		30639DCF1B38D67100A40B51 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30639DCE1B38D67100A40B51 /* Images.xcassets */; };
 		30639DD21B38D67100A40B51 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30639DD01B38D67100A40B51 /* LaunchScreen.xib */; };
-		30639DDE1B38D67100A40B51 /* Our_StoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30639DDD1B38D67100A40B51 /* Our_StoryTests.swift */; };
 		307AD91A1B3B1F960051C093 /* Story.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307AD9191B3B1F960051C093 /* Story.storyboard */; };
 		308632481B3B37F100C7DBCC /* StoryPieceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308632471B3B37F100C7DBCC /* StoryPieceViewController.swift */; };
 		3086324E1B3B3D8200C7DBCC /* StoryPieceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3086324D1B3B3D8200C7DBCC /* StoryPieceCell.xib */; };
@@ -51,13 +50,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		30639DD81B38D67100A40B51 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 30639DBA1B38D67100A40B51 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 30639DC11B38D67100A40B51;
-			remoteInfo = "Our Story";
-		};
 		83F2F5F21B430E0000B41DA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 30639DBA1B38D67100A40B51 /* Project object */;
@@ -101,7 +93,6 @@
 		30639DCC1B38D67100A40B51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30639DCE1B38D67100A40B51 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		30639DD11B38D67100A40B51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		30639DD71B38D67100A40B51 /* Our StoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Our StoryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30639DDC1B38D67100A40B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30639DDD1B38D67100A40B51 /* Our_StoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Our_StoryTests.swift; sourceTree = "<group>"; };
 		307AD9191B3B1F960051C093 /* Story.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Story.storyboard; sourceTree = "<group>"; };
@@ -154,13 +145,6 @@
 				300FA95D1B39D1B2002D9854 /* FBSDKLoginKit.framework in Frameworks */,
 				300FA9601B39D38B002D9854 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				8A1E49F6709BF045818542C6 /* Pods_Our_Story.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30639DD41B38D67100A40B51 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				30639DC21B38D67100A40B51 /* Our Story.app */,
-				30639DD71B38D67100A40B51 /* Our StoryTests.xctest */,
 				83F2F5E11B430DFF00B41DA5 /* Our Story WatchKit Extension.appex */,
 				83F2F5F01B430E0000B41DA5 /* Our Story WatchKit App.app */,
 			);
@@ -378,24 +361,6 @@
 			productReference = 30639DC21B38D67100A40B51 /* Our Story.app */;
 			productType = "com.apple.product-type.application";
 		};
-		30639DD61B38D67100A40B51 /* Our StoryTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 30639DE41B38D67100A40B51 /* Build configuration list for PBXNativeTarget "Our StoryTests" */;
-			buildPhases = (
-				30639DD31B38D67100A40B51 /* Sources */,
-				30639DD41B38D67100A40B51 /* Frameworks */,
-				30639DD51B38D67100A40B51 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				30639DD91B38D67100A40B51 /* PBXTargetDependency */,
-			);
-			name = "Our StoryTests";
-			productName = "Our StoryTests";
-			productReference = 30639DD71B38D67100A40B51 /* Our StoryTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		83F2F5E01B430DFF00B41DA5 /* Our Story WatchKit Extension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83F2F6021B430E0000B41DA5 /* Build configuration list for PBXNativeTarget "Our Story WatchKit Extension" */;
@@ -444,13 +409,9 @@
 						DevelopmentTeam = TY5QM4UU69;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
-					};
-					30639DD61B38D67100A40B51 = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 30639DC11B38D67100A40B51;
 					};
 					83F2F5E01B430DFF00B41DA5 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -476,7 +437,6 @@
 			projectRoot = "";
 			targets = (
 				30639DC11B38D67100A40B51 /* Our Story */,
-				30639DD61B38D67100A40B51 /* Our StoryTests */,
 				83F2F5E01B430DFF00B41DA5 /* Our Story WatchKit Extension */,
 				83F2F5EF1B430E0000B41DA5 /* Our Story WatchKit App */,
 			);
@@ -499,13 +459,6 @@
 				30639DD21B38D67100A40B51 /* LaunchScreen.xib in Resources */,
 				30639DCF1B38D67100A40B51 /* Images.xcassets in Resources */,
 				3086324E1B3B3D8200C7DBCC /* StoryPieceCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30639DD51B38D67100A40B51 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,14 +554,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30639DD31B38D67100A40B51 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				30639DDE1B38D67100A40B51 /* Our_StoryTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		83F2F5DD1B430DFF00B41DA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -623,11 +568,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		30639DD91B38D67100A40B51 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 30639DC11B38D67100A40B51 /* Our Story */;
-			targetProxy = 30639DD81B38D67100A40B51 /* PBXContainerItemProxy */;
-		};
 		83F2F5F31B430E0000B41DA5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 83F2F5EF1B430E0000B41DA5 /* Our Story WatchKit App */;
@@ -685,6 +625,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -730,6 +671,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -756,7 +698,6 @@
 			baseConfigurationReference = C48328B1226D75D12ACBBE9A /* Pods-Our Story.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Our Story/Our Story.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -777,7 +718,6 @@
 			baseConfigurationReference = F72C86A04BF1515663E85E85 /* Pods-Our Story.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Our Story/Our Story.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -790,40 +730,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Our Story/Our-Story-Bridging-Header.h";
-			};
-			name = Release;
-		};
-		30639DE51B38D67100A40B51 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Our StoryTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Our Story.app/Our Story";
-			};
-			name = Debug;
-		};
-		30639DE61B38D67100A40B51 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Our StoryTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Our Story.app/Our Story";
 			};
 			name = Release;
 		};
@@ -904,15 +810,6 @@
 			buildConfigurations = (
 				30639DE21B38D67100A40B51 /* Debug */,
 				30639DE31B38D67100A40B51 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		30639DE41B38D67100A40B51 /* Build configuration list for PBXNativeTarget "Our StoryTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				30639DE51B38D67100A40B51 /* Debug */,
-				30639DE61B38D67100A40B51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -58,7 +58,7 @@ class StoryController: UIViewController, UITableViewDataSource, UITableViewDeleg
             var cell:StoryCell = self.tableView.dequeueReusableCellWithIdentifier(StoryCell.indentifier.Story) as! StoryCell
             var story = postsarray.objectAtIndex(indexPath.row) as? NSObject
         
-            cell.loadStory(story!)
+            cell.loadStoryStart(story!)
 
             var view = UIView()
             view.backgroundColor = UIColor.whiteColor()

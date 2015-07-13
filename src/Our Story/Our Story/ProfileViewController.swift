@@ -150,7 +150,7 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
             view.backgroundColor = UIColor.whiteColor()
             cell.selectedBackgroundView = view
             
-            cell.loadStory(story!)
+            cell.loadStoryStart(story!)
             return cell
             
         } else {
@@ -168,7 +168,7 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
             view.backgroundColor = UIColor.whiteColor()
             cell.selectedBackgroundView = view
             
-            cell.loadStoryPiece(piece!)
+            cell.loadStoryPieceMiddle(piece!)
             return cell
             
 //            
@@ -278,6 +278,71 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
             
             header.layer.transform = headerTransform
             avatarImage.layer.transform = avatarTransform 
+        } else {
+            
+//            var offset = scrollView.contentOffset.y
+//            var avatarTransform = CATransform3DIdentity
+//            var headerTransform = CATransform3DIdentity
+//
+//            
+//            
+//            // PULL DOWN -----------------
+//            
+//            if offset < 0 {
+//                
+//                let headerScaleFactor:CGFloat = -(offset) / header.bounds.height
+//                let headerSizevariation = ((header.bounds.height * (1.0 + headerScaleFactor)) - header.bounds.height)/2.0
+//                headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
+//                headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
+//                
+//                header.layer.transform = headerTransform
+//            }
+//                
+//                // SCROLL UP/DOWN ------------
+//                
+//            else {
+//            
+//                // Header -----------
+//                
+//                headerTransform = CATransform3DTranslate(headerTransform, 0, max(-offset_HeaderStop, -offset), 0)
+//                
+//                //  ------------ Label
+//                
+//                let labelTransform = CATransform3DMakeTranslation(0, max(-distance_W_LabelHeader, offset_B_LabelHeader - offset), 0)
+//                headerLabel.layer.transform = labelTransform
+//                
+//                //  ------------ Blur
+//                
+//                headerBlurImageView?.alpha = min (1.0, (offset - offset_B_LabelHeader)/distance_W_LabelHeader)
+//                
+//                // Avatar -----------
+//                
+//                let avatarScaleFactor = (min(offset_HeaderStop, offset)) / avatarImage.bounds.height / 1.4 // Slow down the animation
+//                let avatarSizeVariation = ((avatarImage.bounds.height * (1.0 + avatarScaleFactor)) - avatarImage.bounds.height) / 2.0
+//                avatarTransform = CATransform3DTranslate(avatarTransform, 0, avatarSizeVariation, 0)
+//                avatarTransform = CATransform3DScale(avatarTransform, 1.0 - avatarScaleFactor, 1.0 - avatarScaleFactor, 0)
+//                
+//                if offset <= offset_HeaderStop {
+//                    
+//                    if avatarImage.layer.zPosition < header.layer.zPosition{
+//                        header.layer.zPosition = 0
+//                    }
+//                    
+//                }else {
+//                    if avatarImage.layer.zPosition >= header.layer.zPosition{
+//                        header.layer.zPosition = 2
+//                    }
+//                }
+//            }
+//            
+//            // Apply Transformations
+//            
+//            header.layer.transform = headerTransform
+//            avatarImage.layer.transform = avatarTransform
+//
+//            
+//            self.scrollView.contentOffset.y = self.scrollView.contentOffset.y + offset
+            
         }
     }
     

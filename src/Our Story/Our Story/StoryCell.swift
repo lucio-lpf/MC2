@@ -35,9 +35,61 @@ class StoryCell: UITableViewCell {
         storylabel.text = story.valueForKey("header") as? String
         //informationLabel.text = story.valueForKey("createdBy")!.valueForKey("name") as? String
     }
+
+    
+    func loadStoryStart(story: NSObject) {
+        
+        backgroundImage.layer.cornerRadius = 10;
+        backgroundImage.layer.borderColor = UIColor.whiteColor().CGColor
+        backgroundImage.layer.borderWidth = 0.3
+        backgroundImage.clipsToBounds = true
+        backgroundImage.image = UIImage(named: (story.valueForKey("postStyle") as! String).stringByAppendingString("-start"))
+        titleLabel.text = story.valueForKey("storyName") as? String
+        storylabel.text = story.valueForKey("header") as? String
+        //informationLabel.text = story.valueForKey("createdBy")!.valueForKey("name") as? String
+    }
+    
+    func loadStoryMiddle(story: NSObject) {
+        
+        backgroundImage.layer.cornerRadius = 10;
+        backgroundImage.layer.borderColor = UIColor.whiteColor().CGColor
+        backgroundImage.layer.borderWidth = 0.3
+        backgroundImage.clipsToBounds = true
+        backgroundImage.image = UIImage(named: (story.valueForKey("postStyle") as! String).stringByAppendingString("-middle"))
+        titleLabel.text = story.valueForKey("storyName") as? String
+        storylabel.text = story.valueForKey("header") as? String
+        //informationLabel.text = story.valueForKey("createdBy")!.valueForKey("name") as? String
+    }
+    
+    func loadStoryEnd(story: NSObject) {
+        
+        backgroundImage.layer.cornerRadius = 10;
+        backgroundImage.layer.borderColor = UIColor.whiteColor().CGColor
+        backgroundImage.layer.borderWidth = 0.3
+        backgroundImage.clipsToBounds = true
+        backgroundImage.image = UIImage(named: (story.valueForKey("postStyle") as! String).stringByAppendingString("-end"))
+        titleLabel.text = story.valueForKey("storyName") as? String
+        storylabel.text = story.valueForKey("header") as? String
+        //informationLabel.text = story.valueForKey("createdBy")!.valueForKey("name") as? String
+    }
     
     func loadStoryPiece(piece: NSObject) {
         storyPieceBkgImage.image = UIImage(named: piece.valueForKey("postStyle") as! String)
+        storyPieceMessage.text = piece.valueForKey("text") as? String
+    }
+    
+    func loadStoryPieceStart(piece: NSObject) {
+        storyPieceBkgImage.image = UIImage(named: (piece.valueForKey("postStyle") as! String).stringByAppendingString("-start"))
+        storyPieceMessage.text = piece.valueForKey("text") as? String
+    }
+    
+    func loadStoryPieceMiddle(piece: NSObject) {
+        storyPieceBkgImage.image = UIImage(named: (piece.valueForKey("postStyle") as! String).stringByAppendingString("-middle"))
+        storyPieceMessage.text = piece.valueForKey("text") as? String
+    }
+    
+    func loadStoryPieceEnd(piece: NSObject) {
+        storyPieceBkgImage.image = UIImage(named: (piece.valueForKey("postStyle") as! String).stringByAppendingString("-end"))
         storyPieceMessage.text = piece.valueForKey("text") as? String
     }
     

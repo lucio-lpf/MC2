@@ -27,6 +27,8 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         tableView.dataSource = self
         
+        self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
+        
         //ADICIONADNO O REFRESH
         refreshControl.addTarget(self, action: Selector("updatePieces"), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(self.refreshControl)
@@ -68,13 +70,21 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         var cell = self.tableView.dequeueReusableCellWithIdentifier(StoryCell.indentifier.StoryPiece) as! StoryCell
        // var storyPiece = pieces[indexPath.row] as! NSObject
         
         
         var piece = piecesArray.objectAtIndex(indexPath.row) as? NSObject
         
-        cell.loadStoryPiece(piece!)
+        if indexPath.row == 0 {
+            cell.loadStoryPieceStart(piece!)
+        } else if indexPath.row == piecesArray.count - 1 {
+            cell.loadStoryPieceEnd(piece!)
+        } else {
+            cell.loadStoryPieceMiddle(piece!)
+        }
+        
         
         cell.storyPieceBkgImage.layer.cornerRadius = 10;
         cell.storyPieceBkgImage.layer.borderColor = UIColor.whiteColor().CGColor
@@ -107,9 +117,8 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
                         self.view.addSubview(self.addStoryPieceView())
                         
                     }
-
-                    }
                 }
+            }
                 
             else{
                 var alert = UIAlertController(title: "Desculpe ", message: "Você não pode editar no momento, tente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
