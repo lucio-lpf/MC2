@@ -194,7 +194,7 @@
                         <outlet property="takePartStoriesScrollView" destination="KKe-Kv-hyH" id="bte-yN-VJc"/>
                         <outlet property="userNameScrollView" destination="wue-4F-gbm" id="YQ1-hw-4B1"/>
                         <outlet property="xStoriesCreated" destination="Qg1-Mx-ibi" id="tuL-LU-DSQ"/>
-                        <segue destination="3tB-DI-7Yp" kind="show" identifier="goToConfig" id="vdM-Lm-cTB"/>
+                        <segue destination="3tB-DI-7Yp" kind="showDetail" identifier="goToConfig" id="vdM-Lm-cTB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXa-fz-pH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -210,7 +210,7 @@
                         <viewControllerLayoutGuide type="bottom" id="T4F-ld-Sip"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="769-XE-Sr5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXp-RV-NB0">
@@ -242,7 +242,7 @@
                                     <action selector="changeStyleButtonAction:" destination="3tB-DI-7Yp" eventType="touchUpInside" id="5xs-yJ-AIh"/>
                                 </connections>
                             </button>
-                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dpJ-RX-eiH">
+                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dpJ-RX-eiH">
                                 <rect key="frame" x="16" y="192" width="569" height="635"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

@@ -40,19 +40,19 @@ class InterfaceController: WKInterfaceController {
                 } else {
                     if replyFromParent["erro"] as! String == "Usuário não possui histórias criadas." {
 //                        self.loadButton.setTitle("Recarregar")
-                        self.loadButton.setTitle("Toque para tentar novamente 😉")
+                        self.loadButton.setTitle("Tap to try again 😉")
 //                        self.lblText.setText("Você não possui nenhuma história.")
-                        self.lblText.setText("Um erro ocorreu ao tentar alcançar sua última história.")
+                        self.lblText.setText("An error occured while trying to reach your last story.")
 
                     } else
                         if replyFromParent["erro"] as! String == "Conexão não estabelecida."{
-                            self.loadButton.setTitle("Toque para tentar novamente 😉")
+                            self.loadButton.setTitle("Tap to try again 😉")
 //                            self.lblText.setText("Não conseguimos carregar sua última história. Confira sua conexão e tente novamente.")
-                            self.lblText.setText("Um erro ocorreu ao tentar alcançar sua última história.")
+                            self.lblText.setText("An error occured while trying to reach your last story.")
                             
                         }else {
-                            self.loadButton.setTitle("Recarregar")
-                            self.lblText.setText("Você não está logado. Faça o login e tente novamente.")
+                            self.loadButton.setTitle("Reload")
+                            self.lblText.setText("You're not logged in. Log in and tap to reload.")
 
                         }
                 }
@@ -61,9 +61,9 @@ class InterfaceController: WKInterfaceController {
                 
             } else {
                 println(error.description)
-                self.loadButton.setTitle("Toque para tentar novamente 😉")
+                self.loadButton.setTitle("Tap to try again 😉")
 //                self.lblText.setText("Não conseguimos carregar sua última história.")
-                self.lblText.setText("Um erro ocorreu ao tentar alcançar sua última história.")
+                self.lblText.setText("An error occured while trying to reach your last story.")
             }
         })
         
@@ -85,7 +85,7 @@ class InterfaceController: WKInterfaceController {
     
     @IBAction func loadButtonAction() {
         
-        self.lblText.setText("Carregando última história...")
+        self.lblText.setText("Loading last story...")
         
 //        WKInterfaceController.openParentApplication(["request": "Stories"], reply:{(replyFromParent, error) -> Void in
 //            
@@ -123,7 +123,7 @@ class InterfaceController: WKInterfaceController {
                     
                     var dict = replyFromParent as NSDictionary
                     
-                    self.loadButton.setTitle("Recarregar")
+                    self.loadButton.setTitle("Reload")
                     self.lblText.setText(dict["name"] as? String)
                     
                     self.updateUserActivity("com.mc2.Our-Story.WatchHandoff", userInfo: ["objectId": dict["objectId"] as! String], webpageURL: nil)
@@ -132,19 +132,19 @@ class InterfaceController: WKInterfaceController {
                 } else {
                     if replyFromParent["erro"] as! String == "Usuário não possui histórias criadas." {
 //                        self.loadButton.setTitle("Recarregar")
-                        self.loadButton.setTitle("Toque para tentar novamente 😉")
+                        self.loadButton.setTitle("Tap to try again 😉")
 //                        self.lblText.setText("Você não possui nenhuma história.")
-                        self.lblText.setText("Um erro ocorreu ao tentar alcançar sua última história.")
+                        self.lblText.setText("An error occured while trying to reach your last story.")
                         
                     } else
                         if replyFromParent["erro"] as! String == "Conexão não estabelecida."{
-                            self.loadButton.setTitle("Toque para tentar novamente 😉")
+                            self.loadButton.setTitle("Tap to try again 😉")
 //                            self.lblText.setText("Não conseguimos carregar sua última história. Confira sua conexão e tente novamente.")
-                            self.lblText.setText("Um erro ocorreu ao tentar alcançar sua última história.")
+                            self.lblText.setText("An error occured while trying to reach your last story.")
                             
                         }else {
-                            self.loadButton.setTitle("Recarregar")
-                            self.lblText.setText("Você não está logado. Faça o login e tente novamente.")
+                            self.loadButton.setTitle("Reload")
+                            self.lblText.setText("You're not logged in. Log in and tap to reload.")
                             
                     }
                 }
@@ -153,9 +153,9 @@ class InterfaceController: WKInterfaceController {
                 
             } else {
                 println(error.description)
-                self.loadButton.setTitle("Toque para tentar novamente 😉")
+                self.loadButton.setTitle("Tap to try again 😉")
 //                self.lblText.setText("Não conseguimos carregar sua última história.")
-                self.lblText.setText("Um erro ocorreu ao tentar alcançar sua última história.")
+                self.lblText.setText("An error occured while trying to reach your last story.")
             }
         })
 
