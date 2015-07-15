@@ -351,17 +351,17 @@ class ProfileViewController : UIViewController, UIScrollViewDelegate, UITableVie
         
         UserConfiguration.contMyPieces { (cont, error) -> () in
             if cont == 1{
-                self.piecesStory.text = ("Faz parte de \(cont) História")
+                self.piecesStory.text = ("Been part of \(cont) Story")
             }else{
-            self.piecesStory.text = ("Faz parte de \(cont) Histórias")
+            self.piecesStory.text = ("Been part of \(cont) Stories")
             }
         }
         
         UserConfiguration.contMyStory { (cont, error) -> () in
             if cont == 1{
-                 self.storyCount.text = (" \(cont) História iniciada")
+                 self.storyCount.text = (" \(cont) Story initiated")
             }else{
-            self.storyCount.text = (" \(cont) Histórias iniciadas")
+            self.storyCount.text = (" \(cont) Stories initiated")
             }
         }
         
