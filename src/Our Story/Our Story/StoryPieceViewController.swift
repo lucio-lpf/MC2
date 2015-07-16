@@ -102,33 +102,26 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBAction func addNewStoryPiece(sender: AnyObject) {
         //Create the visual effect
-        self.parentStory.fetchInBackgroundWithBlock { (newobject, error) -> Void in
-            self.parentStory = newobject
-            var editing = self.parentStory.valueForKey("editing") as! Bool
-            if !editing{
-                
-                self.parentStory.setValue(true, forKey: "editing")
-                self.parentStory.saveInBackgroundWithBlock { (bool, error) -> Void in
-                    if (error == nil){
-                        self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(120), target: self, selector: Selector("removeSubViews"), userInfo: nil, repeats: false)
+        self.parentStory.setValue(true, forKey: "editing")
+        self.parentStory.saveInBackgroundWithBlock { (bool, error) -> Void in
+            if (error == nil){
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(120), target: self, selector: Selector("removeSubViews"), userInfo: nil, repeats: false)
                         
                         
                         self.view.addSubview(self.addBlurView())
                         self.view.addSubview(self.addStoryPieceView())
                         
-                    }
-                }
             }
-                
             else{
-                var alert = UIAlertController(title: "Desculpe ", message: "Você não pode editar no momento, tente mais tarde", preferredStyle: UIAlertControllerStyle.Alert)
+                var alert = UIAlertController(title: "Opa! ", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             }
+            
 
         }
-        
-            }
+    
+    }
     
     func addStoryPieceView() -> AddNewStoryPieceView {
         newStoryPieceView = AddNewStoryPieceView.instanceFromNib()
@@ -180,6 +173,16 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func removeSubViews() {
+        
+        self.timer?.invalidate()
+        self.parentStory.setValue(false, forKey: "editing")
+        self.parentStory.saveInBackgroundWithBlock { (bool, error) -> Void in
+            if (error != nil){
+                print (error)
+            }
+        }
+        
+        
         if let view = self.view.viewWithTag(11){
             if let subview = self.view.viewWithTag(10) {
                 UIView.animateWithDuration(0.4, animations: {
@@ -190,13 +193,6 @@ class StoryPieceViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
         
-        self.timer?.invalidate()
-        self.parentStory.setValue(false, forKey: "editing")
-        self.parentStory.saveInBackgroundWithBlock { (bool, error) -> Void in
-            if (error != nil){
-                print (error)
-            }
-        }
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         updatePieces()
     }
