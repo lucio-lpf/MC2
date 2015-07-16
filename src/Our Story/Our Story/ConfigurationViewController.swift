@@ -18,7 +18,7 @@ class ConfigurationViewController: UIViewController, UICollectionViewDataSource,
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let styles: [String] = ["padrao_papel", "pink", "blue", "green", "yellow", "purple"]
+    let styles: [String] = ["pink", "blue", "green", "yellow", "purple"]
     
     var identifier = StyleSample.identifier 
     
