@@ -65,9 +65,19 @@ class FacebookLogin {
                 println("fetched user: \(result)")
                 let userName : NSString = result.valueForKey("name") as! NSString
                 println("User fetched Name is: \(userName)")
-                let userEmail : NSString = result.valueForKey("email") as! NSString
-                println("User fetched Email is: \(userEmail)")
-                completionClosure(name: result.valueForKey("name") as? NSString, email: result.valueForKey("email") as? NSString, error: error )
+                
+                if (result.valueForKey("email") != nil) {
+                    
+                    
+                    let userEmail : NSString = result.valueForKey("email") as! NSString
+                    println("User fetched Email is: \(userEmail)")
+                    completionClosure(name: result.valueForKey("name") as? NSString, email: result.valueForKey("email") as? NSString, error: error )
+                    
+
+                } else {
+                    completionClosure(name: result.valueForKey("name") as? NSString, email: nil, error: error )
+                }
+                
             }
         })
     }
@@ -84,17 +94,31 @@ class FacebookLogin {
             }
             else
             {
+                var userEmail: NSString = NSString()
+                
                 println("fetched user: \(result)")
                 let userName : NSString = result.valueForKey("name") as! NSString
                 println("User fetched Name is: \(userName)")
-                let userEmail : NSString = result.valueForKey("email") as! NSString
-                println("User fetched Email is: \(userEmail)")
+                
+                
+//                let userEmail : NSString = result.valueForKey("email") as! NSString
+//                println("User fetched Email is: \(userEmail)")
+                
+                
+                if (result.valueForKey("email") != nil) {
+                    
+                    userEmail = result.valueForKey("email") as! NSString
+                    println("User fetched Email is: \(userEmail)")
+                    
+                    
+                }
                 
                 var facebookAccountId = result.valueForKey("id") as! NSString
                 var urlFacebookProfile = "http://graph.facebook.com/\(facebookAccountId)/picture?type=large"
                 
                 if let checkedUrl = NSURL(string: urlFacebookProfile) {
                     self.downloadImage(checkedUrl, completion: { (image) -> Void in
+                        
                         completionClosure(fetchedName: result.valueForKey("name") as? NSString, fetchedEmail: result.valueForKey("email") as? NSString, fetchedImage: image, error: error )
                     })
                 }
