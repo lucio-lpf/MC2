@@ -30,7 +30,7 @@ class FacebookLogin {
                         var user = PFUser.currentUser()
                         if let user = user {
                             user["name"] = name as! String
-                            user["storyStyle"] = "basic"
+                            user["storyStyle"] = "blue"
                             user.saveInBackground()
                         }
                        
